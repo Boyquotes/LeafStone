@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/Movement.gd" type="Script" id=1]
+
+[node name="Movement" type="Node2D"]
+script = ExtResource( 1 )
+state = "normalspeed"
+
+[node name="TransitionTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="MovementTweener" type="Tween" parent="."]
+
+[connection signal="timeout" from="TransitionTimer" to="." method="_on_Timer_timeout"]

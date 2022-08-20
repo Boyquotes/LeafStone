@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="CircleShape2D" id=108]
+radius = 14.0
+
+[node name="DetentionArea" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2( 8, 8 )
+shape = SubResource( 108 )

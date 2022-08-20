@@ -1,0 +1,79 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Enemy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scripts/world.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/Main.gd" type="Script" id=4]
+[ext_resource path="res://Maps/TileMap.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Game Art/Crates.png" type="Texture" id=6]
+[ext_resource path="res://addons/event_system_plugin/resources/timeline_class/timeline_class.gd" type="Script" id=7]
+[ext_resource path="res://addons/event_system_plugin/nodes/event_manager/event_manager.gd" type="Script" id=8]
+[ext_resource path="res://Game Art/Blue Tree.png" type="Texture" id=9]
+[ext_resource path="res://Game Art/Pink Tree.png" type="Texture" id=10]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+[sub_resource type="Resource" id=2]
+resource_name = "Timeline"
+script = ExtResource( 7 )
+
+[node name="Main" type="Node2D"]
+position = Vector2( -8, -35 )
+script = ExtResource( 4 )
+
+[node name="world" type="YSort" parent="."]
+script = ExtResource( 3 )
+
+[node name="Player" parent="world" instance=ExtResource( 1 )]
+position = Vector2( -73, 107 )
+z_index = 1
+collision_mask = 0
+
+[node name="MainTileMap" parent="world" instance=ExtResource( 5 )]
+visible = false
+position = Vector2( -191, -197 )
+
+[node name="Trees" type="Node2D" parent="world"]
+
+[node name="BlueTree" type="Sprite" parent="world/Trees"]
+position = Vector2( 105, 296 )
+texture = ExtResource( 9 )
+
+[node name="PinkTree" type="Sprite" parent="world/Trees"]
+position = Vector2( 22, 95 )
+texture = ExtResource( 10 )
+
+[node name="Slime" parent="world" instance=ExtResource( 2 )]
+position = Vector2( 104, 220 )
+
+[node name="Slime2" parent="world" instance=ExtResource( 2 )]
+position = Vector2( 214, 348 )
+
+[node name="Slime3" parent="world" instance=ExtResource( 2 )]
+position = Vector2( 59, 239 )
+
+[node name="Slime4" parent="world" instance=ExtResource( 2 )]
+position = Vector2( 26, 282 )
+
+[node name="Slime5" parent="world" instance=ExtResource( 2 )]
+position = Vector2( -244, 363 )
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
+color = Color( 0.145098, 0.133333, 0.133333, 1 )
+
+[node name="Crates" type="Sprite" parent="."]
+position = Vector2( 324, 72 )
+texture = ExtResource( 6 )
+
+[node name="Area2D" type="Area2D" parent="Crates"]
+collision_layer = 256
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Crates/Area2D"]
+position = Vector2( -16, -3 )
+shape = SubResource( 1 )
+
+[node name="EventManager" type="Node" parent="."]
+script = ExtResource( 8 )
+timeline = SubResource( 2 )

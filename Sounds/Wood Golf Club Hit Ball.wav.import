@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Wood Golf Club Hit Ball.wav-b3f864e8109aaab7b70d8fd34714e0ce.sample"
+
+[deps]
+
+source_file="res://Sounds/Wood Golf Club Hit Ball.wav"
+dest_files=[ "res://.import/Wood Golf Club Hit Ball.wav-b3f864e8109aaab7b70d8fd34714e0ce.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

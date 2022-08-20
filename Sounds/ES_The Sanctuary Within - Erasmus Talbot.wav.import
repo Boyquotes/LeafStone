@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/ES_The Sanctuary Within - Erasmus Talbot.wav-c01ccf4a2939f28ab18207027bd79870.sample"
+
+[deps]
+
+source_file="res://Sounds/ES_The Sanctuary Within - Erasmus Talbot.wav"
+dest_files=[ "res://.import/ES_The Sanctuary Within - Erasmus Talbot.wav-c01ccf4a2939f28ab18207027bd79870.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
