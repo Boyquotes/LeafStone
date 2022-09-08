@@ -57,7 +57,7 @@ func _process(_delta):
 	if Input.is_action_just_pressed("Dash") and dashReady:
 		behaviour_states = dash
 		# $Sprite.modulate = Color()
-		yield(get_tree().create_timer(0.18), "timeout")
+		yield(get_tree().create_timer(0.25), "timeout")
 		behaviour_states = run
 		yield(get_tree().create_timer(cooldown), "timeout")
 		dashReady = true
@@ -148,7 +148,7 @@ func _physics_process(delta):
 				else:
 					animationTree.advance(attackAnimSpeed)
 
-			elif distance > 55 and distance < 110:
+			elif distance > 55 and distance < 90:
 				attackFromDistance = true
 				if attackAnticipation:
 					animationTree.advance(0)
@@ -161,7 +161,7 @@ func _physics_process(delta):
 			
 			if !hitbox.hitted:
 				if attackFromDistance:
-					movement.impulse(impulseDirection.normalized() * 220) #mantener con input_vector
+					movement.impulse(impulseDirection.normalized() * 180) #mantener con input_vector
 				else:
 					movement.impulse(impulseDirection.normalized() * 90) #mantener con input_vector
 				pass
@@ -175,7 +175,7 @@ func _physics_process(delta):
 		dash:
 			playback.travel("Dash")
 			dashReady = false
-			movement.impulse(impulseDirection.normalized() * 240)
+			movement.impulse(impulseDirection.normalized() * 200)
 			attack_adjustment()
 
 		hurt:
