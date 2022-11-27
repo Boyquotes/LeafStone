@@ -9,118 +9,53 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Resource",
-"class": "Event",
+"base": "CanvasLayer",
+"class": "FpsLabel",
 "language": "GDScript",
-"path": "res://addons/event_system_plugin/resources/event_class/event_class.gd"
-}, {
-"base": "Event",
-"class": "EventCall",
-"language": "GDScript",
-"path": "res://addons/event_system_plugin/events/call_from.gd"
-}, {
-"base": "Event",
-"class": "EventComment",
-"language": "GDScript",
-"path": "res://addons/event_system_plugin/events/comment.gd"
-}, {
-"base": "Event",
-"class": "EventCondition",
-"language": "GDScript",
-"path": "res://addons/event_system_plugin/events/new_condition.gd"
-}, {
-"base": "Event",
-"class": "EventEmitSignal",
-"language": "GDScript",
-"path": "res://addons/event_system_plugin/events/emit_signal.gd"
-}, {
-"base": "Event",
-"class": "EventGoTo",
-"language": "GDScript",
-"path": "res://addons/event_system_plugin/events/goto.gd"
-}, {
-"base": "Event",
-"class": "EventHide",
-"language": "GDScript",
-"path": "res://addons/event_system_plugin/events/hide.gd"
-}, {
-"base": "Node",
-"class": "EventManager",
-"language": "GDScript",
-"path": "res://addons/event_system_plugin/nodes/event_manager/event_manager.gd"
-}, {
-"base": "Event",
-"class": "EventSet",
-"language": "GDScript",
-"path": "res://addons/event_system_plugin/events/set.gd"
-}, {
-"base": "Event",
-"class": "EventShow",
-"language": "GDScript",
-"path": "res://addons/event_system_plugin/events/show.gd"
-}, {
-"base": "Event",
-"class": "EventWait",
-"language": "GDScript",
-"path": "res://addons/event_system_plugin/events/wait.gd"
+"path": "res://FPSLabel.gd"
 }, {
 "base": "Node2D",
 "class": "Movement",
 "language": "GDScript",
 "path": "res://Scripts/Movement.gd"
 }, {
-"base": "Resource",
-"class": "Timeline",
+"base": "Control",
+"class": "VirtualJoystick",
 "language": "GDScript",
-"path": "res://addons/event_system_plugin/resources/timeline_class/timeline_class.gd"
+"path": "res://Scripts/virtual_joystick.gd"
 } ]
 _global_script_class_icons={
-"Event": "res://addons/event_system_plugin/assets/icons/timeline_icon.png",
-"EventCall": "",
-"EventComment": "",
-"EventCondition": "",
-"EventEmitSignal": "",
-"EventGoTo": "",
-"EventHide": "",
-"EventManager": "",
-"EventSet": "",
-"EventShow": "",
-"EventWait": "",
+"FpsLabel": "",
 "Movement": "",
-"Timeline": "res://addons/event_system_plugin/assets/icons/timeline_icon.png"
+"VirtualJoystick": ""
 }
 
 [application]
 
 config/name="Proyecto 2D top down"
 run/main_scene="res://Scenes/world.tscn"
-config/icon="res://icon.png"
 
 [audio]
 
 default_bus_layout="res://Sounds/default_bus_layout.tres"
 
-[autoload]
-
-Main="*res://Scripts/Main.gd"
-Move="*res://Scripts/Move.gd"
-
 [debug]
 
+gdscript/completion/autocomplete_setters_and_getters=true
 gdscript/warnings/unused_argument=false
 
 [display]
 
 window/size/width=480
 window/size/height=270
-window/size/test_width=1280
-window/size/test_height=720
+window/size/test_width=960
+window/size/test_height=640
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/AsepriteWizard/plugin.cfg", "res://addons/event_system_plugin/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/AsepriteWizard/plugin.cfg" )
 
 [global]
 
@@ -205,11 +140,20 @@ Dash={
  ]
 }
 attack={
-"deadzone": 0.5,
+"deadzone": 0.25,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":32,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":1,"pressure":0.0,"pressed":false,"script":null)
  ]
 }
+Restart={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":96,"unicode":0,"echo":false,"script":null)
+ ]
+}
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
 
 [layer_names]
 
@@ -218,6 +162,10 @@ attack={
 2d_physics/layer_3="Items"
 2d_physics/layer_4="Enemy"
 2d_physics/layer_5="SoftCollisions"
+
+[mono]
+
+project/assembly_name="Proyecto 2D top down"
 
 [physics]
 

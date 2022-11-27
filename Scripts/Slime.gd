@@ -17,8 +17,7 @@ onready var playback = animationTree.get("parameters/playback")
 onready var label = $Node2D/Panel/Label
 onready var chaseTimer = $ChaseTimer
 onready var attackTimer = $AttackTimer
-onready var softCollisions = $SoftCollision2D
-
+onready var softCollisions = $SoftCollision
 
 #IA Variables
 enum {idle, wander, chase, hurt, attack, dead }
@@ -44,7 +43,6 @@ var player = null
 
 #Functions
 func _ready():
-	Main.setTimeOut(secToAttack)
 	animationTree.active = true
 	slimeHitbox.slimeStats = slimeStats
 	hurtbox.stats = slimeStats
@@ -54,7 +52,7 @@ func _ready():
 
 func _process(delta):
 
-	label.text = behaviour_text_debug
+	# label.text = behaviour_text_debug
 	slimeStats.behaviour_states = behaviour_states
 	
 func _physics_process(delta):
@@ -72,17 +70,17 @@ func _physics_process(delta):
 			playback.travel("Walk")
 			
 			if timeToChase:
-				if playerDistance > 700:
+				if playerDistance > 50:
 					moveDirection = moveDirection.move_toward(playerDir * speed, 50 * delta)
 					moveDirection = move_and_slide(moveDirection)
 
-				elif playerDistance < 700:
+				elif playerDistance < 50:
 					moveDirection = moveDirection.move_toward(Vector2.ZERO, friction * delta)
 					moveDirection = move_and_slide(moveDirection)
 
 			else: #Si no es tiempo de chase, entonces: 
 				moveDirection = moveDirection.move_toward(Vector2.ZERO, 500 * delta)
-				moveDirection = move_and_slide(moveDirection)
+				moveDirection = move_and_slide(moveDirection)	
 		attack:
 			
 			attackTimer.start(secToAttack)
@@ -95,7 +93,7 @@ func _physics_process(delta):
 				moveDirection = attackDirection * 20
 				return
 
-			moveDirection = moveDirection.move_toward(attackDirection * 50, 55 * delta)
+			moveDirection = moveDirection.move_toward(attackDirection * 140, 55 * delta)
 			moveDirection = move_and_slide(moveDirection)
 
 		idle:
@@ -103,6 +101,11 @@ func _physics_process(delta):
 			moveDirection = moveDirection.move_toward(Vector2.ZERO, friction * delta)
 			moveDirection = move_and_slide(moveDirection)
 			playback.travel("Idle")
+
+			if softCollisions.is_colliding():
+				var area = find_player()
+				if area != null:
+					moveDirection += softCollisions.push_vector()* delta * 350
 		hurt:
 			# $SlimeHitbox/CollisionShape2D.set_deferred("disabled", true)
 			behaviour_text_debug = "hurt"
@@ -115,11 +118,32 @@ func _physics_process(delta):
 			moveDirection = moveDirection.move_toward(Vector2.ZERO, friction * delta)
 			moveDirection = move_and_slide(moveDirection)
 
+
 	if softCollisions.is_colliding():
-		moveDirection += softCollisions.push_vector()* delta * 50
+		var area = find_player()
+		if area != null and behaviour_states != attack:
+			moveDirection += softCollisions.push_vector()* delta * 350
+
+		else: moveDirection += softCollisions.push_vector()* delta * 50
+
+			
 	moveDirection = move_and_slide(moveDirection)	
 
+func find_player() -> KinematicBody2D:
+	var areas = softCollisions.get_overlapping_bodies()
+	var body
+	for area in areas:
+		if area.name == "Player":
+			body = area
+
+	return body	
+
+
 func decisionMaking(distance):
+
+	if slimeStats.is_dead():
+		behaviour_states = dead
+		return
 
 	if playerDetected:
 		playerDir = (player.global_position - global_position).normalized()
@@ -128,7 +152,7 @@ func decisionMaking(distance):
 			behaviour_states = hurt
 			return
 
-		if distance <= 1200 && !slimeStats.is_dead():
+		if distance <= 90 && !slimeStats.is_dead():
 			if waitAttackCompleted:
 				#obtenemos la posicion del jugador solo una vez
 				timeToChase = false
@@ -143,13 +167,9 @@ func decisionMaking(distance):
 	elif playerDetected == false: 
 		behaviour_states = idle
 
-	if slimeStats.is_dead():
-		behaviour_states = dead
-		return
-
 
 func mesureDIstance():
-	return player.global_position.distance_squared_to(global_position)
+	return player.global_position.distance_to(global_position)
 
 func _on_DetentionArea_body_entered(body:Node):
 	$ScannerArea/CollisionShape2D.scale = Vector2(10,10)
@@ -172,7 +192,8 @@ func on_attack_finished():
 	shouldCount = true
 
 func on_hurt_finished():
-	behaviour_states = idle
+	if !slimeStats.is_dead():
+		behaviour_states = idle
 	slimeStats.something_hitted = false
 
 func _on_AttackTimer_timeout():
@@ -182,9 +203,6 @@ func _on_AttackTimer_timeout():
 func _on_ChaseTimer_timeout():
 	timeToChase = true
 
-
 func _on_Stats_Dead():
-	$HurtBox.monitorable = false
-	$HurtBox.monitoring = false
-	$SlimeHitbox.monitoring = false
-	$SlimeHitbox.monitorable = false
+	hurtbox.disable_monitoring_and_monitorable()
+	slimeHitbox.disable_monitoring_and_monitorable()

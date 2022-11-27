@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Hitboxes/Hitbox.gd" type="Script" id=1]
+[ext_resource path="res://Sounds/Wood Golf Club Hit Ball.wav" type="AudioStream" id=2]
 
 [sub_resource type="CapsuleShape2D" id=19]
 radius = 14.0
@@ -16,3 +17,4 @@ shape = SubResource( 19 )
 disabled = true
 
 [node name="AudioSource" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )

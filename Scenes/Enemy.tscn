@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://Scripts/Slime.gd" type="Script" id=1]
 [ext_resource path="res://mystic_woods_free_v0.2/sprites/characters/slime.png" type="Texture" id=2]
@@ -37,7 +37,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2, 0.8 ),
+"times": PoolRealArray( 0, 0.3, 0.8 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ true, false, true ]
@@ -224,6 +224,12 @@ graph_offset = Vector2( -243.495, 40.425 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=39]
 
+[sub_resource type="CircleShape2D" id=55]
+radius = 16.0
+
+[sub_resource type="CircleShape2D" id=54]
+radius = 5.0
+
 [sub_resource type="DynamicFont" id=50]
 size = 6
 font_data = ExtResource( 7 )
@@ -234,12 +240,13 @@ script = ExtResource( 1 )
 speed = 40
 acceleration = 30
 friction = 190
-knockback_strenght = 42
+knockback_strenght = 32
+secToAttack = 12
 
 [node name="Stats" parent="." instance=ExtResource( 5 )]
-maxHealth = 100
-currentHealth = 45
-damage = 15
+maxHealth = 200
+currentHealth = 200
+damage = 5
 
 [node name="BodyShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 2 )
@@ -249,7 +256,7 @@ shape = SubResource( 27 )
 texture = ExtResource( 2 )
 hframes = 7
 vframes = 5
-frame = 21
+frame = 14
 __meta__ = {
 "_editor_description_": ""
 }
@@ -268,21 +275,32 @@ anim_player = NodePath("../AnimationPlayer")
 parameters/playback = SubResource( 39 )
 
 [node name="ScannerArea" parent="." instance=ExtResource( 4 )]
-visible = false
 collision_layer = 0
 collision_mask = 2
 
+[node name="CollisionShape2D" parent="ScannerArea" index="0"]
+shape = SubResource( 55 )
+
 [node name="HurtBox" parent="." instance=ExtResource( 8 )]
 visible = false
+position = Vector2( 0, 2 )
 collision_layer = 8
 collision_mask = 0
 
+[node name="Shape" parent="HurtBox" index="0"]
+visible = false
+
 [node name="SlimeHitbox" parent="." instance=ExtResource( 3 )]
+visible = false
 script = ExtResource( 6 )
+
+[node name="CollisionShape2D" parent="SlimeHitbox" index="0"]
+shape = SubResource( 54 )
 
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="Panel" type="Panel" parent="Node2D"]
+visible = false
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -307,11 +325,11 @@ one_shot = true
 [node name="ChaseTimer" type="Timer" parent="."]
 one_shot = true
 
-[node name="SoftCollision2D" parent="." instance=ExtResource( 9 )]
+[node name="SoftCollision" parent="." instance=ExtResource( 9 )]
 visible = false
-position = Vector2( 0, 3 )
+position = Vector2( 0, 2 )
 collision_layer = 16
-collision_mask = 16
+collision_mask = 18
 
 [connection signal="Dead" from="Stats" to="." method="_on_Stats_Dead"]
 [connection signal="body_entered" from="ScannerArea" to="." method="_on_DetentionArea_body_entered"]

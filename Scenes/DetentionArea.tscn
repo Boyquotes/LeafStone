@@ -1,7 +1,7 @@
 [gd_scene load_steps=2 format=2]
 
 [sub_resource type="CircleShape2D" id=108]
-radius = 14.0
+radius = 18.0
 
 [node name="DetentionArea" type="Area2D"]
 

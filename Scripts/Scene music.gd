@@ -8,8 +8,14 @@ func _ready():
 	stream = levelMusic
 	play()
 
-
-func _on_DetentionArea_body_entered(body:Node):
-	if stream != combatSong:
-		stream = combatSong
+func playMusic(song):
+	if stream != song:
+		stream = song
 		play()
+
+func _on_Events_combatStart():
+	playMusic(combatSong)
+
+
+func _on_Events_outOfCombat():
+	playMusic(levelMusic)

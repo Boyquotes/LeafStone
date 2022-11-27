@@ -1,17 +1,33 @@
 extends Camera2D
 
-var detected = false
+export var zoomOut :=  1.3
+export var zoomNormal := 1.0
+export var secondsToEase = 1.0
+
 const CAMERASHAKE : String = "CameraShake"
 
-onready var cameraAnim = $AnimationPlayer
 func _ready():
-	pass
+	setZoom(zoomNormal)
+	
+onready var cameraAnim = $AnimationPlayer
 
-func _on_Hitbox_area_entered(area:Area2D):
+func camera_zoom(zoomVector, seconds):
+	var tween = create_tween().set_trans(Tween.TRANS_LINEAR)
+	tween.tween_property(self, "zoom", zoomVector, seconds).set_ease(Tween.TRANS_LINEAR)
+
+func _on_Events_combatStart():
+	var zoom_value = zoomScaleToVector(zoomOut)
+	camera_zoom(zoom_value, secondsToEase)
+
+func _on_Events_outOfCombat():
+	var zoom__value = zoomScaleToVector(zoomNormal)
+	camera_zoom(zoom__value, secondsToEase)
+
+func _on_Hitbox_body_entered(body:Node):
 	cameraAnim.play("CameraShake")
 
-func _on_DetentionArea_body_entered(body:Node):
+func setZoom(zoom_scale):
+	zoom = zoomScaleToVector(zoom_scale)
 
-	if !detected:
-		detected = true
-		cameraAnim.play("EnemyDetected")
+func zoomScaleToVector(zoom_scale) -> Vector2:
+	return Vector2(zoom_scale, zoom_scale)

@@ -86,6 +86,7 @@ func stop_movement():
 	body.velocity = Vector2.ZERO
 		
 func move_easing(desired_velocity, speed):
+
 	movementTweener.interpolate_property(body, "velocity", body.velocity, desired_velocity, tick, Tween.TRANS_LINEAR , Tween.EASE_OUT)
 	movementTweener.start()
 	body.velocity = body.move_and_slide(body.velocity * speed)
