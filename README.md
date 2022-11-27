@@ -1,4 +1,4 @@
-#LeafStone
+LeafStone
 
 You can play this game in itch.io with the following link :) https://elvisvilla.itch.io/leafstone3
 
