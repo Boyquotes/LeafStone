@@ -1,7 +1,7 @@
 extends Node2D
 
-onready var jester = $Buffon
-onready var paladin = $Paladin
+@onready var jester = $Buffon
+@onready var paladin = $Paladin
 var distance
 var sqrDistance 
 

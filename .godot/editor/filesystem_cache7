@@ -1,0 +1,244 @@
+0b7126e0c6e86d3ec295a72f5aa6e0bd
+::res://::1675444654
+CHANGELOG.md::TextFile::-1::1666179383::0::1::::<><>::
+export_presets.cfg::TextFile::-1::1673671416::0::1::::<><>::
+FPSLabel.gd::GDScript::-1::1669653479::0::1::::<><>::
+health.gd::GDScript::-1::1673627702::0::1::::<>Node<>::
+icon.png::CompressedTexture2D::5916570767267885790::1666179869::1669653614::1::::<><>::
+LICENSE.md::TextFile::-1::1666179383::0::1::::<><>::
+LICENSE.txt::TextFile::-1::1673276074::0::1::::<><>::
+Player2.tscn::PackedScene::-1::1673653835::0::1::::<><>::res://Scripts/Player.gd<>uid://lla4nt7wwq6j<>uid://b76j6l0ixh4sh<>uid://ib0b7uiy1dc<>uid://cin0we1wa1256<>res://Scenes/ExtendedAudioStreamPlayer.gd<>uid://d4bi3uf804cdj<>res://Scenes/Events.gd<>res://Scenes/ExtendedTimer.tscn<>uid://drvnyxdaqjgg6<>res://Scripts/Scene music.gd<>res://Scripts/Camera2D.gd
+README.md::TextFile::-1::1669589049::0::1::::<><>::
+SlowMotion.gd::GDScript::-1::1673535602::0::1::::<>Node<>::
+Tilemap GOdot 4.tscn::PackedScene::1208706780819645696::1673394141::0::1::::<><>::uid://cth1hymsxwugb
+TileMap.tres::TileSet::-1::1669653479::0::1::::<><>::res://Game Art/Level Objects.png<>res://Game Art/Level Objects4.png
+TouchControls.tscn::PackedScene::7118181562698143341::1673363693::0::1::::<><>::uid://cemuob4cor2ug
+::res://addons/::1674149494
+::res://addons/AsepriteWizard/::1670968762
+plugin.cfg::TextFile::-1::1670968762::0::1::::<><>::
+plugin.gd::GDScript::-1::1670968737::0::1::::<>EditorPlugin<>::
+::res://addons/AsepriteWizard/animated_sprite/::1670968736
+import_plugin.gd::GDScript::-1::1670968736::0::1::::<>EditorImportPlugin<>::
+inspector_plugin.gd::GDScript::-1::1670968736::0::1::::<>EditorInspectorPlugin<>::
+sprite_frames_creator.gd::GDScript::-1::1670968736::0::1::::<>RefCounted<>::
+::res://addons/AsepriteWizard/animated_sprite/docks/::1670968736
+animated_sprite_inspector_dock.gd::GDScript::-1::1670968736::0::1::::<>PanelContainer<>::
+animated_sprite_inspector_dock.tscn::PackedScene::1482828111488489973::1670968736::0::1::::<><>::res://addons/AsepriteWizard/animated_sprite/docks/animated_sprite_inspector_dock.gd
+as_wizard_dock_container.gd::GDScript::-1::1670968736::0::1::::<>TabContainer<>::
+as_wizard_dock_container.tscn::PackedScene::-1::1670968736::0::1::::<><>::res://addons/AsepriteWizard/animated_sprite/docks/as_wizard_window.tscn<>res://addons/AsepriteWizard/animated_sprite/docks/as_wizard_dock_container.gd<>res://addons/AsepriteWizard/animated_sprite/docks/sprite_frames_import_history.tscn
+as_wizard_window.gd::GDScript::-1::1670968736::0::1::::<>PanelContainer<>::
+as_wizard_window.tscn::PackedScene::6886060651346363495::1670968736::0::1::::<><>::res://addons/AsepriteWizard/animated_sprite/docks/as_wizard_window.gd
+sprite_frames_import_history.gd::GDScript::-1::1670968736::0::1::::<>PanelContainer<>::
+sprite_frames_import_history.tscn::PackedScene::6486785450419732274::1670968736::0::1::::<><>::res://addons/AsepriteWizard/animated_sprite/docks/sprite_frames_import_history.gd
+::res://addons/AsepriteWizard/animated_sprite/docks/wizard_nodes/::1670968736
+import_date.gd::GDScript::-1::1670968736::0::1::::<>Label<>::
+import_date.tscn::PackedScene::-1::1670968736::0::1::::<><>::res://addons/AsepriteWizard/animated_sprite/docks/wizard_nodes/import_date.gd
+list_actions.gd::GDScript::-1::1670968736::0::1::::<>HBoxContainer<>::
+list_actions.tscn::PackedScene::-1::1670968736::0::1::::<><>::res://addons/AsepriteWizard/animated_sprite/docks/wizard_nodes/list_actions.gd
+output_path.tscn::PackedScene::-1::1670968736::0::1::::<><>::
+source_path.gd::GDScript::-1::1670968736::0::1::::<>LineEdit<>::
+source_path.tscn::PackedScene::-1::1670968736::0::1::::<><>::res://addons/AsepriteWizard/animated_sprite/docks/wizard_nodes/source_path.gd
+::res://addons/AsepriteWizard/animation_player/::1670968737
+animation_creator.gd::GDScript::-1::1670968736::0::1::::<>RefCounted<>::
+inspector_plugin.gd::GDScript::-1::1670968737::0::1::::<>EditorInspectorPlugin<>::
+sprite_animation_creator.gd::GDScript::-1::1670968737::0::1::::<><>::
+texture_rect_animation_creator.gd::GDScript::-1::1670968737::0::1::::<><>::
+::res://addons/AsepriteWizard/animation_player/docks/::1670968737
+animation_player_inspector_dock.gd::GDScript::-1::1670968737::0::1::::<>PanelContainer<>::
+animation_player_inspector_dock.tscn::PackedScene::2998581922542402478::1670968737::0::1::::<><>::res://addons/AsepriteWizard/animation_player/docks/animation_player_inspector_dock.gd
+::res://addons/AsepriteWizard/aseprite/::1670968737
+aseprite.gd::GDScript::-1::1670968737::0::1::::<>RefCounted<>::
+::res://addons/AsepriteWizard/config/::1670968737
+2d_pixel_preset.cfg::TextFile::-1::1670968737::0::1::::<><>::
+config.gd::GDScript::-1::1670968737::0::1::::<>RefCounted<>::
+config_dialog.gd::GDScript::-1::1670968737::0::1::::<>PopupPanel<>::
+config_dialog.tscn::PackedScene::8959845410224223728::1670968737::0::1::::<><>::res://addons/AsepriteWizard/config/config_dialog.gd
+result_codes.gd::GDScript::-1::1670968737::0::1::::<>RefCounted<>::
+wizard_config.gd::GDScript::-1::1670968737::0::1::::<>RefCounted<>::
+::res://addons/AsepriteWizard/export/::1670968737
+metadata_export_plugin.gd::GDScript::-1::1670968737::0::1::::<>EditorExportPlugin<>::
+::res://addons/aseprite_importer/::1670968802
+plugin.cfg::TextFile::-1::1670968802::0::1::::<><>::
+plugin.gd::GDScript::-1::1670968802::0::1::::<>EditorPlugin<>::
+README.md::TextFile::-1::1670968802::0::1::::<><>::
+::res://addons/aseprite_importer/classes/::1670968802
+AsepriteImportData.gd::GDScript::-1::1670968802::0::1::::AsepriteImportData<>Node<>::
+AsepriteImporter.gd::GDScript::-1::1670968802::0::1::::AsepriteImporter<>Node<>::
+EditorTheme.gd::GDScript::-1::1670968802::0::1::::EditorTheme<>Node<>::
+::res://addons/aseprite_importer/interface/::1670968802
+Main.gd::GDScript::-1::1670968802::0::1::::<>PanelContainer<>::
+Main.tscn::PackedScene::6241407634326713419::1670968802::0::1::::<><>::res://addons/aseprite_importer/interface/Main.gd<>res://addons/aseprite_importer/interface/import_menu/JSONImportMenu.tscn<>res://addons/aseprite_importer/interface/import_menu/TagsMenu.tscn<>res://addons/aseprite_importer/interface/import_menu/SelectAnimationPlayerMenu.tscn<>res://addons/aseprite_importer/interface/import_menu/SelectSpriteMenu.tscn<>res://addons/aseprite_importer/interface/spritesheet_inspector/SpritesheetInspector.tscn
+::res://addons/aseprite_importer/interface/icons/::1670968803
+dark_icon.png::CompressedTexture2D::3959826181816022727::1670968802::1670968803::1::::<><>::
+light_icon.png::CompressedTexture2D::7502283943545172722::1670968802::1670968803::1::::<><>::
+::res://addons/aseprite_importer/interface/import_menu/::1670968802
+JSONImportMenu.gd::GDScript::-1::1670968802::0::1::::<>Container<>::
+JSONImportMenu.tscn::PackedScene::-1::1670968802::0::1::::<><>::res://addons/aseprite_importer/interface/import_menu/JSONImportMenu.gd
+SelectAnimationPlayerMenu.gd::GDScript::-1::1670968802::0::1::::<>Container<>::
+SelectAnimationPlayerMenu.tscn::PackedScene::8546539290326173220::1670968802::0::1::::<><>::res://addons/aseprite_importer/interface/import_menu/SelectNodeDialog.tscn<>res://addons/aseprite_importer/interface/import_menu/SelectAnimationPlayerMenu.gd
+SelectNodeDialog.gd::GDScript::-1::1670968802::0::1::::<>Popup<>::
+SelectNodeDialog.tscn::PackedScene::-1::1670968802::0::1::::<><>::res://addons/aseprite_importer/interface/import_menu/SelectNodeDialog.gd
+SelectSpriteMenu.gd::GDScript::-1::1670968802::0::1::::<>Container<>::
+SelectSpriteMenu.tscn::PackedScene::3569613825330206631::1670968802::0::1::::<><>::res://addons/aseprite_importer/interface/import_menu/SelectNodeDialog.tscn<>res://addons/aseprite_importer/interface/import_menu/SelectSpriteMenu.gd
+TagsMenu.gd::GDScript::-1::1670968802::0::1::::<>Container<>::
+TagsMenu.tscn::PackedScene::-1::1670968802::0::1::::<><>::res://addons/aseprite_importer/interface/import_menu/TagsMenu.gd
+::res://addons/aseprite_importer/interface/spritesheet_inspector/::1670968802
+ColorMenuItem.gd::GDScript::-1::1670968802::0::1::::<>Container<>::
+ColorMenuItem.tscn::PackedScene::-1::1670968802::0::1::::<><>::res://addons/aseprite_importer/interface/spritesheet_inspector/ColorMenuItem.gd
+SettingsMenu.gd::GDScript::-1::1670968802::0::1::::<>Container<>::
+SpritesheetInspector.gd::GDScript::-1::1670968802::0::1::::<>Container<>::
+SpritesheetInspector.tscn::PackedScene::4042777314719765770::1670968802::0::1::::<><>::res://addons/aseprite_importer/interface/spritesheet_inspector/ColorMenuItem.tscn<>res://addons/aseprite_importer/interface/spritesheet_inspector/SpritesheetView.tscn<>res://addons/aseprite_importer/interface/spritesheet_inspector/SettingsMenu.gd<>res://addons/aseprite_importer/interface/spritesheet_inspector/SpritesheetInspector.gd<>res://addons/aseprite_importer/interface/spritesheet_inspector/godot_button/godot_hover.png<>res://addons/aseprite_importer/interface/spritesheet_inspector/godot_button/godot_normal.png<>res://addons/aseprite_importer/interface/spritesheet_inspector/godot_button/godot_pressed.png
+SpritesheetView.gd::GDScript::-1::1670968802::0::1::::<>Container<>::
+SpritesheetView.tscn::PackedScene::-1::1670968802::0::1::::<><>::res://addons/aseprite_importer/interface/spritesheet_inspector/SpritesheetView.gd
+::res://addons/aseprite_importer/interface/spritesheet_inspector/godot_button/::1670968803
+godot_hover.png::CompressedTexture2D::8709533077585515860::1670968802::1670968803::1::::<><>::
+godot_normal.png::CompressedTexture2D::3960818245933784629::1670968802::1670968803::1::::<><>::
+godot_pressed.png::CompressedTexture2D::998127160469001120::1670968802::1670968803::1::::<><>::
+::res://addons/EasyMenus/::1670968868
+default_bus_layout.tres::AudioBusLayout::1709295361023036547::1670968868::0::1::::<><>::
+::res://addons/EasyMenus/Nodes/::1670968867
+controller_echo_input_generator.tscn::PackedScene::2871931579363108493::1670968867::0::1::::<><>::res://addons/EasyMenus/Scripts/controller_echo_input_generator.gd
+gamepad_closable.tscn::PackedScene::5923200156020106435::1670968867::0::1::::<><>::res://addons/EasyMenus/Scripts/gamepad_closeable.gd
+menu_template_manager.tscn::PackedScene::8395389972587960008::1670968867::0::1::::<><>::res://addons/EasyMenus/Scripts/menu_template_manager.gd<>uid://bg6gj8kohejmb<>res://addons/EasyMenus/Nodes/startup_loader.tscn
+slider_w_labels.tscn::PackedScene::8855480093762734290::1670968867::0::1::::<><>::res://addons/EasyMenus/Scripts/slider_w_labels.gd
+startup_loader.tscn::PackedScene::6942620810302632013::1670968867::0::1::::<><>::res://addons/EasyMenus/Scripts/startup_loader.gd
+::res://addons/EasyMenus/Scenes/::1670968893
+main_menu.tscn::PackedScene::8347470776702566312::1670968893::0::1::::<><>::res://addons/EasyMenus/Scripts/main_menu_controller.gd<>uid://qlskttl1wjr7
+options_menu.tscn::PackedScene::1146841445142367734::1670968867::0::1::::<><>::res://addons/EasyMenus/Scripts/options_menu_controller.gd<>res://addons/EasyMenus/Scripts/follow_focus_center.gd<>res://addons/EasyMenus/Nodes/slider_w_labels.tscn<>res://addons/EasyMenus/Scripts/option_button_input_propagator.gd<>res://addons/EasyMenus/Nodes/gamepad_closable.tscn
+pause_menu.tscn::PackedScene::1240580499841999485::1670968867::0::1::::<><>::res://addons/EasyMenus/Scripts/pause_menu_controller.gd<>uid://qlskttl1wjr7
+::res://addons/EasyMenus/Scripts/::1670968868
+controller_echo_input_generator.gd::GDScript::-1::1670968867::0::1::::<>Node<>::
+follow_focus_center.gd::GDScript::-1::1670968867::0::1::::<>ScrollContainer<>::
+gamepad_closeable.gd::GDScript::-1::1670968867::0::1::::<>Node<>::
+input_map_updater.gd::GDScript::-1::1670968867::0::1::::<>Node<>::
+main_menu_controller.gd::GDScript::-1::1670968867::0::1::::<>Control<>::
+menu_template_manager.gd::GDScript::-1::1670968867::0::1::::<>Node<>::
+options_constants.gd::GDScript::-1::1670968868::0::1::::OptionsConstants<>Node<>::
+options_menu_controller.gd::GDScript::-1::1670968868::0::1::::<>Control<>::
+option_button_input_propagator.gd::GDScript::-1::1670968868::0::1::::<>OptionButton<>::
+pause_menu_controller.gd::GDScript::-1::1670968868::0::1::::<>Control<>::
+slider_w_labels.gd::GDScript::-1::1670968868::0::1::::<>VBoxContainer<>::
+startup_loader.gd::GDScript::-1::1670968868::0::1::::<>Node<>::
+::res://addons/GDScriptMacros/::1674149494
+macros.txt::TextFile::-1::1674149494::0::1::::<><>::
+plugin.cfg::TextFile::-1::1674149494::0::1::::<><>::
+plugin.gd::GDScript::-1::1674149494::0::1::::<>EditorPlugin<>::
+::res://export_templates/::1673412907
+::res://feature_profiles/::1673412907
+::res://Fonts/::1669653614
+pixelart.ttf::FontFile::152671331277664657::1656477159::1669653614::1::::<><>::
+::res://Game Art/::1673454595
+Blue Tree.png::CompressedTexture2D::8353401461091244840::1666789277::1669653614::1::::<><>::
+Crates.png::CompressedTexture2D::1837644342591679681::1657335553::1669653614::1::::<><>::
+Enthraz Animations.png::CompressedTexture2D::8301322242579900772::1660496445::1669653614::1::::<><>::
+Grass Tiles.png::CompressedTexture2D::6122472463104015997::1667928637::1669653614::1::::<><>::
+Grass.png::CompressedTexture2D::6385187508630956098::1658380369::1669653614::1::::<><>::
+Grasssy.png::CompressedTexture2D::1194486465950834721::1658380449::1669653614::1::::<><>::
+Level Objects1.png::CompressedTexture2D::7497295369766525071::1667927443::1669653614::1::::<><>::
+Level Objects2.png::CompressedTexture2D::4898336258615028437::1667927443::1669653614::1::::<><>::
+Level Objects3.png::CompressedTexture2D::2042101928284899665::1667927443::1669653614::1::::<><>::
+Level Objects4.png::CompressedTexture2D::527060040686328472::1667927501::1669653614::1::::<><>::
+Level Objects5.png::CompressedTexture2D::4380962746524856407::1667927501::1669653614::1::::<><>::
+Level Objects6.png::CompressedTexture2D::5868801292201037006::1667927501::1669653614::1::::<><>::
+Level Objects7.png::CompressedTexture2D::5023680455634646667::1667927501::1669653614::1::::<><>::
+Level Objects.png::CompressedTexture2D::8823816081168087113::1667838344::1669653614::1::::<><>::
+light .png::CompressedTexture2D::4884975074577970692::1657329998::1669653614::1::::<><>::
+Mago.png::CompressedTexture2D::3805879135489156604::1664994178::1669653614::1::::<><>::
+Paladin.png::CompressedTexture2D::6488330341718298941::1664994136::1669653614::1::::<><>::
+Pillar.png::CompressedTexture2D::8548692809955653064::1658380429::1669653614::1::::<><>::
+Pink Tree.png::CompressedTexture2D::6939841859746735463::1667927905::1669653614::1::::<><>::
+Rocas.png::CompressedTexture2D::8300879308303181469::1658380400::1669653614::1::::<><>::
+Tile Grass.png::CompressedTexture2D::974737628607826299::1667928565::1669653614::1::::<><>::
+::res://Game Art/Player/::1673454595
+EnthrazAnimations.png::CompressedTexture2D::16620486750331152::1673450918::1673450918::1::::<><>::
+::res://Hitboxes/::1675444537
+Hitbox.gd::GDScript::-1::1674150207::0::1::::Hitbox<>Area2D<>::
+Hitbox.tscn::PackedScene::6476528816211074432::1675444537::0::1::::<><>::res://Hitboxes/Hitbox.gd<>res://Scenes/ExtendedAudioStreamPlayer.gd<>uid://cvxjx8vsxu0fl
+Hurtbox.gd::GDScript::-1::1674148471::0::1::::<>Area2D<>::
+Hurtbox.tscn::PackedScene::5348053467434425547::1675444537::0::1::::<><>::res://Hitboxes/Hurtbox.gd<>uid://cvxjx8vsxu0fl<>res://Scenes/ExtendedAudioStreamPlayer.gd
+SlimeHitbox.gd::GDScript::-1::1673621049::0::1::::<>Area2D<>::
+SlimeHitbox.tscn::PackedScene::-1::1669653479::0::1::::<><>::res://Hitboxes/Hitbox.gd
+SoftCollision.gd::GDScript::-1::1669653479::0::1::::<>Area2D<>::
+SoftCollision.tscn::PackedScene::-1::1669653479::0::1::::<><>::res://Hitboxes/SoftCollision.gd
+::res://joystick/::1665674024
+::res://joystick/textures/::1669653614
+joystick_base_outline.png::CompressedTexture2D::7646044065951604264::1665611645::1669653614::1::::<><>::
+joystick_tip.png::CompressedTexture2D::915707916296909835::1665611645::1669653614::1::::<><>::
+joystick_tip_arrows.png::CompressedTexture2D::5492826466597657156::1665611645::1669653614::1::::<><>::
+::res://Maps/::1669653614
+TileMap.tscn::PackedScene::-1::1669653479::0::1::::<><>::res://TileMap.tres<>res://Game Art/Grass Tiles.png
+Tileset Grass.png::CompressedTexture2D::386701026508562787::1657126992::1669653614::1::::<><>::
+Wood Golf Club Hit Ball.wav::AudioStreamWAV::654493876124286863::1657846464::1669653614::1::::<><>::
+::res://mystic_woods_free_v0.2/::1655847789
+read_me.txt::TextFile::-1::1653842402::0::1::::<><>::
+::res://mystic_woods_free_v0.2/sprites/::1658378723
+::res://mystic_woods_free_v0.2/sprites/characters/::1669653614
+slime.png::CompressedTexture2D::2864782553467962057::1653842402::1669653614::1::::<><>::
+::res://Scenes/::1675444538
+2DScene.tscn::PackedScene::-1::1669653479::0::1::::<><>::res://Scripts/2DScene.gd<>res://Game Art/Crates.png
+Buffon.tscn::PackedScene::-1::1669653479::0::1::::<><>::
+CombatSystem.tscn::PackedScene::227902517795821267::1675444537::0::1::::<><>::uid://27u2knvqbfay<>res://Scripts/CombatSystem.gd<>uid://cigvwoddf8by6<>uid://cyjjqo1nejdvc
+DetentionArea.tscn::PackedScene::7800853430801179549::1673458338::0::1::::<><>::
+Enemy.tscn::PackedScene::2679348572591287827::1674839357::0::1::::<><>::res://Scripts/Slime.gd<>uid://bg2ysx6l8mqld<>uid://dinryqdy6ya2<>uid://ch1rw688v4wae<>uid://dje16fhyovacr<>res://Scenes/ExtendedSprite2D.gd<>uid://d4bi3uf804cdj<>res://Hitboxes/SoftCollision.tscn
+Enthraz Animations.png::CompressedTexture2D::5524481766620016243::1668287327::1669653614::1::::<><>::
+Events.gd::GDScript::-1::1673707534::0::1::::<>Node<>::
+ExtededTimer.gd::GDScript::-1::1673458514::0::1::::<>Timer<>::
+ExtendedAudioStreamPlayer.gd::GDScript::-1::1673655757::0::1::::ExtendedAudioStreamPlayer<>AudioStreamPlayer<>::
+ExtendedSprite2D.gd::GDScript::-1::1674152031::0::1::::ExtendedSprite2D<>Sprite2D<>::
+ExtendedTimer.tscn::PackedScene::-1::1669653479::0::1::::<><>::res://Scenes/ExtededTimer.gd
+GUIManager.gd::GDScript::-1::1671540557::0::1::::<>CanvasLayer<>::
+InteractableObject.gd::GDScript::-1::1674152087::0::1::::<>StaticBody2D<>::
+InteractableObject.tscn::PackedScene::6614863647600076119::1675444538::0::1::::<><>::res://Scenes/InteractableObject.gd<>uid://d4bi3uf804cdj<>res://Scenes/ExtendedAudioStreamPlayer.gd<>uid://cf7qess64kj6<>res://Scenes/ExtendedSprite2D.gd<>uid://1gfy7k24eljt
+Movement.tscn::PackedScene::4697061819803430727::1674150931::0::1::::<><>::res://Scripts/Movement.gd
+PauseNode.gd::GDScript::-1::1673636634::0::1::::<>Control<>::
+Player.tscn::PackedScene::1821550593788702940::1675444537::0::1::::<><>::res://Scripts/Camera2D.gd<>res://Scripts/Player.gd<>uid://dinryqdy6ya2<>res://Scenes/ExtendedSprite2D.gd<>res://Scenes/ExtendedTimer.tscn<>uid://ib0b7uiy1dc<>uid://botxpiv3gef2a<>res://Scenes/Events.gd<>uid://drvnyxdaqjgg6<>res://Scripts/Scene music.gd<>uid://b76j6l0ixh4sh<>uid://d4bi3uf804cdj<>uid://ch1rw688v4wae
+PlayerGUI.tscn::PackedScene::98615760139303140::1673363693::0::1::::<><>::uid://bmq66dte3unik<>uid://cdf1no3ctad01<>uid://c21rpfowfvywg<>res://Scripts/HealthBar.gd<>uid://dtj41ngokok<>uid://c8odn7mytg8pl<>res://FPSLabel.gd
+Sensor.gd::GDScript::-1::1673707934::0::1::::<>Area2D<>::
+Sensor.tscn::PackedScene::9197339692232715471::1674151027::0::1::::<><>::res://Scenes/Sensor.gd
+slow_motion.tscn::PackedScene::6294877064883803817::1673458338::0::1::::<><>::res://SlowMotion.gd
+Stats.tscn::PackedScene::1962421968939077908::1674150931::0::1::::<><>::res://Scripts/Stats.gd
+virtual_joystick.tscn::PackedScene::5079608713390004610::1670099565::0::1::::<><>::uid://dg62h1lpsrqqa<>uid://cki1bxdlqev21<>res://Scripts/virtual_joystick.gd
+world.tscn::PackedScene::8682112006296064434::1675444538::0::1::::<><>::uid://07mw4adlsgt5<>uid://bef5qkltaq4s2<>res://Scripts/world.gd<>res://Maps/TileMap.tscn<>res://Scenes/GUIManager.gd<>uid://bn1gmmgypgl5<>uid://c1ij3qsfp02xf<>uid://c54ygf26uh4kh<>res://Scenes/PauseNode.gd
+::res://Scripts/::1675444287
+2DScene.gd::GDScript::-1::1669653479::0::1::::<>Node2D<>::
+Camera2D.gd::GDScript::-1::1673707684::0::1::::<>Camera2D<>::
+CombatSystem.gd::GDScript::-1::1675104700::0::1::::<>Node2D<>::
+GameEvent.gd::GDScript::-1::1673675158::0::1::::GameEvent<>Resource<>::
+GUI.gd::GDScript::-1::1669653479::0::1::::<>Control<>::
+HealthBar.gd::GDScript::-1::1671973757::0::1::::<>Control<>::
+Joystick.gd::GDScript::-1::1669653479::0::1::::<>Area2D<>::
+Movement.gd::GDScript::-1::1673674788::0::1::::Movement<>Node2D<>::
+OnHitboxEvent.tres::Resource::5318910251531918068::1673792114::0::1::::<><>::res://Scripts/GameEvent.gd
+Player.gd::GDScript::-1::1675444287::0::1::::<>CharacterBody2D<>::
+Scene music.gd::GDScript::-1::1675444287::0::1::::<>AudioStreamPlayer<>::
+Slash.gd::GDScript::-1::1669653479::0::1::::<>Sprite2D<>::
+Slime.gd::GDScript::-1::1674149904::0::1::::<>CharacterBody2D<>::
+Stats.gd::GDScript::-1::1673648878::0::1::::<>Node<>::
+Test.gd::GDScript::-1::1669653479::0::1::::<>Node2D<>::
+virtual_joystick.gd::GDScript::-1::1675104988::0::1::::VirtualJoystick<>Control<>::
+world.gd::GDScript::-1::1673533335::0::1::::<>Node2D<>::
+::res://Scripts/Test Code/::1673548059
+TestMovement.gd::GDScript::-1::1673546830::0::1::::Movement2<>Node2D<>::
+::res://Scripts/Test Scenes/::1673621995
+TestScene.tscn::PackedScene::5074224701929399679::1673621995::0::1::::<><>::res://Scripts/Test Code/TestMovement.gd<>uid://c54ygf26uh4kh
+::res://script_templates/::1673412907
+::res://Sounds/::1669653619
+Attack_sound.wav::AudioStreamWAV::794837936975308727::1657857480::1669653614::1::::<><>::
+default_bus_layout.tres::AudioBusLayout::-1::1669653479::0::1::::<><>::
+ES_Footsteps Dirt 8 - SFX Producer.mp3::AudioStreamMP3::5362746490837256471::1657855584::1669653614::1::::<><>::
+ES_Roused - Sons Of Hades.wav::AudioStreamWAV::5389077333627081720::1657859144::1669653619::1::::<><>::
+ES_The Sanctuary Within - Erasmus Talbot.wav::AudioStreamWAV::8396657718413999371::1657858515::1669653619::1::::<><>::
+Wood Golf Club Hit Ball.wav::AudioStreamWAV::3409711403602959978::1654363680::1669653614::1::::<><>::
+::res://text_editor_themes/::1673412907
+::res://UIElements/::1669653614
+Base Bar.png::CompressedTexture2D::7364392211196030::1657823961::1669653614::1::::<><>::
+Cover.png::CompressedTexture2D::3263654624942553070::1657823928::1669653614::1::::<><>::
+Damage.png::CompressedTexture2D::6722673228255361418::1657823912::1669653614::1::::<><>::
+Dash Button.png::CompressedTexture2D::1719900128528475295::1665598336::1669653614::1::::<><>::
+Game Logo 180.png::CompressedTexture2D::7248841858764279610::1665659693::1669653614::1::::<><>::
+Game Logo.png::CompressedTexture2D::3579864617206686185::1665657882::1669653614::1::::<><>::
+Health.png::CompressedTexture2D::4995332422900981096::1657823939::1669653614::1::::<><>::
+Highlight Enemy.png::CompressedTexture2D::7334241282275917835::1665919604::1669653614::1::::<><>::
+Joystick Inside.png::CompressedTexture2D::52498710500296968::1665413637::1669653614::1::::<><>::
+Joystick Outside.png::CompressedTexture2D::7722294811484167421::1665413646::1669653614::1::::<><>::
+X Button.png::CompressedTexture2D::3811746617076052706::1665598347::1669653614::1::::<><>::

@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/Wood Golf Club Hit Ball.wav-b3f864e8109aaab7b70d8fd34714e0ce.sample"
+type="AudioStreamWAV"
+uid="uid://botxpiv3gef2a"
+path="res://.godot/imported/Wood Golf Club Hit Ball.wav-b3f864e8109aaab7b70d8fd34714e0ce.sample"
 
 [deps]
 
 source_file="res://Sounds/Wood Golf Club Hit Ball.wav"
-dest_files=[ "res://.import/Wood Golf Club Hit Ball.wav-b3f864e8109aaab7b70d8fd34714e0ce.sample" ]
+dest_files=["res://.godot/imported/Wood Golf Club Hit Ball.wav-b3f864e8109aaab7b70d8fd34714e0ce.sample"]
 
 [params]
 
@@ -17,5 +18,7 @@ force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=false
-edit/loop=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
 compress/mode=0

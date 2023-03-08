@@ -1,19 +1,21 @@
 extends Node
+class_name Stats
 
 signal OnHealthChange(value)
 signal Damaged(amount)
 signal Healed(amount)
 signal Dead()
 
-export var maxHealth = 100
-export(int) var currentHealth = maxHealth setget set_health
+@export var maxHealth = 100
+@export var currentHealth: int = maxHealth
+
 var invincible = false
 
 var behaviour_states
 enum {idle, run, attack, stunned, dash, dead} #Esto debe cambiarse.
 
-export var damage = 2
-onready var something_hitted = false
+@export var damage = 2
+@onready var something_hitted = false
 
 func _ready():
 	pass
@@ -42,7 +44,7 @@ func set_health(value):
 		
 func set_invincible(value, seconds):
 	invincible = value
-	yield(get_tree().create_timer(seconds), "timeout")
+	await get_tree().create_timer(seconds).timeout
 	invincible = false
 	
 

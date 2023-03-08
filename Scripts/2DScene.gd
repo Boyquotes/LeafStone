@@ -1,7 +1,7 @@
 extends Node2D
 
-onready var sprite1 = $Sprite
-onready var sprite2 = $Sprite2
+@onready var sprite1 = $Sprite2D
+@onready var sprite2 = $Sprite2
 
 func _ready():
 	pass

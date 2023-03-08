@@ -1,5 +1,7 @@
 extends Control
-var game_pause_state = false setget set_pause
+var game_pause_state = false :
+	get:
+		return game_pause_state # TODOConverter40 Non existent get function 
 
 func _unhandled_input(event):
 	pass

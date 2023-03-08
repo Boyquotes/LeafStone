@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "L1ZrLkWXE044pRp1UZS6BHn1AxxlD41EWvp/mKLaZBVR0QM7/C+LYZc5N5XUk10vnf3ZH/ftLSMTsRLDRqa69Q==",
+  "success": true,
+  "projectFilePath": "/Users/mac/Documents/Development/Godot engine/Godot 4 Adventure 2D/Proyecto 2D top down.csproj",
+  "expectedPackageFiles": [
+    "/Users/mac/Library/Application Support/Godot/mono/GodotNuGetFallbackFolder/godot.sourcegenerators/4.0.0-beta.11/godot.sourcegenerators.4.0.0-beta.11.nupkg.sha512",
+    "/Users/mac/Library/Application Support/Godot/mono/GodotNuGetFallbackFolder/godotsharp/4.0.0-beta.11/godotsharp.4.0.0-beta.11.nupkg.sha512",
+    "/Users/mac/Library/Application Support/Godot/mono/GodotNuGetFallbackFolder/godotsharpeditor/4.0.0-beta.11/godotsharpeditor.4.0.0-beta.11.nupkg.sha512"
+  ],
+  "logs": []
+}

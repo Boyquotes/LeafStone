@@ -1,8 +1,7 @@
 extends AudioStreamPlayer
 
-
-onready var levelMusic = preload("res://Sounds/ES_The Sanctuary Within - Erasmus Talbot.wav")
-onready var combatSong = preload("res://Sounds/ES_Roused - Sons Of Hades.wav")
+@onready var levelMusic = preload("res://Sounds/ES_The Sanctuary Within - Erasmus Talbot.wav")
+@onready var combatSong = preload("res://Sounds/ES_Roused - Sons Of Hades.wav")
 
 func _ready():
 	stream = levelMusic

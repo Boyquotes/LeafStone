@@ -3,7 +3,6 @@ extends Area2D
 func _ready():
 	pass
 
-
 func detecting_bodies() -> bool:
 	for body in get_overlapping_bodies():
 		if body != null:
@@ -29,10 +28,10 @@ func find_closest_enemy_angle(playerDir: Vector2) -> Dictionary:
 	var bodies = get_overlapping_bodies()
 
 	for body in bodies:
-		if body != null and body.slimeStats.currentHealth > 0:
+		if body != null and body.combatSystem.stats.currentHealth > 0:
 			var bodyDir =  body.global_position - global_position
 			var dot = bodyDir.dot(playerDir)
-			var angle = rad2deg(acos(dot / (playerDir.length() * bodyDir.length())))
+			var angle = rad_to_deg(acos(dot / (playerDir.length() * bodyDir.length())))
 			
 			if angle < shortestAngle:
 				shortestAngle = angle

@@ -1,0 +1,17 @@
+/Users/mac/Documents/Development/Godot engine/Godot 4 Adventure 2D/.godot/mono/temp/bin/Debug/Proyecto 2D top down.deps.json
+/Users/mac/Documents/Development/Godot engine/Godot 4 Adventure 2D/.godot/mono/temp/bin/Debug/Proyecto 2D top down.runtimeconfig.json
+/Users/mac/Documents/Development/Godot engine/Godot 4 Adventure 2D/.godot/mono/temp/bin/Debug/Proyecto 2D top down.dll
+/Users/mac/Documents/Development/Godot engine/Godot 4 Adventure 2D/.godot/mono/temp/bin/Debug/Proyecto 2D top down.pdb
+/Users/mac/Documents/Development/Godot engine/Godot 4 Adventure 2D/.godot/mono/temp/bin/Debug/GodotSharp.dll
+/Users/mac/Documents/Development/Godot engine/Godot 4 Adventure 2D/.godot/mono/temp/bin/Debug/GodotSharpEditor.dll
+/Users/mac/Documents/Development/Godot engine/Godot 4 Adventure 2D/.godot/mono/temp/obj/Debug/Proyecto 2D top down.csproj.AssemblyReference.cache
+/Users/mac/Documents/Development/Godot engine/Godot 4 Adventure 2D/.godot/mono/temp/obj/Debug/Proyecto 2D top down.GeneratedMSBuildEditorConfig.editorconfig
+/Users/mac/Documents/Development/Godot engine/Godot 4 Adventure 2D/.godot/mono/temp/obj/Debug/Proyecto 2D top down.AssemblyInfoInputs.cache
+/Users/mac/Documents/Development/Godot engine/Godot 4 Adventure 2D/.godot/mono/temp/obj/Debug/Proyecto 2D top down.AssemblyInfo.cs
+/Users/mac/Documents/Development/Godot engine/Godot 4 Adventure 2D/.godot/mono/temp/obj/Debug/Proyecto 2D top down.csproj.CoreCompileInputs.cache
+/Users/mac/Documents/Development/Godot engine/Godot 4 Adventure 2D/.godot/mono/temp/obj/Debug/Proyecto 2D top down.csproj.CopyComplete
+/Users/mac/Documents/Development/Godot engine/Godot 4 Adventure 2D/.godot/mono/temp/obj/Debug/Proyecto 2D top down.dll
+/Users/mac/Documents/Development/Godot engine/Godot 4 Adventure 2D/.godot/mono/temp/obj/Debug/refint/Proyecto 2D top down.dll
+/Users/mac/Documents/Development/Godot engine/Godot 4 Adventure 2D/.godot/mono/temp/obj/Debug/Proyecto 2D top down.pdb
+/Users/mac/Documents/Development/Godot engine/Godot 4 Adventure 2D/.godot/mono/temp/obj/Debug/Proyecto 2D top down.genruntimeconfig.cache
+/Users/mac/Documents/Development/Godot engine/Godot 4 Adventure 2D/.godot/mono/temp/obj/Debug/ref/Proyecto 2D top down.dll

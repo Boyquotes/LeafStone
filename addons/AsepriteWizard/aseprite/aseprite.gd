@@ -1,5 +1,5 @@
-tool
-extends Reference
+@tool
+extends RefCounted
 
 var _config
 
@@ -59,8 +59,8 @@ func export_layers(file_name: String, output_folder: String, options: Dictionary
 
 
 func export_layer(file_name: String, layer_name: String, output_folder: String, options: Dictionary) -> Dictionary:
-	var output_prefix = options.get('output_filename', "")
-	var output_dir = output_folder.replace("res://", "./")
+	var output_prefix = options.get('output_filename', "").strip_edges()
+	var output_dir = output_folder.replace("res://", "./").strip_edges()
 	var data_file = "%s/%s%s.json" % [output_dir, output_prefix, layer_name]
 	var sprite_sheet = "%s/%s%s.png" % [output_dir, output_prefix, layer_name]
 	var output = []
@@ -84,7 +84,7 @@ func export_layer(file_name: String, layer_name: String, output_folder: String, 
 
 func _add_ignore_layer_arguments(file_name: String, arguments: Array, exception_pattern: String):
 	var layers = _get_exception_layers(file_name, exception_pattern)
-	if not layers.empty():
+	if not layers.is_empty():
 		for l in layers:
 			arguments.push_front(l)
 			arguments.push_front('--ignore-layer')
@@ -127,10 +127,14 @@ func list_layers(file_name: String, only_visible = false) -> Array:
 		printerr(output)
 		return []
 
-	if output.empty():
+	if output.is_empty():
 		return output
-
-	return output[0].split('\n')
+	
+	var raw = output[0].split('\n')
+	var sanitized = []
+	for s in raw:
+		sanitized.append(s.strip_edges())
+	return sanitized
 
 
 func _export_command_common_arguments(source_name: String, data_path: String, spritesheet_path: String) -> Array:
@@ -148,11 +152,11 @@ func _export_command_common_arguments(source_name: String, data_path: String, sp
 
 
 func _execute(arguments, output):
-	return OS.execute(_aseprite_command(), arguments, true, output, true)
+	return OS.execute(_aseprite_command(), arguments, output, true, true)
 
 
 func _aseprite_command() -> String:
-	return _config.get_command()
+	return _config.is_command_or_control_pressed()
 
 
 func _get_file_basename(file_path: String) -> String:
@@ -171,7 +175,7 @@ func _compile_regex(pattern):
 
 
 func test_command():
-	var exit_code = OS.execute(_aseprite_command(), ['--version'], true)
+	var exit_code = OS.execute(_aseprite_command(), ['--version'], [], true)
 	return exit_code == 0
 
 

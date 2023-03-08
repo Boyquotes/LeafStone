@@ -1,7 +1,7 @@
-extends Sprite
+extends Sprite2D
 
 var d =0.0
-onready var parent = get_parent()
+@onready var parent = get_parent()
 
 func _process(delta):
 	

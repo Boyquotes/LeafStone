@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/ES_The Sanctuary Within - Erasmus Talbot.wav-c01ccf4a2939f28ab18207027bd79870.sample"
+type="AudioStreamWAV"
+uid="uid://drvnyxdaqjgg6"
+path="res://.godot/imported/ES_The Sanctuary Within - Erasmus Talbot.wav-c01ccf4a2939f28ab18207027bd79870.sample"
 
 [deps]
 
 source_file="res://Sounds/ES_The Sanctuary Within - Erasmus Talbot.wav"
-dest_files=[ "res://.import/ES_The Sanctuary Within - Erasmus Talbot.wav-c01ccf4a2939f28ab18207027bd79870.sample" ]
+dest_files=["res://.godot/imported/ES_The Sanctuary Within - Erasmus Talbot.wav-c01ccf4a2939f28ab18207027bd79870.sample"]
 
 [params]
 
@@ -17,5 +18,7 @@ force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=false
-edit/loop=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
 compress/mode=0

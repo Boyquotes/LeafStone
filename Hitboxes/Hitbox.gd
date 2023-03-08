@@ -1,30 +1,37 @@
 extends Area2D
+class_name Hitbox
 
+var hit = false
 var knockBack_vector = Vector2.ZERO
-var playerStats
-var hitted = false
 var	make_knockBack = false
-var berserk = false
-var berserkCount = 0
-onready var hitSource = $AudioSource
+var stats : Stats
 
-export var freeze_slow = 0.045
-export var freeze_time = 0.3
+@export var freeze_slow = 0.045
+@export var duration = 0.3
 
-func Hit(_area):
-	pass
-	# if !hitSource.playing:
-	# 	hitSource.play()
-	
-	Engine.time_scale = freeze_slow
-	yield(get_tree().create_timer(freeze_time * freeze_slow), "timeout")
-	Engine.time_scale = 1
+@onready var audioSource = $SFX
+@onready var shape = $Shape
+@onready var slowMotion: Node = $SlowMotion
 
-func _on_Hitbox_area_entered(area:Area2D):
+func setup(stat: Stats):
+	self.stats = stat
 
-	area.stats.set_health(-playerStats.damage)
-	area.stats.something_hitted = true
-	area.knockBack_vector = knockBack_vector.normalized()
-	hitted = true
-	make_knockBack = true
-	Hit(area)
+func disable_collision(value):
+	shape.set_deferred("disabled", value)
+
+func play(sound: AudioStream):
+	if sound != null:
+		audioSource.performSoundOnce(sound)
+
+func disable_monitoring_and_monitorable():
+	set_deferred("monitoring", false)
+	set_deferred("monitorable", false)
+
+func active(value: bool):
+	if value == true:
+		shape.set_deferred("disabled", false)
+	elif value == false:
+		shape.set_deferred("disabled", true)
+
+func doSlowMotion():
+	slowMotion.start_slow_motion()
