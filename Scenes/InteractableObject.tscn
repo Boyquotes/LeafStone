@@ -1,52 +1,61 @@
-[gd_scene load_steps=9 format=3 uid="uid://c1ij3qsfp02xf"]
+[gd_scene load_steps=9 format=3 uid="uid://kvywpg6jxh6v"]
 
 [ext_resource type="Script" path="res://Scenes/InteractableObject.gd" id="1_65h3s"]
 [ext_resource type="PackedScene" uid="uid://d4bi3uf804cdj" path="res://Scenes/Sensor.tscn" id="1_oum44"]
 [ext_resource type="Script" path="res://Scenes/ExtendedAudioStreamPlayer.gd" id="2_xt3bk"]
-[ext_resource type="FontFile" uid="uid://cf7qess64kj6" path="res://Fonts/pixelart.ttf" id="2_yxm14"]
+[ext_resource type="FontFile" uid="uid://cf7qess64kj6" path="res://Resources/Fonts/pixelart.ttf" id="2_yxm14"]
 [ext_resource type="Script" path="res://Scenes/ExtendedSprite2D.gd" id="3_5nskg"]
 [ext_resource type="Texture2D" uid="uid://1gfy7k24eljt" path="res://Game Art/Crates.png" id="4_6w1if"]
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_snhiv"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_qtvmo"]
+resource_local_to_scene = true
+radius = 5.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jil7f"]
 radius = 14.0
 height = 28.0
 
-[node name="InteractableObject" type="StaticBody2D"]
-collision_mask = 2
-physics_material_override = SubResource("PhysicsMaterial_snhiv")
+[node name="InteractableObject" type="Node2D"]
 script = ExtResource("1_65h3s")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("4_6w1if")
 hframes = 4
 vframes = 4
+frame = 2
 script = ExtResource("3_5nskg")
 
-[node name="Label" type="Label" parent="."]
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -19.0
-offset_top = -20.0
-offset_right = 57.0
-offset_bottom = 6.0
-grow_horizontal = 2
-grow_vertical = 0
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Label" type="Label" parent="Node2D"]
+offset_left = -58.0
+offset_top = -24.0
+offset_right = 174.0
+offset_bottom = 2.0
 scale = Vector2(0.5, 0.5)
 theme_override_fonts/font = ExtResource("2_yxm14")
-text = "Press E"
+text = "\"[E] to interact\""
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
 
 [node name="Sensor" parent="." instance=ExtResource("1_oum44")]
-visible = false
+collision_mask = 2
+
+[node name="Shape" parent="Sensor" index="0"]
+shape = SubResource("CircleShape2D_qtvmo")
 
 [node name="AudioSource" type="AudioStreamPlayer" parent="."]
 script = ExtResource("2_xt3bk")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 scale = Vector2(0.5, 0.5)
 shape = SubResource("CapsuleShape2D_jil7f")
+
+[connection signal="body_entered" from="Sensor" to="." method="_on_sensor_body_entered"]
+[connection signal="body_exited" from="Sensor" to="." method="_on_sensor_body_exited"]
+
+[editable path="Sensor"]

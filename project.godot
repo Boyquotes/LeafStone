@@ -25,12 +25,15 @@ gdscript/warnings/unused_argument=false
 
 [display]
 
-window/stretch/mode="viewport"
-window/stretch/aspect="expand"
+window/size/viewport_width=320
+window/size/viewport_height=180
+window/size/window_width_override=1920
+window/size/window_height_override=1080
+window/stretch/mode="canvas_items"
 window/size/width=480
 window/size/height=270
-window/size/test_width=960
-window/size/test_height=640
+window/size/test_height=800
+window/size/test_width=1280
 
 [dotnet]
 
@@ -38,12 +41,12 @@ project/assembly_name="Proyecto 2D top down"
 
 [editor]
 
-movie_writer/mjpeg_quality=1.0
-movie_writer/movie_file="/Users/mac/Documents/Development/Godot engine/Godot 4 Adventure 2D/Gameplays/gameplay1.mp4.avi"
+movie_writer/movie_file="/Users/mac/Documents/Development/Godot engine/Godot Engine 4/Godot 4 Adventure 2D/Gameplays/Gameplays.avi"
+movie_writer/fps=30
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg")
+enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg", "res://addons/BurstParticles2D/plugin.cfg")
 
 [global]
 
@@ -86,6 +89,7 @@ ui_accept={
 ui_cancel={
 "deadzone": 0.5,
 "events": [Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":2,"pressure":0.0,"pressed":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194305,"key_label":0,"unicode":0,"echo":false,"script":null)
 ]
 }
 ui_left={
@@ -160,6 +164,11 @@ dash={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194325,"key_label":0,"unicode":0,"echo":false,"script":null)
 ]
 }
+cancel={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194305,"key_label":0,"unicode":0,"echo":false,"script":null)
+]
+}
 
 [input_devices]
 
@@ -172,6 +181,7 @@ pointing/emulate_touch_from_mouse=true
 2d_physics/layer_3="Items"
 2d_physics/layer_4="Enemy"
 2d_physics/layer_5="SoftCollisions"
+2d_physics/layer_6="Trees"
 
 [mono]
 
@@ -183,8 +193,8 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="mobile"
 renderer/rendering_method.web="mobile"
-textures/canvas_textures/default_texture_filter=0
 2d/snapping/use_gpu_pixel_snap=true
 environment/default_environment="res://default_env.tres"

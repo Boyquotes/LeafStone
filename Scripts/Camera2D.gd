@@ -1,9 +1,10 @@
 extends Camera2D
 
-@export var onHitboxEvent: GameEvent
+@export var onHitboxEvent: VoidGameEvent
 @export var zoomOut :=  1.3
 @export var zoomNormal := 1.0
 @export var secondsToEase = 1.0
+@export var shakeIntensity = 8.0
 
 func _ready():
 	onHitboxEvent.connect("OnEventHappen", Callable(self, "camera_shake"))
@@ -15,13 +16,17 @@ func camera_zoom(zoomVector, seconds):
 
 func shake():
 	var tween = create_tween().set_trans(Tween.TRANS_QUAD)
-	tween.tween_property(self, "offset", Vector2(1, -3), 0.03).set_ease(Tween.EASE_IN)
-	tween.tween_property(self, "offset", Vector2(-3, 1), 0.03).set_ease(Tween.EASE_IN)
-	tween.tween_property(self, "offset", Vector2(0, 0), 0.03).set_ease(Tween.EASE_OUT)
+	tween.tween_property(self, "offset", random_vector(), 0.03).set_ease(Tween.EASE_IN)
+	tween.tween_property(self, "offset", Vector2.ZERO, 0.03).set_ease(Tween.EASE_IN)
+	tween.tween_property(self, "offset", random_vector(), 0.03).set_ease(Tween.EASE_IN)
+	tween.tween_property(self, "offset", Vector2.ZERO, 0.03).set_ease(Tween.EASE_OUT)
 
 func _on_Events_combatStart():
 	var zoom_value = zoomScaleToVector(zoomOut)
 	camera_zoom(zoom_value, secondsToEase)
+
+func random_vector()  -> Vector2:
+	return Vector2(randf_range(-shakeIntensity, shakeIntensity), randf_range(-shakeIntensity, shakeIntensity))
 
 func _on_Events_outOfCombat():
 	var zoom__value = zoomScaleToVector(zoomNormal)

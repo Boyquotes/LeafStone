@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://cvxjx8vsxu0fl"]
+[gd_scene load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://SlowMotion.gd" id="1_7yfdy"]
+[ext_resource type="Script" path="res://Scripts/SlowMotion.gd" id="1_7yfdy"]
 
 [node name="SlowMotion" type="Node"]
 script = ExtResource("1_7yfdy")

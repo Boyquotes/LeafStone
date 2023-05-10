@@ -1,8 +1,8 @@
 extends Control
 var tween
-@onready var healthBarUnder = $HealthBarUnder
-@onready var healthBar = $HealthBar
-@onready var healthLabel = $HealthLabel
+@onready var healthBar = $MarginContainer/HealthBar
+@onready var healthLabel = $MarginContainer/HealthBar/HealthLabel
+@export var onPlayerHealthChanged: IntGameEvent
 
 @export var healthy_color: Color = Color.GREEN
 @export var caution_color: Color = Color.ORANGE
@@ -12,14 +12,16 @@ var tween
 @export_range(0 , 1, 0.05) var danger_zone = 0.3
 
 func _ready():
-	pass
+	onPlayerHealthChanged.OnEventRaised.connect(onHealthChange)
+	healthBar.max_value = onPlayerHealthChanged.value
+	healthBar.value = healthBar.max_value
+	healthLabel.text = str(healthBar.value)
 
-func _on_Stats_OnHealthChange(health:int):
+func onHealthChange(health):
+
 	healthBar.value = health
 	healthBarColorZones(health)
 	healthLabel.text = str(health)
-	tween = create_tween().set_trans(Tween.TRANS_LINEAR)
-	tween.interpolate_property(healthBarUnder, "value", healthBarUnder.value, health, 0.4, tween.TRANS_SINE, tween.EASE_IN_OUT, 0.4)
 	$AnimationPlayer.play("Health Change")
 
 

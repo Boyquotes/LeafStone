@@ -5,8 +5,9 @@ var game_pause_state = false :
 
 func _unhandled_input(event):
 	pass
-	if event.is_action_pressed("ui_cancel"):
+	if event.is_action_pressed("cancel"):
 		self.game_pause_state = !game_pause_state
+		set_pause(self.game_pause_state)
 
 func set_pause(value):
 	game_pause_state = value

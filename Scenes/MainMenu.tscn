@@ -1,0 +1,189 @@
+[gd_scene load_steps=7 format=3 uid="uid://c1fna347lwydd"]
+
+[ext_resource type="Texture2D" uid="uid://dfi601i50xjuq" path="res://Game Art/IMG_6094.png" id="1_jbgv0"]
+[ext_resource type="SystemFont" uid="uid://chfudauwrvn5a" path="res://Resources/Fonts/font_main_menu.tres" id="2_dg5qi"]
+[ext_resource type="Texture2D" uid="uid://3llgtp7bbgts" path="res://Game Art/Test Art/AsepriteGodot.png" id="3_q20ap"]
+
+[sub_resource type="SystemFont" id="SystemFont_k68uq"]
+
+[sub_resource type="SystemFont" id="SystemFont_nalc4"]
+font_names = PackedStringArray("Charter")
+font_italic = true
+
+[sub_resource type="LabelSettings" id="LabelSettings_pfyvs"]
+font = SubResource("SystemFont_nalc4")
+font_size = 8
+
+[node name="Panel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+modulate = Color(1, 0.639216, 0.639216, 0.439216)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_jbgv0")
+expand_mode = 4
+stretch_mode = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/CenterContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="NameLbl" type="Label" parent="MarginContainer/CenterContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = SubResource("SystemFont_k68uq")
+theme_override_font_sizes/font_size = 18
+text = "Leaf Stone
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/CenterContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="MenuOptions" type="VBoxContainer" parent="MarginContainer/CenterContainer/HBoxContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="StartBtn" type="Button" parent="MarginContainer/CenterContainer/HBoxContainer/VBoxContainer/MarginContainer/MenuOptions"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_dg5qi")
+theme_override_font_sizes/font_size = 8
+text = "Start
+"
+
+[node name="OptionsBtn" type="Button" parent="MarginContainer/CenterContainer/HBoxContainer/VBoxContainer/MarginContainer/MenuOptions"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_dg5qi")
+theme_override_font_sizes/font_size = 8
+text = "Options
+"
+
+[node name="QuitBtn" type="Button" parent="MarginContainer/CenterContainer/HBoxContainer/VBoxContainer/MarginContainer/MenuOptions"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Quit
+"
+
+[node name="VersionLbl" type="Label" parent="MarginContainer/CenterContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.87451, 0.87451, 0.87451, 1)
+text = "Leaf Stone 1.0.3
+Bissash Studios"
+label_settings = SubResource("LabelSettings_pfyvs")
+horizontal_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/CenterContainer/HBoxContainer"]
+custom_minimum_size = Vector2(120, 170)
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/CenterContainer/HBoxContainer/CenterContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 3
+
+[node name="Godot Icon2" type="TextureRect" parent="MarginContainer/CenterContainer/HBoxContainer/CenterContainer/GridContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+texture = ExtResource("3_q20ap")
+expand_mode = 1
+stretch_mode = 5
+flip_v = true
+
+[node name="Godot Icon3" type="TextureRect" parent="MarginContainer/CenterContainer/HBoxContainer/CenterContainer/GridContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+texture = ExtResource("3_q20ap")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Godot Icon4" type="TextureRect" parent="MarginContainer/CenterContainer/HBoxContainer/CenterContainer/GridContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+texture = ExtResource("3_q20ap")
+expand_mode = 1
+stretch_mode = 5
+flip_v = true
+
+[node name="Godot Icon5" type="TextureRect" parent="MarginContainer/CenterContainer/HBoxContainer/CenterContainer/GridContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+texture = ExtResource("3_q20ap")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Godot Icon6" type="TextureRect" parent="MarginContainer/CenterContainer/HBoxContainer/CenterContainer/GridContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+texture = ExtResource("3_q20ap")
+expand_mode = 1
+stretch_mode = 5
+flip_v = true
+
+[node name="Godot Icon7" type="TextureRect" parent="MarginContainer/CenterContainer/HBoxContainer/CenterContainer/GridContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+texture = ExtResource("3_q20ap")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+visible = false
+position = Vector2(150, 1)
+amount = 25
+lifetime = 3.0
+randomness = 0.56
+emission_shape = 3
+emission_rect_extents = Vector2(320, 1)
+spread = 95.44
+gravity = Vector2(0, 100)
+initial_velocity_min = 24.0
+initial_velocity_max = 24.0
+hue_variation_max = 0.8

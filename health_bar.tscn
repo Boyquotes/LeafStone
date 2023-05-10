@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://pth7ow63q0c3"]
+
+[ext_resource type="Texture2D" uid="uid://dtj41ngokok" path="res://UIElements/Base Bar.png" id="1_n65c3"]
+[ext_resource type="Texture2D" uid="uid://cdf1no3ctad01" path="res://UIElements/Health.png" id="2_s7wq3"]
+
+[node name="HealthBar" type="TextureProgressBar"]
+value = 22.0
+texture_under = ExtResource("1_n65c3")
+texture_progress = ExtResource("2_s7wq3")
+texture_progress_offset = Vector2(1, 1)
+
+[node name="HealthLabel" type="Label" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.052
+anchor_top = 0.056
+anchor_right = 0.251
+anchor_bottom = 0.554
+offset_left = -0.888
+offset_top = -2.232
+offset_right = -1.594
+offset_bottom = 3.812
+grow_vertical = 2
+theme_override_font_sizes/font_size = 10
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -11,7 +11,16 @@ var state = camera_State.normal
 var actorDetected = false
 var actors = []
 
+# var contador: float
+var segundos: float
+
 func _process(delta):
+
+	# contador -= delta
+
+	# if contador >= 0:
+	# 	contador = segundos
+	# 	print("El contador ha terminado, aqui ocurre la magia!!!!!")
 
 	if actorDetected:
 		detected = true
@@ -31,7 +40,7 @@ func _process(delta):
 				emit_signal("combatStart") #camera_zoom(zoomOut, secondsToEase)
 
 		camera_State.waiting:
-			if $ExtendedTimer.is_stopped():
+			if $Timer.is_stopped():
 				state = camera_State.normal
 
 func _on_Sensor_body_entered(body:Node):
@@ -45,4 +54,4 @@ func _on_Sensor_body_exited(body:Node):
 		actorDetected = false
 		state = camera_State.waiting
 		detected = false
-		$ExtendedTimer.start(outOfCombatSeconds)
+		$Timer.start(outOfCombatSeconds)

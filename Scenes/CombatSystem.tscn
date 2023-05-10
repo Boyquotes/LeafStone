@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dinryqdy6ya2"]
+[gd_scene load_steps=6 format=3 uid="uid://dp1abdda2loci"]
 
 [ext_resource type="PackedScene" uid="uid://27u2knvqbfay" path="res://Scenes/Stats.tscn" id="1_3g1g4"]
 [ext_resource type="Script" path="res://Scripts/CombatSystem.gd" id="1_j58wh"]
 [ext_resource type="PackedScene" uid="uid://cigvwoddf8by6" path="res://Hitboxes/Hurtbox.tscn" id="2_uegln"]
 [ext_resource type="PackedScene" uid="uid://cyjjqo1nejdvc" path="res://Hitboxes/Hitbox.tscn" id="3_vh2ye"]
+[ext_resource type="Script" path="res://Scripts/SlowMotion.gd" id="5_3rm64"]
 
 [node name="CombatSystem" type="Node2D"]
 script = ExtResource("1_j58wh")
@@ -15,5 +16,8 @@ visible = false
 [node name="HitBox" parent="." instance=ExtResource("3_vh2ye")]
 
 [node name="Stats" parent="." instance=ExtResource("1_3g1g4")]
+
+[node name="SlowMotion" type="Node" parent="."]
+script = ExtResource("5_3rm64")
 
 [connection signal="area_entered" from="HitBox" to="." method="_on_hitbox_area_entered"]

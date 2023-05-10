@@ -1,12 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://bn1gmmgypgl5"]
+[gd_scene load_steps=9 format=3 uid="uid://bf81kthme77fj"]
 
-[ext_resource type="Texture2D" uid="uid://bmq66dte3unik" path="res://UIElements/Cover.png" id="1"]
-[ext_resource type="Texture2D" uid="uid://cdf1no3ctad01" path="res://UIElements/Health.png" id="2"]
-[ext_resource type="Texture2D" uid="uid://c21rpfowfvywg" path="res://UIElements/Damage.png" id="3"]
+[ext_resource type="Resource" uid="uid://5r4l75jlq3pm" path="res://Scripts/Events/Event Assets/OnPlayerHealthChanged.tres" id="2_cb625"]
+[ext_resource type="Texture2D" uid="uid://dtj41ngokok" path="res://UIElements/Base Bar.png" id="3_7de3t"]
 [ext_resource type="Script" path="res://Scripts/HealthBar.gd" id="4"]
-[ext_resource type="Texture2D" uid="uid://dtj41ngokok" path="res://UIElements/Base Bar.png" id="5"]
-[ext_resource type="PackedScene" uid="uid://c8odn7mytg8pl" path="res://TouchControls.tscn" id="7"]
-[ext_resource type="Script" path="res://FPSLabel.gd" id="8"]
+[ext_resource type="Texture2D" uid="uid://cdf1no3ctad01" path="res://UIElements/Health.png" id="4_clrn1"]
+[ext_resource type="PackedScene" uid="uid://c8odn7mytg8pl" path="res://Scenes/TouchControls.tscn" id="7"]
 
 [sub_resource type="Animation" id="2"]
 resource_name = "Health Change"
@@ -14,7 +12,7 @@ length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("HealthLabel:scale")
+tracks/0/path = NodePath("MarginContainer/HealthBar/HealthLabel:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -26,7 +24,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("HealthBar:tint_progress")
+tracks/1/path = NodePath("MarginContainer/HealthBar:tint_progress")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -41,7 +39,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("HealthLabel:scale")
+tracks/0/path = NodePath("MarginContainer/HealthBar/HealthLabel:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -53,7 +51,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("HealthBar:tint_progress")
+tracks/1/path = NodePath("MarginContainer/HealthBar:tint_progress")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -79,32 +77,44 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("4")
+onPlayerHealthChanged = ExtResource("2_cb625")
 caution_color = Color(1, 0.65098, 0, 1)
 
-[node name="HealthBarUnder" type="TextureProgressBar" parent="HealthLayer"]
-offset_left = 20.0
-offset_top = 10.0
-offset_right = 120.0
-offset_bottom = 42.0
-value = 100.0
-texture_under = ExtResource("5")
-texture_progress = ExtResource("3")
+[node name="MarginContainer" type="MarginContainer" parent="HealthLayer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.312
+anchor_bottom = 0.178
+offset_right = 0.159996
+offset_bottom = -0.0400009
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+metadata/_edit_use_anchors_ = true
 
-[node name="HealthBar" type="TextureProgressBar" parent="HealthLayer"]
-offset_left = 20.0
-offset_top = 10.0
-offset_right = 120.0
-offset_bottom = 42.0
-value = 100.0
-texture_over = ExtResource("1")
-texture_progress = ExtResource("2")
+[node name="HealthBar" type="TextureProgressBar" parent="HealthLayer/MarginContainer"]
+layout_mode = 2
+value = 22.0
+texture_under = ExtResource("3_7de3t")
+texture_progress = ExtResource("4_clrn1")
+texture_progress_offset = Vector2(1, 1)
 
-[node name="HealthLabel" type="Label" parent="HealthLayer"]
-offset_left = 92.0
-offset_top = 20.0
-offset_right = 115.0
-offset_bottom = 31.0
+[node name="HealthLabel" type="Label" parent="HealthLayer/MarginContainer/HealthBar"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.052
+anchor_top = 0.056
+anchor_right = 0.251
+anchor_bottom = 0.554
+offset_left = -0.888
+offset_top = -2.232
+offset_right = -1.594
+offset_bottom = 3.812
+grow_vertical = 2
+theme_override_font_sizes/font_size = 10
 text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="HealthLayer"]
 libraries = {
@@ -112,8 +122,3 @@ libraries = {
 }
 
 [node name="TouchControls" parent="." instance=ExtResource("7")]
-grow_horizontal = 0
-grow_vertical = 0
-
-[node name="FpsLabel" type="CanvasLayer" parent="."]
-script = ExtResource("8")

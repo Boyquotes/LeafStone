@@ -1,1 +1,2 @@
-res://Scripts/Movement.gd
+res://Scenes/EnemyHealthBarController.gd
+res://Scripts/Stats.gd

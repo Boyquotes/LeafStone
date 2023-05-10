@@ -1,13 +1,34 @@
-[gd_scene load_steps=34 format=3 uid="uid://bef5qkltaq4s2"]
+[gd_scene load_steps=50 format=3 uid="uid://gfbiiq4w601g"]
 
-[ext_resource type="Script" path="res://Scripts/Slime.gd" id="1"]
+[ext_resource type="Script" path="res://Scripts/Entities/Enemy.gd" id="1_67pq6"]
 [ext_resource type="Texture2D" uid="uid://bg2ysx6l8mqld" path="res://mystic_woods_free_v0.2/sprites/characters/slime.png" id="2"]
-[ext_resource type="PackedScene" uid="uid://dinryqdy6ya2" path="res://Scenes/CombatSystem.tscn" id="2_sgd6e"]
-[ext_resource type="Resource" uid="uid://ch1rw688v4wae" path="res://Scripts/OnHitboxEvent.tres" id="3_v2wpw"]
-[ext_resource type="PackedScene" uid="uid://dje16fhyovacr" path="res://Scenes/DetentionArea.tscn" id="4"]
+[ext_resource type="Script" path="res://Scripts/Movement.gd" id="2_j842q"]
+[ext_resource type="Resource" path="res://Scripts/Attacks/AttackBehaviorResources/RangeAttackBehaviorResource.tres" id="2_medcu"]
+[ext_resource type="Script" path="res://Scripts/FiniteStateMachine/StateMachine.gd" id="3_71ffw"]
+[ext_resource type="Script" path="res://Scripts/FiniteStateMachine/EnemyStates/EnemyIdleState.gd" id="4_g3mec"]
 [ext_resource type="Script" path="res://Scenes/ExtendedSprite2D.gd" id="4_kdgbt"]
+[ext_resource type="Script" path="res://Scripts/FiniteStateMachine/EnemyStates/EnemyAttackState.gd" id="5_4o3tl"]
+[ext_resource type="Script" path="res://Scripts/CombatSystem.gd" id="5_25eif"]
+[ext_resource type="Script" path="res://Scripts/FiniteStateMachine/EnemyStates/EnemyChaseState.gd" id="5_p0w3k"]
+[ext_resource type="PackedScene" uid="uid://cigvwoddf8by6" path="res://Hitboxes/Hurtbox.tscn" id="7_g8tji"]
 [ext_resource type="PackedScene" uid="uid://d4bi3uf804cdj" path="res://Scenes/Sensor.tscn" id="7_q8mml"]
-[ext_resource type="PackedScene" path="res://Hitboxes/SoftCollision.tscn" id="9"]
+[ext_resource type="Script" path="res://Scenes/ExtendedAudioStreamPlayer.gd" id="8_hbhvi"]
+[ext_resource type="PackedScene" uid="uid://dioniyjlx5dno" path="res://Hitboxes/SoftCollision.tscn" id="9"]
+[ext_resource type="PackedScene" uid="uid://cyjjqo1nejdvc" path="res://Hitboxes/Hitbox.tscn" id="9_lp3c5"]
+[ext_resource type="Resource" path="res://Scripts/Events/Event Assets/OnHitboxEvent.tres" id="9_xjrf1"]
+[ext_resource type="PackedScene" path="res://Scenes/FloatingText.tscn" id="10_1xsx0"]
+[ext_resource type="PackedScene" uid="uid://27u2knvqbfay" path="res://Scenes/Stats.tscn" id="10_ivtlh"]
+[ext_resource type="Script" path="res://Scripts/SlowMotion.gd" id="14_wmids"]
+[ext_resource type="Script" path="res://Scenes/EnemyHealthBarController.gd" id="16_141o6"]
+[ext_resource type="PackedScene" uid="uid://pth7ow63q0c3" path="res://health_bar.tscn" id="16_o82a0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vyt82"]
+resource_local_to_scene = true
+radius = 9.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_iq7s0"]
+resource_local_to_scene = true
+radius = 18.0
 
 [sub_resource type="CircleShape2D" id="27"]
 radius = 6.0
@@ -64,7 +85,7 @@ tracks/0/path = NodePath("..")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.4),
+"times": PackedFloat32Array(0.3),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -83,6 +104,30 @@ tracks/1/keys = {
 "update": 1,
 "values": [28, 29, 30, 31, 32]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../CombatSystem/HurtBox:monitoring")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../CombatSystem/HurtBox:monitorable")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="30"]
 resource_name = "Hurt"
@@ -94,7 +139,7 @@ tracks/0/path = NodePath("..")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.4),
+"times": PackedFloat32Array(0.3),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -116,7 +161,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="51"]
 resource_name = "Idle"
-length = 0.3
+length = 0.6
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -125,7 +170,7 @@ tracks/0/path = NodePath("../Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3]
@@ -228,31 +273,102 @@ graph_offset = Vector2(44.7596, -18.525)
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="39"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_vfgs5"]
+resource_local_to_scene = true
+radius = 7.0
+
 [node name="Slime" type="CharacterBody2D"]
+y_sort_enabled = true
 collision_layer = 24
-collision_mask = 18
-script = ExtResource("1")
+collision_mask = 0
+script = ExtResource("1_67pq6")
 speed = 40
 acceleration = 30
 friction = 190
-knockback_strenght = 32
-secToAttack = 12
+knockback_strenght = 40
+attackBehaviour = ExtResource("2_medcu")
+secToAttack = 10
 
-[node name="CombatSystem" parent="." instance=ExtResource("2_sgd6e")]
-hitboxRadius = 6.0
-onHitEvent = ExtResource("3_v2wpw")
+[node name="Movement" type="Node2D" parent="."]
+script = ExtResource("2_j842q")
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("3_71ffw")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("4_g3mec")
+
+[node name="Chase" type="Node" parent="StateMachine"]
+script = ExtResource("5_p0w3k")
+
+[node name="EnemyAttackState" type="Node" parent="StateMachine"]
+script = ExtResource("5_4o3tl")
+
+[node name="CombatSystem" type="Node2D" parent="."]
+position = Vector2(0, -3)
+script = ExtResource("5_25eif")
+onHitEvent = ExtResource("9_xjrf1")
 actor_Type = 2
+hitboxRadius = 6.0
+impact_particles = null
+floating_damage = ExtResource("10_1xsx0")
 
-[node name="BodyShape2D" type="CollisionShape2D" parent="."]
+[node name="HurtBox" parent="CombatSystem" instance=ExtResource("7_g8tji")]
+
+[node name="Shape" type="CollisionShape2D" parent="CombatSystem/HurtBox"]
+shape = SubResource("CircleShape2D_vyt82")
+
+[node name="SFX" type="AudioStreamPlayer" parent="CombatSystem/HurtBox"]
+volume_db = -14.0
+mix_target = 2
+script = ExtResource("8_hbhvi")
+
+[node name="HitBox" parent="CombatSystem" instance=ExtResource("9_lp3c5")]
+
+[node name="Stats" parent="CombatSystem" instance=ExtResource("10_ivtlh")]
+
+[node name="SlowMotion" type="Node" parent="CombatSystem"]
+script = ExtResource("14_wmids")
+
+[node name="EnemyHealthBarController" type="Node2D" parent="CombatSystem" node_paths=PackedStringArray("stats")]
+script = ExtResource("16_141o6")
+stats = NodePath("../Stats")
+
+[node name="HealthBar" parent="CombatSystem/EnemyHealthBarController" instance=ExtResource("16_o82a0")]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -16.0
+offset_top = -20.0
+offset_right = 78.0
+offset_bottom = -6.0
+grow_horizontal = 2
+scale = Vector2(0.35, 0.35)
+value = 10.0
+
+[node name="Sensor" parent="." instance=ExtResource("7_q8mml")]
 visible = false
-position = Vector2(0, 2)
+collision_mask = 2
+sensor_range = 25.0
+
+[node name="Shape" parent="Sensor" index="0"]
+shape = SubResource("CircleShape2D_iq7s0")
+
+[node name="BodyShape" type="CollisionShape2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(0, -4)
 shape = SubResource("27")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+light_mask = 2
 texture = ExtResource("2")
+offset = Vector2(0, -6)
 hframes = 7
 vframes = 5
-frame = 19
+frame = 14
 script = ExtResource("4_kdgbt")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -266,14 +382,9 @@ tree_root = SubResource("38")
 anim_player = NodePath("../AnimationPlayer")
 parameters/playback = SubResource("39")
 
-[node name="ScannerArea" parent="." instance=ExtResource("4")]
-visible = false
-collision_layer = 0
-collision_mask = 2
+[node name="GUIDebugger" type="Node2D" parent="."]
 
-[node name="Node2D" type="Node2D" parent="."]
-
-[node name="Panel" type="Panel" parent="Node2D"]
+[node name="Panel" type="Panel" parent="GUIDebugger"]
 visible = false
 anchors_preset = 7
 anchor_left = 0.5
@@ -285,11 +396,13 @@ offset_top = -21.0
 offset_right = 14.0
 offset_bottom = -10.0
 
-[node name="Label" type="Label" parent="Node2D/Panel"]
+[node name="Label" type="Label" parent="GUIDebugger/Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -6.0
+offset_bottom = 6.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -302,16 +415,14 @@ one_shot = true
 
 [node name="SoftCollision" parent="." instance=ExtResource("9")]
 visible = false
-position = Vector2(0, 2)
-collision_layer = 16
+position = Vector2(0, -4)
 collision_mask = 18
 
-[node name="Sensor" parent="." instance=ExtResource("7_q8mml")]
-visible = false
+[node name="CollisionShape2D" parent="SoftCollision" index="0"]
+shape = SubResource("CircleShape2D_vfgs5")
 
-[connection signal="body_entered" from="ScannerArea" to="." method="_on_DetentionArea_body_entered"]
-[connection signal="body_exited" from="ScannerArea" to="." method="_on_DetentionArea_body_exited"]
-[connection signal="timeout" from="AttackTimer" to="." method="_on_AttackTimer_timeout"]
+[connection signal="area_entered" from="CombatSystem/HitBox" to="CombatSystem" method="_on_hitbox_area_entered" flags=18]
 [connection signal="timeout" from="ChaseTimer" to="." method="_on_ChaseTimer_timeout"]
 
-[editable path="ScannerArea"]
+[editable path="Sensor"]
+[editable path="SoftCollision"]

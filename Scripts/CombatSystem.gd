@@ -1,26 +1,37 @@
 @tool
 extends Node2D
+class_name CombatSystem
 
 enum ActorType { undefined, player, enemy}
-@onready var stats : Stats= $Stats
+@onready var stats : Stats = $Stats
 @onready var hitbox: Hitbox = $HitBox
-@onready var hurtbox = $HurtBox
+@onready var hurtbox : Hurtbox = $HurtBox
+@onready var slowMotion: SlowMotion = $SlowMotion
 
+
+@export_subgroup("Events")
+@export var onHitEvent : VoidGameEvent
+@export var onHurtBox : VoidGameEvent
+
+@export_group("Hitbox Data")
+@export var actor_Type: ActorType
 @export var hitboxRadius = 16.0
-@export var onHitEvent : GameEvent
-@export var onHurtBox : GameEvent
 @export var hitbox_state : bool 
 @export var hitbox_position = Vector2()
-@export var actor_Type: ActorType
+@export var impact_particles : PackedScene = preload("res://Resources/Particles/ImpactParticles.tscn")
+@export var floating_damage : PackedScene
+
+@export_group("Sound Effects")
 @export var attackSFX : AudioStream
 @export var hurtSFX : AudioStream
 
 func _ready() -> void:
-
+	
+	hitbox.shape.shape.radius = hitboxRadius
 	if Engine.is_editor_hint() == false:
 		hurtbox.setup(stats)
 		hitbox.setup(stats)
-		hitbox.shape.shape.radius = hitboxRadius
+		stats.setup(self)
 
 	match actor_Type:
 
@@ -45,10 +56,32 @@ func set_hitbox_active_state(value : bool):
 	if Engine.is_editor_hint() == false:
 		hitbox.active(hitbox_state)
 
-func _on_hitbox_area_entered(area:Area2D) -> void:
-	area.take_damage(area, hitbox.stats.damage, hurtSFX,
+func _on_hitbox_area_entered(hurtbox:Area2D) -> void:
+
+	if stats.is_invincible:
+		return
+
+	hurtbox.take_damage(stats.damage, hurtSFX,
 		-hitbox.knockBack_vector.normalized())
+
+	if floating_damage != null:
+		var textNode = floating_damage.instantiate()
+		hurtbox.add_sibling(textNode)
+		textNode.set_text(stats.damage)
+		textNode.global_position = hurtbox.global_position + Vector2(0 , -5)	
+
+	if impact_particles != null:
+		var particles = impact_particles.instantiate()
+		add_sibling(particles)
+		particles.global_position = hurtbox.global_position
+		particles.emitting = true
+		particles.direction = hitbox.knockBack_vector * 8
+		particles.queue_deletion()
+
+
 	hitbox.play(attackSFX)
+	hitbox.set_hitted_state(true)
 
 	if onHitEvent != null:
 		onHitEvent.raise_event()
+		

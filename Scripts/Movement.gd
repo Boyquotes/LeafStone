@@ -1,42 +1,39 @@
 extends Node2D
 class_name Movement
 
-@export var acceleration = 1000
-@export var friction = 1000
-var tick = 0
+@export var seconds = 0.15
+@export var secondsMaxSpeed = 0.3
+@export var friction = 300
 var body: CharacterBody2D
+var accelerated = false
+var tick = 0.0
 
 func setup(_body: CharacterBody2D):
 	body = _body
+	accelerated = false
 
-func _physics_process(delta):
+func _physics_process(delta: float) -> void:
 	tick = delta
 
 func move(input_vector: Vector2):
-	# move_easing(input_vector, body.max_speed)
 
-	body.velocity = body.velocity.move_toward(input_vector * body.max_speed, acceleration * tick)
+	if accelerated == false:
+		accelerated = true
+		body.max_speed = 8
+		var tween = create_tween().set_trans(Tween.TRANS_CUBIC)
+		tween.tween_property(body, "max_speed", 32, seconds).set_ease(Tween.EASE_IN)
+		tween.tween_property(body, "max_speed", 44, secondsMaxSpeed).set_ease(Tween.EASE_OUT)
+		
+	body.velocity = body.max_speed * input_vector
 	body.move_and_slide()
-	
-	if input_vector.length() > 0:
-		body.velocity = body.velocity.move_toward(Vector2.ZERO, friction * tick)
-
-# func move_easing(desired_velocity, speed):
-# 	# var movementTweener = create_tween().set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
-# 	# movementTweener.tween_property(body, "velocity", desired_velocity * speed, tick)
-# 	body.set_velocity(body.velocity)
-# 	body.move_and_slide()
-
-#Movement code for 2D TOpdown view
-
-
 
 func stop_movement():
-	body.velocity = Vector2.ZERO
+	body.velocity = body.velocity.move_toward(Vector2.ZERO, friction * tick)
+	body.move_and_slide()
+	accelerated = false
 
-func impulse(desired_velocity, multiplier = 1):
-	body.velocity = desired_velocity * multiplier
-	body.set_velocity(body.velocity)
+func impulse(direction, scaler = 1):
+	body.velocity = direction * scaler
 	body.move_and_slide()
 
 func is_moving() -> bool:

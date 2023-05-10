@@ -1,0 +1,40 @@
+res://addons/AsepriteWizard/animated_sprite/docks/wizard_nodes/import_date.tscn::d6a4d9fc86b84c0a33fd480b8eba1731::1677899937::res://.godot/exported/133200997/export-86b52f3bb665097bcecb637db30980a8-import_date.scn
+res://addons/AsepriteWizard/animated_sprite/docks/wizard_nodes/list_actions.tscn::b51b25ceb8f4aa8ea7433949e085030f::1677899937::res://.godot/exported/133200997/export-6c233fc273724f71e6d0c25b3b98b119-list_actions.scn
+res://addons/AsepriteWizard/animated_sprite/docks/wizard_nodes/output_path.tscn::0ccfdb184d2c65af6c2e9ffee3358e60::1677899937::res://.godot/exported/133200997/export-216b3756c748e44eb1fd0b2faf08a090-output_path.scn
+res://addons/AsepriteWizard/animated_sprite/docks/wizard_nodes/source_path.tscn::088c34ab72a8cf9399da2acc016335a0::1677899937::res://.godot/exported/133200997/export-b6b5a40ecdbc1c91710a862bdaceea40-source_path.scn
+res://addons/AsepriteWizard/animated_sprite/docks/animated_sprite_inspector_dock.tscn::42e80b4271f927772361f710abf9fe2e::1677899937::res://.godot/exported/133200997/export-f50879f23bb4f431ebb17746b876cd07-animated_sprite_inspector_dock.scn
+res://addons/AsepriteWizard/animated_sprite/docks/as_wizard_dock_container.tscn::c941fef850a79a218a12d9cb49c8a4a4::1677899937::res://.godot/exported/133200997/export-c9c04b03dc59ec78a7e97ed72b409cbe-as_wizard_dock_container.scn
+res://addons/AsepriteWizard/animated_sprite/docks/as_wizard_window.tscn::4d7c47eb8769448c64ada0a93b1a30d6::1677899937::res://.godot/exported/133200997/export-6239cc58fe21444d95c20faefe3069c2-as_wizard_window.scn
+res://addons/AsepriteWizard/animated_sprite/docks/sprite_frames_import_history.tscn::d8326d0d5a8b1fdb4b38f85428327ec8::1677899937::res://.godot/exported/133200997/export-4cfdbb063dbfd4ff9870153a1c7e367e-sprite_frames_import_history.scn
+res://addons/AsepriteWizard/animation_player/docks/animation_player_inspector_dock.tscn::e70281039efb282c39672cad2619a838::1677899937::res://.godot/exported/133200997/export-cdf6884717ea5737f19997c1885b8bfd-animation_player_inspector_dock.scn
+res://addons/AsepriteWizard/config/config_dialog.tscn::10f0a91e9f7e1d3e75c710c212466fd0::1677899937::res://.godot/exported/133200997/export-a0f27e14ae530993ecc493e2339c0c90-config_dialog.scn
+res://Hitboxes/Hitbox.tscn::a63f0f020d5c782aeed36fe3232439dd::1683561800::res://.godot/exported/133200997/export-07ea8961fccf2eefdb07f19aa0bc0526-Hitbox.scn
+res://Hitboxes/Hurtbox.tscn::52532695a6482d75e987565d431a6a9c::1681017803::res://.godot/exported/133200997/export-30a16955c244e59107f72595b0686ed9-Hurtbox.scn
+res://Hitboxes/SlimeHitbox.tscn::c08dff104d3b8a04a3f2e361e4b7601f::1680681141::res://.godot/exported/133200997/export-8622ffab04d35c2001fbde723b5d182e-SlimeHitbox.scn
+res://Hitboxes/SoftCollision.tscn::cb278dab75178a3d9aece32252af0f7e::1680210332::res://.godot/exported/133200997/export-9ab3094aa5030b2dedb5cb2a10e16e4f-SoftCollision.scn
+res://Resources/Fonts/font_main_menu.tres::b49cb9c61b1564b0e86d729685446df2::1683561537::res://.godot/exported/133200997/export-55e5148df3cfaf91970b0b2f85b21faf-font_main_menu.res
+res://Resources/Particles/ImpactParticles.tscn::b8cb2026b0a8ffb9998e28889b10fdc2::1683561800::res://.godot/exported/133200997/export-ed40927db456acde48346c33550d0c65-ImpactParticles.scn
+res://Scenes/2DScene.tscn::04935c8769f3c89d442adaca1166c157::1669653479::res://.godot/exported/133200997/export-775df4f415592a049af6d6b69f8c0ecf-2DScene.scn
+res://Scenes/Buffon.tscn::ccde9fb5e0189955f18af50c0bb72231::1669653479::res://.godot/exported/133200997/export-f2e4ce50bb75886d46c62091e043962f-Buffon.scn
+res://Scenes/CombatSystem.tscn::db5fa22996b2e3d0b20c21f92a6fb72f::1683561800::res://.godot/exported/133200997/export-2e4531ea0ee8b778af806310125b0485-CombatSystem.scn
+res://Scenes/DetentionArea.tscn::2bcabf73f9aa6a29811d28b36a9a5c9c::1680391915::res://.godot/exported/133200997/export-faba4780316b77ef867bd357499ad83a-DetentionArea.scn
+res://Scenes/Enemy.tscn::3938384a6e15d746d57ed4bea79f4a14::1683561800::res://.godot/exported/133200997/export-b62ce0eb0da9366804eacfbf851dbe37-Enemy.scn
+res://Scenes/ExtendedTimer.tscn::2aa7c5df2c2191d5665d692f7f7fe638::1680391915::res://.godot/exported/133200997/export-7e04cd0e44780bab31e790c10e00973d-ExtendedTimer.scn
+res://Scenes/FloatingText.tscn::b7c3d21892c46fa98c20434e263096a9::1683543213::res://.godot/exported/133200997/export-5665202fdacc5ba18d1e759d48083925-FloatingText.scn
+res://Scenes/InteractableObject.tscn::76586923e6921b5dc676f6aa2c4431dc::1683461977::res://.godot/exported/133200997/export-7d14e03d6dcfa5978b9f84acec254180-InteractableObject.scn
+res://Scenes/level.tscn::f7a93d32b65760652f11bcdab8a291b2::1683561799::res://.godot/exported/133200997/export-509c53c765b75d897e8314a88ec6c376-level.scn
+res://Scenes/Movement.tscn::892e1d9e978afb7ab1541e445248a540::1683461977::res://.godot/exported/133200997/export-762d0643c2febf67705be655eafd1e9a-Movement.scn
+res://Scenes/PlayerGUI.tscn::4ba7ecdacc003a6071be2ec321222437::1683406793::res://.godot/exported/133200997/export-035b7abd0645b0f218c16a2c3bdb7315-PlayerGUI.scn
+res://Scenes/Sensor.tscn::052f1467aead0369fce64f5ba73c66bc::1680668089::res://.godot/exported/133200997/export-10e066f2fd17bc05392535cdf644d4af-Sensor.scn
+res://Scenes/slow_motion.tscn::aafd867c71a5882aa1042d3a664c2634::1683542082::res://.godot/exported/133200997/export-55b086c936c63a1c2391d310b952d9ad-slow_motion.scn
+res://Scenes/Stats.tscn::3c554d010f6544e6f052fee399dae9aa::1682953771::res://.godot/exported/133200997/export-ed210a30bb26d66a199ecc2d26dd671b-Stats.scn
+res://Scenes/virtual_joystick.tscn::14b757ba2ba58dd66cd5954d56ab245c::1670099565::res://.godot/exported/133200997/export-f99a6b9acea55a05e961664c54cdfca7-virtual_joystick.scn
+res://Scripts/Attacks/AttackBehaviorResources/MeleeAttackBehaviorResource.tres::32a97215bcf910a7559160e661729b08::1682968930::res://.godot/exported/133200997/export-74595f50723d07e595c5812d98770206-MeleeAttackBehaviorResource.res
+res://Scripts/Attacks/AttackBehaviorResources/RangeAttackBehaviorResource.tres::506d4811ea13a628e9f10ec08920e676::1682968930::res://.godot/exported/133200997/export-29fbf9730c1a4959d10fb608c8f9df33-RangeAttackBehaviorResource.res
+res://Scripts/Attacks/AttackBehaviorResources/SlimeMeleeAttackResource.tres::fcc1992fe85d669627977a736cc0d894::1682968930::res://.godot/exported/133200997/export-f2e4f8bf68c45d576b912ccc81fb4957-SlimeMeleeAttackResource.res
+res://Scripts/Events/Event Assets/OnHitboxEvent.tres::860650cf073e937d761e8ab0f9156f6d::1683066151::res://.godot/exported/133200997/export-47c6b3f8c81ccb6b1e741d2a8a9bab04-OnHitboxEvent.res
+res://Scripts/Events/Event Assets/OnPlayerHealthChanged.tres::425058beb7d800a668532c7c529b3365::1682955152::res://.godot/exported/133200997/export-a6aaa0f4bc603f2f8c1c0cdbefef44c0-OnPlayerHealthChanged.res
+res://Scripts/Test Code/MusicManager.tscn::5841f898062a7080cfc589c71841298e::1683541872::res://.godot/exported/133200997/export-62084a5579609b1e231b268fa7bdaae6-MusicManager.scn
+res://Sounds/default_bus_layout.tres::fe9e67db23ff96774de934bd9eec9146::1669653479::res://.godot/exported/133200997/export-8cca35a579ccdb15f3fab0551119994c-default_bus_layout.res
+res://MainMenu.tscn::85e97cf045e42031bd7b876aeb2debe2::1683561800::res://.godot/exported/133200997/export-e20540a8a37e906f11cb1dae59cc6ed4-MainMenu.scn
+res://TouchControls.tscn::71ae9422a62b2af7da90464f92ed4656::1683561800::res://.godot/exported/133200997/export-7b33886e3dc36bc4cea5b2675280279e-TouchControls.scn

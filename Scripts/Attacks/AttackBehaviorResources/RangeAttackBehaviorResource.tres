@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="RangeAttackBehavior" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://Scripts/Attacks/AttackScripts/RangeAttackBehavior.gd" id="1_mr5bm"]
+
+[resource]
+script = ExtResource("1_mr5bm")
+attack_range = 150.0
+fire_rate = 1.0
+projectile_speed = 200.0
