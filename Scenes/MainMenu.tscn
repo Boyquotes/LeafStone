@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://c1fna347lwydd"]
 
-[ext_resource type="Texture2D" uid="uid://dfi601i50xjuq" path="res://Game Art/IMG_6094.png" id="1_jbgv0"]
+[ext_resource type="Script" path="res://Scripts/GUI Code/MainMenu.gd" id="1_j4qw3"]
 [ext_resource type="SystemFont" uid="uid://chfudauwrvn5a" path="res://Resources/Fonts/font_main_menu.tres" id="2_dg5qi"]
 [ext_resource type="Texture2D" uid="uid://3llgtp7bbgts" path="res://Game Art/Test Art/AsepriteGodot.png" id="3_q20ap"]
 
@@ -14,7 +14,7 @@ font_italic = true
 font = SubResource("SystemFont_nalc4")
 font_size = 8
 
-[node name="Panel" type="Control"]
+[node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -23,20 +23,8 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+script = ExtResource("1_j4qw3")
 metadata/_edit_use_anchors_ = true
-
-[node name="TextureRect" type="TextureRect" parent="."]
-visible = false
-modulate = Color(1, 0.639216, 0.639216, 0.439216)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_jbgv0")
-expand_mode = 4
-stretch_mode = 4
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -81,6 +69,7 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="StartBtn" type="Button" parent="MarginContainer/CenterContainer/HBoxContainer/VBoxContainer/MarginContainer/MenuOptions"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_dg5qi")
 theme_override_font_sizes/font_size = 8
@@ -88,6 +77,7 @@ text = "Start
 "
 
 [node name="OptionsBtn" type="Button" parent="MarginContainer/CenterContainer/HBoxContainer/VBoxContainer/MarginContainer/MenuOptions"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_dg5qi")
 theme_override_font_sizes/font_size = 8
@@ -95,6 +85,7 @@ text = "Options
 "
 
 [node name="QuitBtn" type="Button" parent="MarginContainer/CenterContainer/HBoxContainer/VBoxContainer/MarginContainer/MenuOptions"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
 text = "Quit
@@ -175,7 +166,6 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-visible = false
 position = Vector2(150, 1)
 amount = 25
 lifetime = 3.0

@@ -5,6 +5,7 @@ class_name Stats
 signal HealthChanged(amount)
 signal Damaged(amount)
 signal Healed(amount)
+signal Dead()
 
 @export var maxHealth = 10
 var currentHealth: int
@@ -43,7 +44,7 @@ func set_health(value):
 	currentHealth = clamp( currentHealth, 0, maxHealth)
 
 	if is_dead():
-		# emit_signal("Dead")
+		emit_signal("Dead")
 		pass
 
 	if currentHealth != previousHealth:

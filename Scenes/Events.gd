@@ -11,16 +11,10 @@ var state = camera_State.normal
 var actorDetected = false
 var actors = []
 
-# var contador: float
 var segundos: float
 
 func _process(delta):
 
-	# contador -= delta
-
-	# if contador >= 0:
-	# 	contador = segundos
-	# 	print("El contador ha terminado, aqui ocurre la magia!!!!!")
 
 	if actorDetected:
 		detected = true

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cywytyh4ikeqa"]
+
+[ext_resource type="Texture2D" uid="uid://cjy1l6jxpqi2c" path="res://UIElements/Combat Indicator.png" id="1_c58ea"]
+
+[node name="Indicator" type="Node2D"]
+
+[node name="Sprite" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(0, -4)
+texture = ExtResource("1_c58ea")

@@ -1,9 +1,11 @@
-Node2D
+WorldEnvironment
+PointLight2D
+Sprite2D
+Camera2D
 Node
+Node2D
 MarginContainer
 CanvasModulate
-PointLight2D
-WorldEnvironment
 ExtendedAudioStreamPlayer
 Timer
 HBoxContainer
@@ -18,7 +20,6 @@ GridContainer
 VSeparator
 Label
 Button
-Sprite2D
 AnimatedSprite2D
 RichTextLabel
 MeshInstance3D
@@ -29,4 +30,3 @@ EnemyAttackState
 EnemyState
 Entity
 StateMachine
-Movement

@@ -3,6 +3,7 @@ extends PlayerState
 
 func enter(_msg := {}) -> void:
 	entity.movement.stop_movement()
+	entity.playback.travel("Idle")
 	#Continue with the code from here.
 
 func perform_update(_delta: float) -> void:
@@ -24,8 +25,6 @@ func perform_update(_delta: float) -> void:
 
 func perform_physics_update(_delta: float) -> void:
 	
-	# entity.firstMove = false
-	entity.playback.travel("Idle")
 	entity.movement.stop_movement()
 
 	if entity.input_vector != Vector2.ZERO:

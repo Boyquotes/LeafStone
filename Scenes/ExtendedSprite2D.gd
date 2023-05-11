@@ -1,18 +1,12 @@
 extends Sprite2D
 class_name ExtendedSprite2D
 
-@export var onHitEvent : VoidGameEvent
-
 func flip(direction: Vector2):
 
 	if direction.x > 0: 
 		flip_h = false
 	elif direction.x < 0:
 		flip_h = true
-
-func _ready() -> void:
-	if onHitEvent != null:
-		onHitEvent.OnEventHappen.connect(func(): squatch())
 
 func squatch():
 	var tween = create_tween()

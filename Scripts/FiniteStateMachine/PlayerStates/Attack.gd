@@ -1,6 +1,6 @@
 extends PlayerState
 
-@export var attackImpulse = 1.0
+@export var attackImpulseWhenNoEnemies = 20
 @export var scaler = 1.4
 @export var seconds = 0.1
 var hitCounter = 0
@@ -23,40 +23,31 @@ func attack():
 
 	entity.sprite.flip(entity.attackDirection)
 	
-		# Attack Logic
+	# Attack Logic
 	var closeEnemy = entity.sensor.find_closest_enemy()
 	var distance = 0
 	if closeEnemy != null:
 		distance = entity.global_position.distance_to(closeEnemy.global_position)
 
-	#Modificar que la velocidad se vea afectada tambien con que tal cerca estamos
 	if entity.attack_redirect:
-		if !entity.attacked:
+		if !entity.attacked: #if havent adjust the attack, then adjust and mark it as true to avoid repeating.
 			entity.attacked = true
 			entity.attack_adjusment()
-		if entity.gap_closer_attack:
-			entity.attack_impulse_distance(distance)
 		else:
 			entity.animationTree.advance(entity.attackAnimSpeed)
 
-	#stop behaviour at hitting
+	#En caso de no golpear.
 	if !entity.combatSystem.hitbox.hitted:
-		if entity.attackingFromDinstance:
-			entity.movement.impulse(entity.impulseDirection.normalized() * distance * entity.attackScaler) #mantener con input_vector
-		else:
-			if closeEnemy:
-				entity.movement.impulse(entity.impulseDirection.normalized() * distance * 1.4) #mantener con input_vector
-				await get_tree().create_timer(seconds).timeout
-				entity.movement.stop_movement() #mantener con input_vector
-			else:
-				entity.movement.impulse(entity.impulseDirection.normalized() * attackImpulse) #mantener con input_vector
-				# await get_tree().create_timer(seconds).timeout
-				# entity.movement.stop_movement() #mantener con input_vector
+		if entity.facing:
+			entity.movement.impulse(entity.impulseDirection.normalized() * distance * scaler) 
+			await get_tree().create_timer(seconds).timeout
+			entity.movement.stop_movement() 
+		else: #Si no hay enemigo en el area entonces se procede a no avanzar mucho.
+			entity.movement.impulse(entity.impulseDirection.normalized() * attackImpulseWhenNoEnemies)
 
+	#En caso de golpear.
 	elif entity.combatSystem.hitbox.hitted:
-		if entity.attackingFromDinstance:
-			entity.movement.impulse(entity.impulseDirection.normalized() * -entity.knockback_strenght)
-			entity.combatSystem.slowMotion.start_slow_motion()
-		else:
-			entity.movement.impulse(entity.attackDirection.normalized() * -2)
-			# entity.combatSystem.slowMotion.start_slow_motion()
+		entity.movement.impulse(entity.attackDirection.normalized() * -2)
+
+func exit():
+	entity.attacked = false

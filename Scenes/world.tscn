@@ -1,8 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://b68tfcetjf8gq"]
+[gd_scene load_steps=11 format=3 uid="uid://b68tfcetjf8gq"]
 
 [ext_resource type="PackedScene" uid="uid://dnulbmdktglfe" path="res://Scenes/Player.tscn" id="1"]
 [ext_resource type="Script" path="res://Scripts/world.gd" id="3"]
-[ext_resource type="Texture2D" uid="uid://cbuk3cuig61nk" path="res://Game Art/light .png" id="3_5hrxm"]
 [ext_resource type="Texture2D" uid="uid://drcghmsqni4uw" path="res://Game Art/Character/Enthraz Adult.png" id="5_bankf"]
 [ext_resource type="Script" path="res://Scenes/GUIManager.gd" id="6"]
 [ext_resource type="PackedScene" uid="uid://bf81kthme77fj" path="res://Scenes/PlayerGUI.tscn" id="8"]
@@ -11,8 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://gfbiiq4w601g" path="res://Scenes/Enemy.tscn" id="9_t0sq7"]
 [ext_resource type="Texture2D" uid="uid://bf1cbqw8c2nqv" path="res://Game Art/Animacion idle mujer-Sheet.png" id="10_g16h5"]
 [ext_resource type="Script" path="res://Scenes/PauseNode.gd" id="11"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_dd2vg"]
 
 [node name="Game" type="Node2D"]
 process_mode = 1
@@ -25,23 +22,6 @@ script = ExtResource("3")
 
 [node name="Player" parent="world" instance=ExtResource("1")]
 position = Vector2(209, 103)
-closeAttack = 60
-maxRangedAttack = 100
-
-[node name="PointLight2D" type="PointLight2D" parent="world/Player"]
-visible = false
-scale = Vector2(0.5, 0.5)
-energy = 0.6
-texture = ExtResource("3_5hrxm")
-
-[node name="PointLight2D2" type="PointLight2D" parent="world/Player"]
-visible = false
-scale = Vector2(0.3, 0.3)
-energy = 0.6
-texture = ExtResource("3_5hrxm")
-
-[node name="Trees" type="Node2D" parent="world"]
-y_sort_enabled = true
 
 [node name="InteractableObject" parent="world" instance=ExtResource("8_povyu")]
 y_sort_enabled = true
@@ -50,7 +30,6 @@ position = Vector2(374, 93)
 [node name="Level" parent="world" instance=ExtResource("9_fmmhj")]
 
 [node name="Sprite2D" type="Sprite2D" parent="world"]
-material = SubResource("ShaderMaterial_dd2vg")
 position = Vector2(278, 106)
 scale = Vector2(1.1, 1.1)
 texture = ExtResource("5_bankf")
@@ -68,7 +47,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="PauseNode" type="Control" parent="GUI/PauseMenu"]
-process_mode = 2
 layout_mode = 2
 anchors_preset = 0
 anchor_right = 1.0
@@ -124,42 +102,52 @@ text = "Quit"
 
 [node name="Slime" parent="." instance=ExtResource("9_t0sq7")]
 position = Vector2(376, 234)
+attackBehaviour = null
 secToAttack = 2
 
 [node name="Slime2" parent="." instance=ExtResource("9_t0sq7")]
 position = Vector2(411, 199)
+attackBehaviour = null
 secToAttack = 2
 
 [node name="Slime3" parent="." instance=ExtResource("9_t0sq7")]
 position = Vector2(1011, 242)
+attackBehaviour = null
 secToAttack = 2
 
 [node name="Slime4" parent="." instance=ExtResource("9_t0sq7")]
 position = Vector2(832, 232)
+attackBehaviour = null
 secToAttack = 2
 
 [node name="Slime5" parent="." instance=ExtResource("9_t0sq7")]
 position = Vector2(867, 197)
+attackBehaviour = null
 secToAttack = 2
 
 [node name="Slime6" parent="." instance=ExtResource("9_t0sq7")]
 position = Vector2(788, 234)
+attackBehaviour = null
 secToAttack = 2
 
 [node name="Slime7" parent="." instance=ExtResource("9_t0sq7")]
 position = Vector2(833, 97)
+attackBehaviour = null
 secToAttack = 2
 
 [node name="Slime8" parent="." instance=ExtResource("9_t0sq7")]
 position = Vector2(868, 62)
+attackBehaviour = null
 secToAttack = 2
 
 [node name="Slime9" parent="." instance=ExtResource("9_t0sq7")]
 position = Vector2(789, 99)
+attackBehaviour = null
 secToAttack = 2
 
 [node name="Slime10" parent="." instance=ExtResource("9_t0sq7")]
 position = Vector2(986, 275)
+attackBehaviour = null
 secToAttack = 2
 
 [node name="AnimacionIdleMujer-sheet" type="Sprite2D" parent="."]

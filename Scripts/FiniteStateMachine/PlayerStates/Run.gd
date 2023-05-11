@@ -4,16 +4,18 @@ extends PlayerState
 @export var runSFX : AudioStream
 
 func enter(_msg := {}) -> void:
-	
 	entity.combatSystem.hitbox.set_hitted_state(false)
+	entity.playback.travel("Run")
 
 func perform_update(delta: float) -> void:
+
 	if Input.is_action_just_pressed("dash"):
 		state_machine.transition_to("Dash")
 		
 	if not entity.movement.is_moving():
 		state_machine.transition_to("Idle")	
 
+	entity.sprite.flip(entity.input_vector)
 
 	if entity.playback.get_current_node() != "FirstAttack" or entity.playback.get_current_node() != "SecondAttack":
 		if entity.combatSystem.stats.is_dead() and entity.playback.get_current_node() == "Hurt":
@@ -26,8 +28,6 @@ func perform_update(delta: float) -> void:
 				entity.playback.travel("SecondAttack")
 	
 func perform_physics_update(delta: float) -> void:
-
-	entity.playback.travel("Run")
 
 	entity.attackDirection = entity.input_vector.normalized()
 	entity.impulseDirection = entity.input_vector.normalized()

@@ -1,7 +1,8 @@
-[gd_scene load_steps=82 format=3 uid="uid://dnulbmdktglfe"]
+[gd_scene load_steps=84 format=3 uid="uid://dnulbmdktglfe"]
 
 [ext_resource type="Script" path="res://Scripts/Camera2D.gd" id="1"]
 [ext_resource type="Script" path="res://Scripts/Entities/Player.gd" id="1_fgot0"]
+[ext_resource type="PackedScene" uid="uid://cywytyh4ikeqa" path="res://indicator.tscn" id="2_7rym5"]
 [ext_resource type="Script" path="res://Scripts/FiniteStateMachine/StateMachine.gd" id="2_pps7q"]
 [ext_resource type="Script" path="res://Scenes/ExtendedSprite2D.gd" id="3_c8ik2"]
 [ext_resource type="Script" path="res://Scripts/FiniteStateMachine/PlayerStates/Idle.gd" id="5_p4oxe"]
@@ -11,6 +12,7 @@
 [ext_resource type="Script" path="res://Scripts/FiniteStateMachine/PlayerStates/Attack.gd" id="7_ojpff"]
 [ext_resource type="Script" path="res://Scripts/CombatSystem.gd" id="9_l3ywh"]
 [ext_resource type="Resource" path="res://Scripts/Events/Event Assets/OnHitboxEvent.tres" id="9_n4e4o"]
+[ext_resource type="Script" path="res://Scripts/FiniteStateMachine/PlayerStates/Dead.gd" id="9_xxa4d"]
 [ext_resource type="AudioStream" uid="uid://drvnyxdaqjgg6" path="res://Sounds/ES_The Sanctuary Within - Erasmus Talbot.wav" id="10"]
 [ext_resource type="PackedScene" path="res://Scenes/FloatingText.tscn" id="10_8lu8t"]
 [ext_resource type="Script" path="res://Scripts/Scene music.gd" id="11"]
@@ -110,6 +112,7 @@ blend_point_7/node = SubResource("160")
 blend_point_7/pos = Vector2(0.5, 0.6)
 min_space = Vector2(-1, -1.1)
 max_space = Vector2(1, 1.1)
+snap = Vector2(0.1, 0.01)
 blend_mode = 1
 
 [sub_resource type="AnimationNodeAnimation" id="132"]
@@ -215,7 +218,7 @@ states/SecondAttack/node = SubResource("157")
 states/SecondAttack/position = Vector2(334.097, -103.102)
 states/Start/position = Vector2(522.458, 154.5)
 transitions = ["Idle", "Run", SubResource("26"), "Run", "Idle", SubResource("27"), "FirstAttack", "Idle", SubResource("66"), "Idle", "Dead", SubResource("80"), "Run", "Dash", SubResource("114"), "Dash", "Idle", SubResource("118"), "Idle", "Hurt", SubResource("133"), "Hurt", "Idle", SubResource("134"), "Run", "FirstAttack", SubResource("64"), "Run", "SecondAttack", SubResource("158"), "SecondAttack", "Idle", SubResource("159"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_j47vf"), "Dead", "End", SubResource("AnimationNodeStateMachineTransition_4ctwm")]
-graph_offset = Vector2(122.218, -147.169)
+graph_offset = Vector2(164.278, -76.924)
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="31"]
 
@@ -228,7 +231,7 @@ tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.4),
+"times": PackedFloat32Array(0.5),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -331,7 +334,7 @@ tracks/8/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.3, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [52, 56, 57, 58]
+"values": [51, 55, 56, 57]
 }
 
 [sub_resource type="Animation" id="102"]
@@ -344,7 +347,7 @@ tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.4),
+"times": PackedFloat32Array(0.5),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -375,7 +378,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-12, 0)]
+"values": [Vector2(-16, 0)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -447,7 +450,7 @@ tracks/8/keys = {
 "times": PackedFloat32Array(0, 0.08, 0.16, 0.24, 0.32, 0.4, 0.48),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [20, 34, 22, 35, 36, 37, 38]
+"values": [20, 34, 22, 35, 36, 37, 26]
 }
 
 [sub_resource type="Animation" id="103"]
@@ -460,7 +463,7 @@ tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.4),
+"times": PackedFloat32Array(0.5),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -563,7 +566,7 @@ tracks/8/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.3, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [52, 53, 54, 55]
+"values": [51, 52, 53, 54]
 }
 
 [sub_resource type="Animation" id="104"]
@@ -679,7 +682,7 @@ tracks/8/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.3, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [44, 45, 46, 47]
+"values": [43, 44, 45, 46]
 }
 
 [sub_resource type="Animation" id="90"]
@@ -691,7 +694,7 @@ tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.4),
+"times": PackedFloat32Array(0.5),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -734,7 +737,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(12, 0)]
+"values": [Vector2(16, 0)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -909,7 +912,7 @@ tracks/8/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.3, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [48, 49, 50, 51]
+"values": [47, 48, 49, 50]
 }
 
 [sub_resource type="Animation" id="92"]
@@ -1024,7 +1027,7 @@ tracks/8/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.3, 0.4, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": [39, 40, 41, 42, 43]
+"values": [38, 39, 40, 41, 42]
 }
 
 [sub_resource type="Animation" id="45"]
@@ -1140,7 +1143,7 @@ tracks/8/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.3, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [52, 59, 60, 61]
+"values": [51, 58, 59, 60]
 }
 
 [sub_resource type="Animation" id="112"]
@@ -1295,7 +1298,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [62, 63, 64]
+"values": [61, 62, 63]
 }
 
 [sub_resource type="Animation" id="Animation_t0ff0"]
@@ -1359,7 +1362,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [65, 65, 66, 67, 68, 68, 68, 68, 68, 66, 65, 65]
+"values": [64, 64, 65, 66, 67, 67, 67, 67, 67, 65, 64, 64]
 }
 
 [sub_resource type="Animation" id="Animation_01q8y"]
@@ -1462,7 +1465,7 @@ tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.4),
+"times": PackedFloat32Array(0.5),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -1493,7 +1496,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-12, 0)]
+"values": [Vector2(-16, 0)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -1602,7 +1605,7 @@ tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.4),
+"times": PackedFloat32Array(0.5),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -1645,7 +1648,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(12, 0)]
+"values": [Vector2(16, 0)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -1761,6 +1764,7 @@ position = Vector2(0, -1)
 collision_layer = 2
 script = ExtResource("1_fgot0")
 attack_redirect = true
+indicator = ExtResource("2_7rym5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 light_mask = 8
@@ -1770,7 +1774,7 @@ texture = ExtResource("19_gtkjp")
 offset = Vector2(1, -8)
 hframes = 9
 vframes = 8
-frame = 52
+frame = 27
 region_rect = Rect2(512, 384, 64, 64)
 script = ExtResource("3_c8ik2")
 metadata/_aseprite_wizard_config_ = {
@@ -1800,8 +1804,11 @@ script = SubResource("GDScript_wbwec")
 
 [node name="Attack" type="Node" parent="StateMachine"]
 script = ExtResource("7_ojpff")
-attackImpulse = 20.0
-scaler = 2.0
+attackImpulseWhenNoEnemies = 25
+scaler = 0.8
+
+[node name="Dead" type="Node" parent="StateMachine"]
+script = ExtResource("9_xxa4d")
 
 [node name="CombatSystem" type="Node2D" parent="."]
 z_index = 1

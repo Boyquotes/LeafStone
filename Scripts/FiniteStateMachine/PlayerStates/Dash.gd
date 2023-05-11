@@ -4,7 +4,6 @@ extends PlayerState
 @export var cooldown = 4
 
 func enter(_msg := {}) -> void:
-
 	entity.playback.travel("Dash")
 	
 	var dashLenght = entity.playback.get_current_length()
