@@ -31,6 +31,8 @@ func _ready():
 	animationTree.active = true
 	combatSystem.stats.Dead.connect(func(): stateMachine.transition_to("Dead"))
 
+
+	#Move this to the an own script in the combat system.
 	uiIndicator = indicator.instantiate() as Node2D
 	self.add_child(uiIndicator)
 	uiIndicator.global_position = global_position
@@ -83,7 +85,7 @@ func indicatorUpdate(entity : CollisionObject2D):
 	uiIndicator.visible = true
 
 func attack_adjusment():
-	var closestEnemies = $Sensor.find_closest_enemy_angle(attackDirection)
+	var closestEnemies = $Sensor.find_closest_enemy_vision_cone(attackDirection)
 	var savedDir = attackDirection
 
 	if closestEnemies == null:
@@ -91,8 +93,8 @@ func attack_adjusment():
 		attackDirection = savedDir
 		return
 
-	var enemyDir = closestEnemies["enemyDir"]
-	var angle = closestEnemies["angle"]
+	var enemyDir = closestEnemies.global_position - global_position
+	var angle = sensor.calculate_angle(attackDirection, closestEnemies)
 
 	if angle > 0 and angle < 45:
 		facing = true

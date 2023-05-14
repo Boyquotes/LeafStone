@@ -1,22 +1,6 @@
-res://Scripts/FiniteStateMachine/PlayerStates/Dead.gd
-res://Scenes/Sensor.gd
-res://Scenes/MainMenu.tscn
-res://Scripts/Scene music.gd
-res://Resources/Fonts/font_main_menu.tres
-res://Scenes/world.tscn
-res://Scenes/Player.tscn
-res://Scenes/Enemy.tscn
-res://addons/vision_cone_2d/examples/enemy.tscn
-res://indicator.tscn
 res://Scripts/Entities/Player.gd
 res://Scripts/FiniteStateMachine/PlayerStates/Attack.gd
-res://Scripts/FiniteStateMachine/State.gd
-res://Scripts/Entities/Entity.gd
-res://Scripts/Entities/Enemy.gd
-res://Scripts/world.gd
-res://Scripts/Joystick.gd
-res://open_external_editor.gd
-res://export_presets.cfg
-res://Scripts/FiniteStateMachine/PlayerStates/Dash.gd
-res://Scripts/virtual_joystick.gd
-res://Hitboxes/Hitbox.gd
+res://Scenes/world.tscn
+res://Scripts/Scene music.gd
+res://Scenes/Player.tscn
+res://indicator.tscn
