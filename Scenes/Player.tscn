@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/Camera2D.gd" id="1"]
 [ext_resource type="Script" path="res://Scripts/Entities/Player.gd" id="1_fgot0"]
-[ext_resource type="PackedScene" uid="uid://cywytyh4ikeqa" path="res://indicator.tscn" id="2_7rym5"]
+[ext_resource type="PackedScene" uid="uid://dk7tq4jv2qijk" path="res://indicator.tscn" id="2_7rym5"]
 [ext_resource type="Script" path="res://Scripts/FiniteStateMachine/StateMachine.gd" id="2_pps7q"]
 [ext_resource type="Script" path="res://Scenes/ExtendedSprite2D.gd" id="3_c8ik2"]
 [ext_resource type="Script" path="res://Scripts/FiniteStateMachine/PlayerStates/Idle.gd" id="5_p4oxe"]
@@ -1764,7 +1764,6 @@ position = Vector2(0, -1)
 collision_layer = 2
 script = ExtResource("1_fgot0")
 attack_redirect = true
-indicator = ExtResource("2_7rym5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 light_mask = 8
@@ -1805,7 +1804,7 @@ script = SubResource("GDScript_wbwec")
 [node name="Attack" type="Node" parent="StateMachine"]
 script = ExtResource("7_ojpff")
 attackImpulseWhenNoEnemies = 25
-scaler = 0.8
+scaler = 0.9
 
 [node name="Dead" type="Node" parent="StateMachine"]
 script = ExtResource("9_xxa4d")
@@ -1816,12 +1815,12 @@ position = Vector2(0, -6)
 script = ExtResource("9_l3ywh")
 onHitEvent = ExtResource("9_n4e4o")
 actor_Type = 1
-hitboxRadius = 20.0
+hitboxRadius = 24.0
 floating_damage = ExtResource("10_8lu8t")
 attackSFX = ExtResource("11_6uot8")
 
 [node name="HurtBox" parent="CombatSystem" instance=ExtResource("12_d8lda")]
-position = Vector2(0, 4)
+position = Vector2(1, -1)
 
 [node name="HitBox" parent="CombatSystem" instance=ExtResource("13_7fdf2")]
 
@@ -1834,9 +1833,12 @@ damage = 3
 script = ExtResource("16_2erbc")
 time_scale = 0.6
 
-[node name="Sensor" parent="." instance=ExtResource("14")]
+[node name="TargetIndicator" parent="CombatSystem" instance=ExtResource("2_7rym5")]
 visible = false
+
+[node name="Sensor" parent="." instance=ExtResource("14")]
 sensor_range = 18.0
+draw_vision = false
 
 [node name="Movement" parent="." instance=ExtResource("24_posv5")]
 
@@ -1859,7 +1861,7 @@ onHitboxEvent = ExtResource("9_n4e4o")
 zoomOut = 0.7
 zoomNormal = 0.9
 secondsToEase = 0.4
-shakeIntensity = 6.0
+shakeIntensity = 5.0
 
 [node name="CameraState" type="Node" parent="Camera2D"]
 script = ExtResource("7")

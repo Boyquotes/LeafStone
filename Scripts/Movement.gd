@@ -3,6 +3,8 @@ class_name Movement
 
 @export var seconds = 0.15
 @export var secondsMaxSpeed = 0.3
+@export var max_speed = 52
+@export var slow_speed = 32
 @export var friction = 300
 var body: CharacterBody2D
 var accelerated = false
@@ -19,12 +21,12 @@ func move(input_vector: Vector2):
 
 	if accelerated == false:
 		accelerated = true
-		body.max_speed = 8
+		body.speed = 12
 		var tween = create_tween().set_trans(Tween.TRANS_CUBIC)
-		tween.tween_property(body, "max_speed", 32, seconds).set_ease(Tween.EASE_IN)
-		tween.tween_property(body, "max_speed", 44, secondsMaxSpeed).set_ease(Tween.EASE_OUT)
+		tween.tween_property(body, "speed", slow_speed, seconds).set_ease(Tween.EASE_IN)
+		tween.tween_property(body, "speed", max_speed, secondsMaxSpeed).set_ease(Tween.EASE_OUT)
 		
-	body.velocity = body.max_speed * input_vector
+	body.velocity = body.speed * input_vector
 	body.move_and_slide()
 
 func stop_movement():

@@ -1,9 +1,9 @@
 2a60927148abd1d33b818b535e306557
-::res://::1684101879
+::res://::1684175176
 export_presets.cfg::TextFile::-1::1684101864::0::1::::<><>::
 health_bar.tscn::PackedScene::1092538767011116004::1683796956::0::1::::<><>::uid://dtj41ngokok<>uid://cdf1no3ctad01
-indicator.tscn::PackedScene::6504282335901633120::1684101729::0::1::::<><>::uid://cjy1l6jxpqi2c
-Movement.tscn::PackedScene::3546838078974014350::1683717603::0::1::::<><>::res://Scripts/Movement.gd
+indicator.tscn::PackedScene::6504282335901633120::1684175244::0::1::::<><>::uid://cjy1l6jxpqi2c<>res://Scripts/CombatIndicator.gd
+Movement.tscn::PackedScene::3546838078974014350::1684175176::0::1::::<><>::res://Scripts/Movement.gd
 ::res://addons/::1683834810
 ::res://addons/AsepriteWizard/::1677899937
 plugin.cfg::TextFile::-1::1677899937::0::1::::<><>::
@@ -63,12 +63,12 @@ script_editor_plugin_menu_option.gd::GDScript::-1::1683834810::0::1::::<>EditorS
 script_text_editor_edit_option.gd::GDScript::-1::1683834810::0::1::::<>EditorScript<>::
 shortcut_util.gd::GDScript::-1::1683834810::0::1::::<>EditorScript<>::
 test.gd::GDScript::-1::1683834810::0::1::::<>EditorScript<>::
-::res://addons/vision_cone_2d/::1683796056
+::res://addons/vision_cone_2d/::1684162032
 cone_editor_helper.gd::GDScript::-1::1683796952::0::1::::<>Node2D<>::
 icon.png::CompressedTexture2D::5865447064778430434::1683796056::1683796056::1::::<><>::
 plugin.cfg::TextFile::-1::1683796056::0::1::::<><>::
-vision_cone_2d.gd::GDScript::-1::1683796056::0::1::::VisionCone2D<>Node2D<>::
-vision_cone_2d_template.tscn::PackedScene::714248761521250687::1683796056::0::1::::<><>::res://addons/vision_cone_2d/vision_cone_2d.gd<>res://addons/vision_cone_2d/cone_editor_helper.gd
+vision_cone_2d.gd::GDScript::-1::1684162046::0::1::::VisionCone2D<>Node2D<>::
+vision_cone_2d_template.tscn::PackedScene::714248761521250687::1684162032::0::1::::<><>::res://addons/vision_cone_2d/vision_cone_2d.gd<>res://addons/vision_cone_2d/cone_editor_helper.gd
 vision_cone_entry.gd::GDScript::-1::1683796056::0::1::::<>EditorPlugin<>::
 ::res://addons/vision_cone_2d/examples/::1683833853
 enemy.gd::GDScript::-1::1683796055::0::1::::<>CharacterBody2D<>::
@@ -118,10 +118,9 @@ font_main_menu.tres::SystemFont::5275704890778998440::1683833431::0::1::::<><>::
 pixelart.ttf::FontFile::152671331277664657::1656477159::1681021499::1::::<><>::
 ::res://Resources/Particles/::1683796956
 ImpactParticles.tscn::PackedScene::2511354368609954442::1683796956::0::1::::<><>::res://Scripts/Test Code/TimedDelete.gd<>uid://dx6kogobrumfe
-::res://Scenes/::1684101729
+::res://Scenes/::1684175185
 Buffon.tscn::PackedScene::5017849390263723248::1683579518::0::1::::<><>::
-CombatSystem.tscn::PackedScene::8265770475290241356::1683579518::0::1::::<><>::uid://27u2knvqbfay<>res://Scripts/CombatSystem.gd<>uid://cigvwoddf8by6<>uid://cyjjqo1nejdvc<>res://Scripts/SlowMotion.gd
-Enemy.tscn::PackedScene::431530400194445526::1684100550::0::1::::<><>::res://Scripts/Entities/Enemy.gd<>uid://bg2ysx6l8mqld<>res://Scripts/Movement.gd<>res://Scripts/Attacks/AttackBehaviorResources/RangeAttackBehaviorResource.tres<>res://Scripts/FiniteStateMachine/StateMachine.gd<>res://Scripts/FiniteStateMachine/EnemyStates/EnemyIdleState.gd<>res://Scenes/ExtendedSprite2D.gd<>res://Scripts/FiniteStateMachine/EnemyStates/EnemyAttackState.gd<>res://Scripts/CombatSystem.gd<>res://Scripts/FiniteStateMachine/EnemyStates/EnemyChaseState.gd<>uid://cigvwoddf8by6<>uid://d4bi3uf804cdj<>res://Scenes/ExtendedAudioStreamPlayer.gd<>uid://dioniyjlx5dno<>uid://cyjjqo1nejdvc<>res://Scripts/Events/Event Assets/OnHitboxEvent.tres<>res://Scenes/FloatingText.tscn<>uid://27u2knvqbfay<>res://Scripts/SlowMotion.gd<>res://Scenes/EnemyHealthBarController.gd<>uid://pth7ow63q0c3
+Enemy.tscn::PackedScene::431530400194445526::1684175176::0::1::::<><>::res://Scripts/Entities/Enemy.gd<>uid://bg2ysx6l8mqld<>res://Scripts/Movement.gd<>res://Scripts/Attacks/AttackBehaviorResources/RangeAttackBehaviorResource.tres<>res://Scripts/FiniteStateMachine/StateMachine.gd<>res://Scripts/FiniteStateMachine/EnemyStates/EnemyIdleState.gd<>res://Scenes/ExtendedSprite2D.gd<>res://Scripts/FiniteStateMachine/EnemyStates/EnemyAttackState.gd<>res://Scripts/CombatSystem.gd<>res://Scripts/FiniteStateMachine/EnemyStates/EnemyChaseState.gd<>uid://cigvwoddf8by6<>uid://d4bi3uf804cdj<>res://Scenes/ExtendedAudioStreamPlayer.gd<>uid://dioniyjlx5dno<>uid://cyjjqo1nejdvc<>res://Scripts/Events/Event Assets/OnHitboxEvent.tres<>res://Scenes/FloatingText.tscn<>uid://27u2knvqbfay<>res://Scripts/SlowMotion.gd<>res://Scenes/EnemyHealthBarController.gd<>uid://pth7ow63q0c3
 EnemyHealthBarController.gd::GDScript::-1::1683718434::0::1::::<>Node2D<>::
 Events.gd::GDScript::-1::1684007878::0::1::::<>Node<>::
 ExtendedAudioStreamPlayer.gd::GDScript::-1::1673655757::0::1::::ExtendedAudioStreamPlayer<>AudioStreamPlayer<>::
@@ -129,28 +128,30 @@ ExtendedSprite2D.gd::GDScript::-1::1683759041::0::1::::ExtendedSprite2D<>Sprite2
 FloatingText.tscn::PackedScene::-1::1683543213::0::1::::<><>::res://Scripts/FloatingText.gd
 GUIManager.gd::GDScript::-1::1682969716::0::1::::<>CanvasLayer<>::
 InteractableObject.gd::GDScript::-1::1680730668::0::1::::<>Node2D<>::
-InteractableObject.tscn::PackedScene::746737663048398967::1683461977::0::1::::<><>::res://Scenes/InteractableObject.gd<>uid://d4bi3uf804cdj<>res://Scenes/ExtendedAudioStreamPlayer.gd<>uid://cf7qess64kj6<>res://Scenes/ExtendedSprite2D.gd<>uid://1gfy7k24eljt
+InteractableObject.tscn::PackedScene::746737663048398967::1684175176::0::1::::<><>::res://Scenes/InteractableObject.gd<>uid://d4bi3uf804cdj<>res://Scenes/ExtendedAudioStreamPlayer.gd<>uid://cf7qess64kj6<>res://Scenes/ExtendedSprite2D.gd<>uid://1gfy7k24eljt
 level.tscn::PackedScene::8215831804850041014::1684100550::0::1::::<><>::uid://bs6pgrg0ikpin<>uid://dx47plbo2kh6p
 MainMenu.tscn::PackedScene::6608864028573964905::1683833853::0::1::::<><>::res://Scripts/GUI Code/MainMenu.gd<>uid://chfudauwrvn5a<>uid://3llgtp7bbgts
 PauseNode.gd::GDScript::-1::1682969497::0::1::::<>Control<>::
-Player.tscn::PackedScene::8113674881563863994::1684101729::0::1::::<><>::res://Scripts/Camera2D.gd<>res://Scripts/Entities/Player.gd<>uid://cywytyh4ikeqa<>res://Scripts/FiniteStateMachine/StateMachine.gd<>res://Scenes/ExtendedSprite2D.gd<>res://Scripts/FiniteStateMachine/PlayerStates/Idle.gd<>res://Scripts/FiniteStateMachine/PlayerStates/Run.gd<>res://Scenes/Events.gd<>uid://cin0we1wa1256<>res://Scripts/FiniteStateMachine/PlayerStates/Attack.gd<>res://Scripts/CombatSystem.gd<>res://Scripts/Events/Event Assets/OnHitboxEvent.tres<>res://Scripts/FiniteStateMachine/PlayerStates/Dead.gd<>uid://drvnyxdaqjgg6<>res://Scenes/FloatingText.tscn<>res://Scripts/Scene music.gd<>uid://jlboh2nma6hf<>uid://cigvwoddf8by6<>uid://cyjjqo1nejdvc<>uid://d4bi3uf804cdj<>uid://27u2knvqbfay<>uid://5r4l75jlq3pm<>res://Scripts/SlowMotion.gd<>uid://b87cfwe2to4ab<>uid://dioniyjlx5dno<>uid://bqsd51eugu8w5
+Player.tscn::PackedScene::8113674881563863994::1684175185::0::1::::<><>::res://Scripts/Camera2D.gd<>res://Scripts/Entities/Player.gd<>uid://cywytyh4ikeqa<>res://Scripts/FiniteStateMachine/StateMachine.gd<>res://Scenes/ExtendedSprite2D.gd<>res://Scripts/FiniteStateMachine/PlayerStates/Idle.gd<>res://Scripts/FiniteStateMachine/PlayerStates/Run.gd<>res://Scenes/Events.gd<>uid://cin0we1wa1256<>res://Scripts/FiniteStateMachine/PlayerStates/Attack.gd<>res://Scripts/CombatSystem.gd<>res://Scripts/Events/Event Assets/OnHitboxEvent.tres<>res://Scripts/FiniteStateMachine/PlayerStates/Dead.gd<>uid://drvnyxdaqjgg6<>res://Scenes/FloatingText.tscn<>res://Scripts/Scene music.gd<>uid://jlboh2nma6hf<>uid://cigvwoddf8by6<>uid://cyjjqo1nejdvc<>uid://d4bi3uf804cdj<>uid://27u2knvqbfay<>uid://5r4l75jlq3pm<>res://Scripts/SlowMotion.gd<>uid://b87cfwe2to4ab<>uid://dioniyjlx5dno<>uid://bqsd51eugu8w5
 PlayerGUI.tscn::PackedScene::2807086876827361587::1684100550::0::1::::<><>::uid://5r4l75jlq3pm<>uid://dtj41ngokok<>res://Scripts/HealthBar.gd<>uid://cdf1no3ctad01<>uid://c8odn7mytg8pl
-Sensor.gd::GDScript::-1::1684101683::0::1::::Sensor<>Area2D<>::
-Sensor.tscn::PackedScene::9197339692232715471::1683717603::0::1::::<><>::res://Scenes/Sensor.gd
+Sensor.gd::GDScript::-1::1684175195::0::1::::Sensor<>Area2D<>::
+Sensor.tscn::PackedScene::9197339692232715471::1684175176::0::1::::<><>::res://Scenes/Sensor.gd
 slow_motion.tscn::PackedScene::-1::1683542082::0::1::::<><>::res://Scripts/SlowMotion.gd
 Stats.tscn::PackedScene::1962421968939077908::1682953771::0::1::::<><>::res://Scripts/Stats.gd
+TargetIndicator.tscn::PackedScene::8265770475290241356::1683579518::0::1::::<><>::uid://27u2knvqbfay<>res://Scripts/CombatSystem.gd<>uid://cigvwoddf8by6<>uid://cyjjqo1nejdvc<>res://Scripts/SlowMotion.gd
 TouchControls.tscn::PackedScene::7118181562698143341::1683579518::0::1::::<><>::uid://cemuob4cor2ug
 virtual_joystick.tscn::PackedScene::5079608713390004610::1670099565::0::1::::<><>::uid://dg62h1lpsrqqa<>uid://cki1bxdlqev21<>res://Scripts/virtual_joystick.gd
-world.tscn::PackedScene::4631561966289617784::1684101729::0::1::::<><>::uid://dnulbmdktglfe<>res://Scripts/world.gd<>uid://drcghmsqni4uw<>res://Scenes/GUIManager.gd<>uid://bf81kthme77fj<>uid://kvywpg6jxh6v<>uid://dpb2sxgxaiatq<>uid://gfbiiq4w601g<>uid://bf1cbqw8c2nqv<>res://Scenes/PauseNode.gd
-::res://Scripts/::1684100619
+world.tscn::PackedScene::4631561966289617784::1684175176::0::1::::<><>::uid://dnulbmdktglfe<>res://Scripts/world.gd<>uid://drcghmsqni4uw<>res://Scenes/GUIManager.gd<>uid://bf81kthme77fj<>uid://kvywpg6jxh6v<>uid://dpb2sxgxaiatq<>uid://gfbiiq4w601g<>uid://bf1cbqw8c2nqv<>res://Scenes/PauseNode.gd
+::res://Scripts/::1684173520
 Camera2D.gd::GDScript::-1::1683498373::0::1::::<>Camera2D<>::
-CombatSystem.gd::GDScript::-1::1684100550::0::1::::CombatSystem<>Node2D<>::
+CombatIndicator.gd::GDScript::-1::1684173520::0::1::::<>Node2D<>::
+CombatSystem.gd::GDScript::-1::1684175201::0::1::::CombatSystem<>Node2D<>::
 FloatingText.gd::GDScript::-1::1683469598::0::1::::<>Node2D<>::
 GUI.gd::GDScript::-1::1680645750::0::1::::<>Control<>::
 HealthBar.gd::GDScript::-1::1683718888::0::1::::<>Control<>::
 Joystick.gd::GDScript::-1::1669653479::0::1::::<>Area2D<>::
-Movement.gd::GDScript::-1::1684100550::0::1::::Movement<>Node2D<>::
-Scene music.gd::GDScript::-1::1684100619::0::1::::<>AudioStreamPlayer<>::
+Movement.gd::GDScript::-1::1684173834::0::1::::Movement<>Node2D<>::
+Scene music.gd::GDScript::-1::1684147241::0::1::::<>AudioStreamPlayer<>::
 SlowMotion.gd::GDScript::-1::1683462300::0::1::::SlowMotion<>Node<>::
 Stats.gd::GDScript::-1::1683749839::0::1::::Stats<>Node<>::
 virtual_joystick.gd::GDScript::-1::1675104988::0::1::::VirtualJoystick<>Control<>::
@@ -167,7 +168,7 @@ RangeAttackBehavior.gd::GDScript::-1::1681021894::0::1::::RangeAttackBehavior<>A
 ::res://Scripts/Entities/::1684100550
 Enemy.gd::GDScript::-1::1684100550::0::1::::Enemy<>Entity<>::
 Entity.gd::GDScript::-1::1684100550::0::1::::Entity<>CharacterBody2D<>::
-Player.gd::GDScript::-1::1684101855::0::1::::Player<>Entity<>::
+Player.gd::GDScript::-1::1684175226::0::1::::Player<>Entity<>::
 ::res://Scripts/Events/::1683066151
 FloatVariable.gd::GDScript::-1::1683063706::0::1::::FloatVariable<>Resource<>::
 IntGameEvent.gd::GDScript::-1::1683382323::0::1::::IntGameEvent<>Resource<>::
@@ -185,7 +186,7 @@ EnemyIdleState.gd::GDScript::-1::1684100550::0::1::::EnemyIdleState<>EnemyState<
 EnemyState.gd::GDScript::-1::1681018536::0::1::::EnemyState<>State<>::
 EnemyWondering.gd::GDScript::-1::1684100550::0::1::::<>Node<>::
 ::res://Scripts/FiniteStateMachine/PlayerStates/::1684101864
-Attack.gd::GDScript::-1::1684101864::0::1::::<>PlayerState<>::
+Attack.gd::GDScript::-1::1684172778::0::1::::<>PlayerState<>::
 Dash.gd::GDScript::-1::1684100550::0::1::::<>PlayerState<>::
 Dead.gd::GDScript::-1::1684100550::0::1::::<>PlayerState<>::
 Idle.gd::GDScript::-1::1684100550::0::1::::<>PlayerState<>::

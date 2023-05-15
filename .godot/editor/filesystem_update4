@@ -1,6 +1,23 @@
-res://Scripts/Entities/Player.gd
-res://Scripts/FiniteStateMachine/PlayerStates/Attack.gd
+res://Scenes/Sensor.gd
 res://Scenes/world.tscn
 res://Scripts/Scene music.gd
 res://Scenes/Player.tscn
 res://indicator.tscn
+res://Scripts/FiniteStateMachine/PlayerStates/Dead.gd
+res://Scripts/Entities/Enemy.gd
+res://Scenes/InteractableObject.tscn
+res://Scenes/Sensor.tscn
+res://Scripts/Entities/Player.gd
+res://Scenes/Enemy.tscn
+res://Scripts/FiniteStateMachine/PlayerStates/Attack.gd
+res://Scripts/Movement.gd
+res://Scripts/Camera2D.gd
+res://Scenes/Events.gd
+res://addons/vision_cone_2d/vision_cone_2d.gd
+res://addons/vision_cone_2d/vision_cone_2d_template.tscn
+res://Scripts/CombatIndicator.gd
+res://Scripts/Entities/Entity.gd
+res://Scripts/CombatSystem.gd
+res://Movement.tscn
+res://Scripts/Stats.gd
+res://Scripts/TargetIndicator.gd

@@ -24,10 +24,10 @@ func attack():
 	entity.sprite.flip(entity.attackDirection)
 	
 	# Attack Logic
-	var closeEnemy = entity.sensor.find_closest_enemy()
+	# var closeEnemy = entity.sensor.find_closest_body()
 	var distance = 0
-	if closeEnemy != null:
-		distance = entity.global_position.distance_to(closeEnemy.global_position)
+	if entity.sensor.target != null:
+		distance = entity.sensor.get_target_distance()
 
 	if entity.attack_redirect:
 		if !entity.attacked: #if havent adjust the attack, then adjust and mark it as true to avoid repeating.

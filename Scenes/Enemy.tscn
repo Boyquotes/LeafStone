@@ -350,7 +350,7 @@ value = 10.0
 [node name="Sensor" parent="." instance=ExtResource("7_q8mml")]
 visible = false
 collision_mask = 2
-sensor_range = 25.0
+sensor_range = 20.0
 
 [node name="Shape" parent="Sensor" index="0"]
 shape = SubResource("CircleShape2D_iq7s0")

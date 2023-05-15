@@ -1,17 +1,16 @@
 class_name Player
 extends Entity
 
-#Attack adjustment.
 @export var attack_redirect = false
-@export var indicator : PackedScene
+@export_range(0.1, 1) var redirectScale : float = 1.0
 
-var uiIndicator 
 var facing = false
 var attacked = false #Controls the attack adjusment happen just once.
 var secondAttack = 0
+var enemyTarget: CollisionObject2D 
 
 @export var cooldown: float = 2.0
-@export var max_speed = 38
+@export var speed = 38
 @export var sound : AudioStream
 
 var dashReady = true
@@ -31,19 +30,12 @@ func _ready():
 	animationTree.active = true
 	combatSystem.stats.Dead.connect(func(): stateMachine.transition_to("Dead"))
 
-
-	#Move this to the an own script in the combat system.
-	uiIndicator = indicator.instantiate() as Node2D
-	self.add_child(uiIndicator)
-	uiIndicator.global_position = global_position
-	uiIndicator.visible = false
-
 func _process(_delta):
 
 	if combatSystem.stats.is_dead():
 		return
 
-	scanForEnemies()
+	sensor.Scan()
 
 	if Input.is_action_just_pressed("ui_accept"):
 		combatSystem.stats.set_health(12)
@@ -71,43 +63,27 @@ func _physics_process(delta):
 	combatSystem.hitbox.knockBack_vector = attackDirection.normalized()
 	move_and_slide()
 
-func scanForEnemies():
-	sensor.find_closest_enemy()
-
-	if sensor.target != null:
-		indicatorUpdate(sensor.target)
-	else:
-		uiIndicator.visible = false	
-
-func indicatorUpdate(entity : CollisionObject2D):
-
-	uiIndicator.global_position = entity.global_position + Vector2(0 , -30)
-	uiIndicator.visible = true
 
 func attack_adjusment():
-	var closestEnemies = $Sensor.find_closest_enemy_vision_cone(attackDirection)
+	var closeEnemy = $Sensor.find_close_body_on_vision(attackDirection)
 	var savedDir = attackDirection
 
-	if closestEnemies == null:
+	if closeEnemy == null:
 		facing = false
 		attackDirection = savedDir
 		return
 
-	var enemyDir = closestEnemies.global_position - global_position
-	var angle = sensor.calculate_angle(attackDirection, closestEnemies)
+	var enemyDir = closeEnemy.global_position - global_position
+	enemyTarget = closeEnemy
 
-	if angle > 0 and angle < 45:
-		facing = true
-		attackDirection = enemyDir
-		impulseDirection = enemyDir
-	else:
-		facing = false
+	facing = true
+	attackDirection = enemyDir
+	impulseDirection = enemyDir
 
 func attack_animation_finished():
 	$StateMachine.transition_to("Idle")
 	combatSystem.hitbox.set_hitted_state(false)
 	attackAnimSpeed = 0.2
-	# attacked = false
 	
 	if secondAttack == 0:
 		secondAttack = 1

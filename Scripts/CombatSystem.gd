@@ -8,7 +8,6 @@ enum ActorType { undefined, player, enemy}
 @onready var hurtbox : Hurtbox = $HurtBox
 @onready var slowMotion: SlowMotion = $SlowMotion
 
-
 @export_subgroup("Events")
 @export var onHitEvent : VoidGameEvent
 @export var onHurtBox : VoidGameEvent
@@ -46,6 +45,7 @@ func _ready() -> void:
 		ActorType.undefined:
 			hurtbox.collision_layer = 0
 			hitbox.collision_mask = 0
+		
 		
 func _physics_process(delta: float) -> void:
 	hitbox.position = hitbox_position
