@@ -42,7 +42,7 @@ project/assembly_name="Proyecto 2D top down"
 
 [editor]
 
-movie_writer/movie_file="/Users/mac/Documents/Development/Godot engine/Godot Engine 4/Godot 4 Adventure 2D/Gameplays/Gameplays.avi"
+movie_writer/movie_file="/Users/mac/Desktop/Gameplay1.avi"
 movie_writer/fps=30
 
 [editor_plugins]
@@ -194,6 +194,8 @@ pointing/emulate_touch_from_mouse=true
 2d_physics/layer_4="Enemy"
 2d_physics/layer_5="SoftCollisions"
 2d_physics/layer_6="Trees"
+2d_physics/layer_7="Rock"
+2d_physics/layer_8="River"
 
 [mono]
 

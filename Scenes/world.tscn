@@ -1,6 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://b68tfcetjf8gq"]
+[gd_scene load_steps=13 format=3 uid="uid://b68tfcetjf8gq"]
 
-[ext_resource type="PackedScene" uid="uid://dnulbmdktglfe" path="res://Scenes/Player.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://cusa7i2mdcjsj" path="res://Scenes/Player.tscn" id="1"]
 [ext_resource type="Script" path="res://Scripts/world.gd" id="3"]
 [ext_resource type="Texture2D" uid="uid://drcghmsqni4uw" path="res://Game Art/Character/Enthraz Adult.png" id="5_bankf"]
 [ext_resource type="Script" path="res://Scenes/GUIManager.gd" id="6"]
@@ -10,6 +10,14 @@
 [ext_resource type="PackedScene" uid="uid://gfbiiq4w601g" path="res://Scenes/Enemy.tscn" id="9_t0sq7"]
 [ext_resource type="Texture2D" uid="uid://bf1cbqw8c2nqv" path="res://Game Art/Animacion idle mujer-Sheet.png" id="10_g16h5"]
 [ext_resource type="Script" path="res://Scenes/PauseNode.gd" id="11"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jvvf7"]
+resource_local_to_scene = true
+radius = 5.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ugrm4"]
+resource_local_to_scene = true
+radius = 5.0
 
 [node name="Game" type="Node2D"]
 process_mode = 1
@@ -26,10 +34,68 @@ position = Vector2(209, 103)
 [node name="InteractableObject" parent="world" instance=ExtResource("8_povyu")]
 y_sort_enabled = true
 position = Vector2(374, 93)
+anim = false
+
+[node name="InteractionMessageLbl" parent="world/InteractableObject/Node2D" index="0"]
+offset_left = -35.0
+offset_top = -19.5
+offset_right = 81.0
+offset_bottom = 5.5
+
+[node name="Shape" parent="world/InteractableObject/Sensor" index="0"]
+shape = SubResource("CircleShape2D_jvvf7")
+
+[node name="Player2" parent="world" instance=ExtResource("8_povyu")]
+visible = false
+y_sort_enabled = true
+position = Vector2(297, 112)
+anim = false
+
+[node name="Sprite2D" parent="world/Player2" index="0"]
+texture = ExtResource("5_bankf")
+hframes = 1
+vframes = 1
+frame = 0
+
+[node name="InteractionMessageLbl" parent="world/Player2/Node2D" index="0"]
+offset_left = -35.0
+offset_top = -26.0
+offset_right = 81.0
+offset_bottom = -4.0
+theme_override_font_sizes/font_size = 12
+text = "Soy tu sucesor"
+
+[node name="Shape" parent="world/Player2/Sensor" index="0"]
+shape = SubResource("CircleShape2D_ugrm4")
+
+[node name="Player3" parent="world" instance=ExtResource("8_povyu")]
+visible = false
+y_sort_enabled = true
+position = Vector2(367, 147)
+anim = false
+
+[node name="Sprite2D" parent="world/Player3" index="0"]
+texture = ExtResource("10_g16h5")
+hframes = 11
+vframes = 1
+frame = 0
+
+[node name="InteractionMessageLbl" parent="world/Player3/Node2D" index="0"]
+offset_left = -35.0
+offset_top = -23.0
+offset_right = 81.0
+offset_bottom = -1.0
+theme_override_font_sizes/font_size = 12
+text = "Ema
+"
+
+[node name="Shape" parent="world/Player3/Sensor" index="0"]
+shape = SubResource("CircleShape2D_ugrm4")
 
 [node name="Level" parent="world" instance=ExtResource("9_fmmhj")]
 
 [node name="Sprite2D" type="Sprite2D" parent="world"]
+visible = false
 position = Vector2(278, 106)
 scale = Vector2(1.1, 1.1)
 texture = ExtResource("5_bankf")
@@ -150,11 +216,13 @@ position = Vector2(986, 275)
 attackBehaviour = null
 secToAttack = 2
 
-[node name="AnimacionIdleMujer-sheet" type="Sprite2D" parent="."]
-position = Vector2(366, 148)
-texture = ExtResource("10_g16h5")
-hframes = 10
-
 [connection signal="pressed" from="GUI/PauseMenu/PauseNode/CenterContainer/VBoxContainer/ResumeBtn" to="GUI/PauseMenu/PauseNode" method="_on_ResumeBtn_pressed"]
 [connection signal="pressed" from="GUI/PauseMenu/PauseNode/CenterContainer/VBoxContainer/ReestartBtn" to="GUI/PauseMenu/PauseNode" method="_on_ReestartBtn_pressed"]
 [connection signal="pressed" from="GUI/PauseMenu/PauseNode/CenterContainer/VBoxContainer/QuitBtn" to="GUI/PauseMenu/PauseNode" method="_on_QuitBtn_pressed"]
+
+[editable path="world/InteractableObject"]
+[editable path="world/InteractableObject/Sensor"]
+[editable path="world/Player2"]
+[editable path="world/Player2/Sensor"]
+[editable path="world/Player3"]
+[editable path="world/Player3/Sensor"]

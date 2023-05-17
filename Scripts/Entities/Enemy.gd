@@ -6,6 +6,7 @@ var moveDirection = Vector2.ZERO
 @export var acceleration = 45
 @export var friction = 100
 @export var knockback_strenght = 100
+@export var distace_limit : float = 60
 var knockBack_vector = Vector2()
 
 #Components
@@ -68,13 +69,13 @@ func _physics_process(delta):
 			playback.travel("Walk")
 			
 			if timeToChase:
-				if playerDistance > 50:
+				if playerDistance > distace_limit:
 					moveDirection = moveDirection.move_toward(playerDir * speed, 50 * delta)
 					set_velocity(moveDirection)
 					move_and_slide()
 					moveDirection = velocity
 
-				elif playerDistance < 50:
+				elif playerDistance < distace_limit:
 					moveDirection = moveDirection.move_toward(Vector2.ZERO, friction * delta)
 					set_velocity(moveDirection)
 					move_and_slide()

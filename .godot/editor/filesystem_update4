@@ -1,1 +1,8 @@
 res://Scripts/CombatSystem.gd
+res://TargetIndicator.tscn
+res://Scripts/Scene music.gd
+res://Scenes/Player.tscn
+res://Scripts/CombatSystem.gd
+res://Scenes/world.tscn
+res://Scenes/Enemy.tscn
+res://Scenes/InteractableObject.tscn

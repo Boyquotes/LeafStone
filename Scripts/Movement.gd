@@ -21,7 +21,7 @@ func move(input_vector: Vector2):
 
 	if accelerated == false:
 		accelerated = true
-		body.speed = 12
+		body.speed = 24
 		var tween = create_tween().set_trans(Tween.TRANS_CUBIC)
 		tween.tween_property(body, "speed", slow_speed, seconds).set_ease(Tween.EASE_IN)
 		tween.tween_property(body, "speed", max_speed, secondsMaxSpeed).set_ease(Tween.EASE_OUT)

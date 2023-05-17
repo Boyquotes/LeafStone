@@ -1,3 +1,7 @@
+Control
+LightOccluder2D
+GPUParticles2D
+CPUParticles2D
 WorldEnvironment
 PointLight2D
 Sprite2D
@@ -10,8 +14,6 @@ ExtendedAudioStreamPlayer
 Timer
 HBoxContainer
 TextureRect
-CPUParticles2D
-Control
 PanelContainer
 Panel
 CenterContainer
@@ -28,5 +30,3 @@ TileMap
 EnemyIdleState
 EnemyAttackState
 EnemyState
-Entity
-StateMachine

@@ -35,16 +35,16 @@ func _ready() -> void:
 	match actor_Type:
 
 		ActorType.player:
-			hurtbox.collision_layer = 2
-			hitbox.collision_mask = 4
+			hurtbox.collision_layer = 2 #Player
+			hitbox.collision_mask = 4 #Enemy tambien golpea a 6
 
 		ActorType.enemy:
-			hurtbox.collision_layer = 4
-			hitbox.collision_mask = 2
+			hurtbox.collision_layer = 4 #Enemy
+			hitbox.collision_mask = 2 #Player
 
-		ActorType.undefined:
-			hurtbox.collision_layer = 0
-			hitbox.collision_mask = 0
+		ActorType.undefined: #trampa
+			hurtbox.collision_layer = 0 # 6 | Trampa
+			hitbox.collision_mask = 0 # 2 | Player
 		
 		
 func _physics_process(delta: float) -> void:

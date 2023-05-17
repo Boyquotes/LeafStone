@@ -3,7 +3,6 @@ extends Node
 
 # Emitted when transitioning to a new state.
 signal transitioned(state_name)
-
 #En proceso.
 # enum StateType {idle, run, dash, hurt, attack, dead}
 # @export var state_type : StateType

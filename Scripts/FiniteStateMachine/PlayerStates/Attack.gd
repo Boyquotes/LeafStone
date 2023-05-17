@@ -4,6 +4,7 @@ extends PlayerState
 @export var scaler = 1.4
 @export var seconds = 0.1
 var hitCounter = 0
+var atDistance: bool
 
 func enter(_msj := {}):
 	pass
@@ -39,9 +40,11 @@ func attack():
 	#En caso de no golpear.
 	if !entity.combatSystem.hitbox.hitted:
 		if entity.facing:
-			entity.movement.impulse(entity.impulseDirection.normalized() * distance * scaler) 
+			entity.movement.impulse(entity.impulseDirection.normalized() * distance * scaler)
+					
 			await get_tree().create_timer(seconds).timeout
 			entity.movement.stop_movement() 
+			
 		else: #Si no hay enemigo en el area entonces se procede a no avanzar mucho.
 			entity.movement.impulse(entity.impulseDirection.normalized() * attackImpulseWhenNoEnemies)
 

@@ -1,8 +1,7 @@
-[gd_scene load_steps=84 format=3 uid="uid://dnulbmdktglfe"]
+[gd_scene load_steps=84 format=3 uid="uid://cusa7i2mdcjsj"]
 
 [ext_resource type="Script" path="res://Scripts/Camera2D.gd" id="1"]
 [ext_resource type="Script" path="res://Scripts/Entities/Player.gd" id="1_fgot0"]
-[ext_resource type="PackedScene" uid="uid://dk7tq4jv2qijk" path="res://indicator.tscn" id="2_7rym5"]
 [ext_resource type="Script" path="res://Scripts/FiniteStateMachine/StateMachine.gd" id="2_pps7q"]
 [ext_resource type="Script" path="res://Scenes/ExtendedSprite2D.gd" id="3_c8ik2"]
 [ext_resource type="Script" path="res://Scripts/FiniteStateMachine/PlayerStates/Idle.gd" id="5_p4oxe"]
@@ -24,6 +23,7 @@
 [ext_resource type="Resource" uid="uid://5r4l75jlq3pm" path="res://Scripts/Events/Event Assets/OnPlayerHealthChanged.tres" id="14_qdie0"]
 [ext_resource type="Script" path="res://Scripts/SlowMotion.gd" id="16_2erbc"]
 [ext_resource type="Texture2D" uid="uid://b87cfwe2to4ab" path="res://Game Art/Character/Enthraz Animations.png" id="19_gtkjp"]
+[ext_resource type="PackedScene" uid="uid://dk7tq4jv2qijk" path="res://TargetIndicator.tscn" id="19_r6yat"]
 [ext_resource type="PackedScene" uid="uid://dioniyjlx5dno" path="res://Hitboxes/SoftCollision.tscn" id="19_xvj0s"]
 [ext_resource type="PackedScene" uid="uid://bqsd51eugu8w5" path="res://Movement.tscn" id="24_posv5"]
 
@@ -1815,14 +1815,16 @@ position = Vector2(0, -6)
 script = ExtResource("9_l3ywh")
 onHitEvent = ExtResource("9_n4e4o")
 actor_Type = 1
-hitboxRadius = 24.0
+hitboxRadius = 27.0
 floating_damage = ExtResource("10_8lu8t")
 attackSFX = ExtResource("11_6uot8")
 
 [node name="HurtBox" parent="CombatSystem" instance=ExtResource("12_d8lda")]
 position = Vector2(1, -1)
+collision_layer = 2
 
 [node name="HitBox" parent="CombatSystem" instance=ExtResource("13_7fdf2")]
+collision_mask = 8
 
 [node name="Stats" parent="CombatSystem" groups=["PlayerHealth"] instance=ExtResource("14_8g0ft")]
 onHealthChanged = ExtResource("14_qdie0")
@@ -1833,14 +1835,16 @@ damage = 3
 script = ExtResource("16_2erbc")
 time_scale = 0.6
 
-[node name="TargetIndicator" parent="CombatSystem" instance=ExtResource("2_7rym5")]
-visible = false
+[node name="TargetIndicator" parent="CombatSystem" instance=ExtResource("19_r6yat")]
 
 [node name="Sensor" parent="." instance=ExtResource("14")]
+visible = false
 sensor_range = 18.0
 draw_vision = false
 
 [node name="Movement" parent="." instance=ExtResource("24_posv5")]
+max_speed = 46
+slow_speed = 24
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(1, 0)

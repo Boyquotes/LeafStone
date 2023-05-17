@@ -81,7 +81,7 @@ func attack_adjusment():
 	impulseDirection = enemyDir
 
 func attack_animation_finished():
-	$StateMachine.transition_to("Idle")
+	stateMachine.transition_to("Idle")
 	combatSystem.hitbox.set_hitted_state(false)
 	attackAnimSpeed = 0.2
 	

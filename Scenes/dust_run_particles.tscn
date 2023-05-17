@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqcsqstlasxd6"]
+
+[sub_resource type="Curve" id="Curve_x7qho"]
+max_value = 3.0
+_data = [Vector2(0, 2.47306), 0.0, 0.0, 0, 0, Vector2(0.993237, 1.07514), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="DustRunParticles" type="CPUParticles2D"]
+z_index = -1
+position = Vector2(0, 2)
+lifetime = 0.4
+emission_shape = 3
+emission_rect_extents = Vector2(12, 1)
+gravity = Vector2(0, -30)
+scale_amount_curve = SubResource("Curve_x7qho")
+color = Color(0.662745, 0.635294, 0.478431, 1)
