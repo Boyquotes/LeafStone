@@ -6,6 +6,8 @@ class_name Sensor
 
 @onready var shape : CollisionShape2D = $Shape
 var target : CollisionObject2D
+var actors =[]
+var shouldScan = true
 
 @export_category("Debug Data")
 @export var vision_color: Color
@@ -14,12 +16,27 @@ var target : CollisionObject2D
 
 func _ready():
 	shape.shape.radius = sensor_range
+	# self.body_entered.connect(store_bodies)
+	# self.body_exited.connect(remove_bodies)
 
 func get_target_distance() -> float:
 	return target.global_position.distance_to(global_position)
 	
+func store_bodies(body):
+	actors.append(body)
+	shouldScan = true
+
+func remove_bodies(body):
+	actors.erase(body)
+	if actors.size() == 0:
+		target = null
+		shouldScan = false	
 
 func Scan() -> void:
+
+	if not shouldScan:
+		return
+
 	var bodies = get_overlapping_bodies()
 	var closestBody = find_closest_body(bodies)
 
@@ -29,11 +46,16 @@ func Scan() -> void:
 		target = null
 
 func _process(delta):
-	queue_redraw()
+	# queue_redraw()
+	pass
 
 func find_closest_body(bodies: Array) -> CollisionObject2D:
+
+	if not shouldScan:
+		return
+
 	var nearestDistance = 500
-	var closestBody: CollisionObject2D = null
+	var closestBody = null
 
 	if bodies.size() < 0:
 		target = null
@@ -49,6 +71,9 @@ func find_closest_body(bodies: Array) -> CollisionObject2D:
 	return closestBody
 
 func find_close_body_on_vision(playerDir: Vector2) -> CollisionObject2D:
+
+	if not shouldScan:
+		return
 
 	var bodies = get_overlapping_bodies()
 	var closestBody: CollisionObject2D = null
@@ -68,9 +93,6 @@ func find_close_body_on_vision(playerDir: Vector2) -> CollisionObject2D:
 	if bodiesOnVision == null:
 		return
 
-	# if bodiesOnVision.size() < 0:
-	# 	closestBody = null
-
 	closestBody = find_closest_body(bodiesOnVision)
 	return closestBody
 
@@ -79,9 +101,9 @@ func calculate_angle(playerDirection: Vector2, otherBody: CollisionObject2D) -> 
 	var dot = bodyDir.dot(playerDirection)
 	return rad_to_deg(acos(dot / (playerDirection.length() * bodyDir.length())))
 
+
+
 func _draw():
-	# var playerDir = global_transform.xform(Vector2(1, 0)).normalized()
-	# var playerDir = global_position.direction_to(Vector2(1, 0)).normalized()
 
 	if get_parent().name != "Player":
 		return

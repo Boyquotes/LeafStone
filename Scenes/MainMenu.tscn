@@ -118,6 +118,60 @@ expand_mode = 1
 stretch_mode = 5
 flip_v = true
 
+[node name="Godot Icon8" type="TextureRect" parent="MarginContainer/CenterContainer/HBoxContainer/CenterContainer/GridContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+texture = ExtResource("3_q20ap")
+expand_mode = 1
+stretch_mode = 5
+flip_v = true
+
+[node name="Godot Icon9" type="TextureRect" parent="MarginContainer/CenterContainer/HBoxContainer/CenterContainer/GridContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+texture = ExtResource("3_q20ap")
+expand_mode = 1
+stretch_mode = 5
+flip_v = true
+
+[node name="Godot Icon10" type="TextureRect" parent="MarginContainer/CenterContainer/HBoxContainer/CenterContainer/GridContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+texture = ExtResource("3_q20ap")
+expand_mode = 1
+stretch_mode = 5
+flip_v = true
+
+[node name="Godot Icon11" type="TextureRect" parent="MarginContainer/CenterContainer/HBoxContainer/CenterContainer/GridContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+texture = ExtResource("3_q20ap")
+expand_mode = 1
+stretch_mode = 5
+flip_v = true
+
+[node name="Godot Icon12" type="TextureRect" parent="MarginContainer/CenterContainer/HBoxContainer/CenterContainer/GridContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+texture = ExtResource("3_q20ap")
+expand_mode = 1
+stretch_mode = 5
+flip_v = true
+
+[node name="Godot Icon13" type="TextureRect" parent="MarginContainer/CenterContainer/HBoxContainer/CenterContainer/GridContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+texture = ExtResource("3_q20ap")
+expand_mode = 1
+stretch_mode = 5
+flip_v = true
+
 [node name="Godot Icon3" type="TextureRect" parent="MarginContainer/CenterContainer/HBoxContainer/CenterContainer/GridContainer"]
 clip_contents = true
 custom_minimum_size = Vector2(35, 35)

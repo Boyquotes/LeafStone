@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b68tfcetjf8gq"]
+[gd_scene load_steps=19 format=3 uid="uid://b68tfcetjf8gq"]
 
 [ext_resource type="PackedScene" uid="uid://cusa7i2mdcjsj" path="res://Scenes/Player.tscn" id="1"]
 [ext_resource type="Script" path="res://Scripts/world.gd" id="3"]
@@ -8,16 +8,26 @@
 [ext_resource type="PackedScene" uid="uid://kvywpg6jxh6v" path="res://Scenes/InteractableObject.tscn" id="8_povyu"]
 [ext_resource type="PackedScene" uid="uid://dpb2sxgxaiatq" path="res://Scenes/level.tscn" id="9_fmmhj"]
 [ext_resource type="PackedScene" uid="uid://gfbiiq4w601g" path="res://Scenes/Enemy.tscn" id="9_t0sq7"]
-[ext_resource type="Texture2D" uid="uid://bf1cbqw8c2nqv" path="res://Game Art/Animacion idle mujer-Sheet.png" id="10_g16h5"]
+[ext_resource type="Script" path="res://Scenes/FpsCounterLabel.gd" id="10_3mbny"]
 [ext_resource type="Script" path="res://Scenes/PauseNode.gd" id="11"]
+[ext_resource type="Texture2D" uid="uid://cxkcsxip7dtfy" path="res://Goblin.png" id="12_gq810"]
+[ext_resource type="PackedScene" uid="uid://cx0s52gv8n6a1" path="res://Scenes/Entities/Enemies/EliteSlime.tscn" id="12_qnjc3"]
+[ext_resource type="Texture2D" uid="uid://ckiviy4w3d3p1" path="res://House.png" id="14_2b4e3"]
+[ext_resource type="Texture2D" uid="uid://cimm7ud1e7gnh" path="res://Goblin blue.png" id="14_71tip"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jvvf7"]
 resource_local_to_scene = true
 radius = 5.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ugrm4"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_w16ga"]
 resource_local_to_scene = true
-radius = 5.0
+radius = 9.0
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_3uj5p"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ftb1v"]
+resource_local_to_scene = true
+radius = 8.0
 
 [node name="Game" type="Node2D"]
 process_mode = 1
@@ -29,68 +39,43 @@ y_sort_enabled = true
 script = ExtResource("3")
 
 [node name="Player" parent="world" instance=ExtResource("1")]
-position = Vector2(209, 103)
+position = Vector2(263, 194)
 
 [node name="InteractableObject" parent="world" instance=ExtResource("8_povyu")]
 y_sort_enabled = true
-position = Vector2(374, 93)
+position = Vector2(156, 133)
 anim = false
 
-[node name="InteractionMessageLbl" parent="world/InteractableObject/Node2D" index="0"]
-offset_left = -35.0
-offset_top = -19.5
-offset_right = 81.0
-offset_bottom = 5.5
+[node name="InteractionMessageLbl" parent="world/InteractableObject" index="1"]
+z_index = 1
+offset_left = -71.0
+offset_top = 14.0
+offset_right = 34.0
+offset_bottom = 29.0
 
 [node name="Shape" parent="world/InteractableObject/Sensor" index="0"]
 shape = SubResource("CircleShape2D_jvvf7")
 
-[node name="Player2" parent="world" instance=ExtResource("8_povyu")]
-visible = false
+[node name="InteractableObject2" parent="world" instance=ExtResource("8_povyu")]
 y_sort_enabled = true
-position = Vector2(297, 112)
+position = Vector2(235, 134)
 anim = false
 
-[node name="Sprite2D" parent="world/Player2" index="0"]
+[node name="Sprite2D" parent="world/InteractableObject2" index="0"]
 texture = ExtResource("5_bankf")
 hframes = 1
 vframes = 1
 frame = 0
 
-[node name="InteractionMessageLbl" parent="world/Player2/Node2D" index="0"]
-offset_left = -35.0
-offset_top = -26.0
-offset_right = 81.0
-offset_bottom = -4.0
-theme_override_font_sizes/font_size = 12
-text = "Soy tu sucesor"
+[node name="InteractionMessageLbl" parent="world/InteractableObject2" index="1"]
+z_index = 1
+offset_left = -71.0
+offset_top = 14.0
+offset_right = 34.0
+offset_bottom = 29.0
 
-[node name="Shape" parent="world/Player2/Sensor" index="0"]
-shape = SubResource("CircleShape2D_ugrm4")
-
-[node name="Player3" parent="world" instance=ExtResource("8_povyu")]
-visible = false
-y_sort_enabled = true
-position = Vector2(367, 147)
-anim = false
-
-[node name="Sprite2D" parent="world/Player3" index="0"]
-texture = ExtResource("10_g16h5")
-hframes = 11
-vframes = 1
-frame = 0
-
-[node name="InteractionMessageLbl" parent="world/Player3/Node2D" index="0"]
-offset_left = -35.0
-offset_top = -23.0
-offset_right = 81.0
-offset_bottom = -1.0
-theme_override_font_sizes/font_size = 12
-text = "Ema
-"
-
-[node name="Shape" parent="world/Player3/Sensor" index="0"]
-shape = SubResource("CircleShape2D_ugrm4")
+[node name="Shape" parent="world/InteractableObject2/Sensor" index="0"]
+shape = SubResource("CircleShape2D_jvvf7")
 
 [node name="Level" parent="world" instance=ExtResource("9_fmmhj")]
 
@@ -166,55 +151,95 @@ text = "Quit"
 
 [node name="PlayerGUI" parent="GUI" instance=ExtResource("8")]
 
+[node name="FpsPanel" type="Panel" parent="GUI"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -56.0
+offset_bottom = 19.0
+grow_horizontal = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="FpsLbl" type="Label" parent="GUI/FpsPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -17.5
+offset_top = -13.0
+offset_right = 17.5
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 10
+text = "Fps: "
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("10_3mbny")
+
 [node name="Slime" parent="." instance=ExtResource("9_t0sq7")]
-position = Vector2(376, 234)
+position = Vector2(478, 228)
 attackBehaviour = null
-secToAttack = 2
 
-[node name="Slime2" parent="." instance=ExtResource("9_t0sq7")]
-position = Vector2(411, 199)
-attackBehaviour = null
-secToAttack = 2
+[node name="Elit Slime" parent="." instance=ExtResource("12_qnjc3")]
+position = Vector2(505, 211)
+speed = 55
 
-[node name="Slime3" parent="." instance=ExtResource("9_t0sq7")]
-position = Vector2(1011, 242)
+[node name="Elite Slime False" parent="." instance=ExtResource("9_t0sq7")]
+position = Vector2(513, 193)
+speed = 55
+knockback_strenght = 10
+distace_limit = 30.0
 attackBehaviour = null
-secToAttack = 2
 
-[node name="Slime4" parent="." instance=ExtResource("9_t0sq7")]
-position = Vector2(832, 232)
-attackBehaviour = null
-secToAttack = 2
+[node name="Shape" parent="Elite Slime False/CombatSystem/HurtBox" index="2"]
+shape = SubResource("CircleShape2D_w16ga")
 
-[node name="Slime5" parent="." instance=ExtResource("9_t0sq7")]
-position = Vector2(867, 197)
-attackBehaviour = null
-secToAttack = 2
+[node name="Stats" parent="Elite Slime False/CombatSystem" index="2"]
+maxHealth = 25
+damage = 6
 
-[node name="Slime6" parent="." instance=ExtResource("9_t0sq7")]
-position = Vector2(788, 234)
-attackBehaviour = null
-secToAttack = 2
+[node name="AnimationTree" parent="Elite Slime False" index="7"]
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_3uj5p")
 
-[node name="Slime7" parent="." instance=ExtResource("9_t0sq7")]
-position = Vector2(833, 97)
-attackBehaviour = null
-secToAttack = 2
+[node name="CollisionShape2D" parent="Elite Slime False/SoftCollision" index="0"]
+shape = SubResource("CircleShape2D_ftb1v")
 
-[node name="Slime8" parent="." instance=ExtResource("9_t0sq7")]
-position = Vector2(868, 62)
-attackBehaviour = null
-secToAttack = 2
+[node name="Goblin" type="Sprite2D" parent="."]
+position = Vector2(149, 98)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("12_gq810")
 
-[node name="Slime9" parent="." instance=ExtResource("9_t0sq7")]
-position = Vector2(789, 99)
-attackBehaviour = null
-secToAttack = 2
+[node name="GoblinBlue" type="Sprite2D" parent="."]
+position = Vector2(172, 98)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("14_71tip")
 
-[node name="Slime10" parent="." instance=ExtResource("9_t0sq7")]
-position = Vector2(986, 275)
-attackBehaviour = null
-secToAttack = 2
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(1, 0.921569, 0.690196, 1)
+
+[node name="House" type="Sprite2D" parent="."]
+position = Vector2(337, 80)
+texture = ExtResource("14_2b4e3")
+
+[node name="House2" type="Sprite2D" parent="."]
+position = Vector2(121, -21)
+texture = ExtResource("14_2b4e3")
+
+[node name="House3" type="Sprite2D" parent="."]
+position = Vector2(-77, 109)
+texture = ExtResource("14_2b4e3")
+
+[node name="House4" type="Sprite2D" parent="."]
+position = Vector2(343, 288)
+texture = ExtResource("14_2b4e3")
+
+[node name="House5" type="Sprite2D" parent="."]
+position = Vector2(343, 288)
+texture = ExtResource("14_2b4e3")
 
 [connection signal="pressed" from="GUI/PauseMenu/PauseNode/CenterContainer/VBoxContainer/ResumeBtn" to="GUI/PauseMenu/PauseNode" method="_on_ResumeBtn_pressed"]
 [connection signal="pressed" from="GUI/PauseMenu/PauseNode/CenterContainer/VBoxContainer/ReestartBtn" to="GUI/PauseMenu/PauseNode" method="_on_ReestartBtn_pressed"]
@@ -222,7 +247,7 @@ secToAttack = 2
 
 [editable path="world/InteractableObject"]
 [editable path="world/InteractableObject/Sensor"]
-[editable path="world/Player2"]
-[editable path="world/Player2/Sensor"]
-[editable path="world/Player3"]
-[editable path="world/Player3/Sensor"]
+[editable path="world/InteractableObject2"]
+[editable path="world/InteractableObject2/Sensor"]
+[editable path="Elite Slime False"]
+[editable path="Elite Slime False/SoftCollision"]

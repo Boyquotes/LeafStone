@@ -15,10 +15,6 @@ func animation():
 	tween.tween_property(sprite, "offset", Vector2(0,5), 0.7)
 	tween.tween_property(sprite, "offset", Vector2.ZERO, 0.7)
 	tween.set_loops(-1)
-	# var tween = create_tween().set_trans(Tween.TRANS_QUAD)
-	# tween.tween_property(self, "scale", Vector2(1.3,1.3), 1)
-	# tween.tween_property(self, "scale", Vector2(0.8,0.8), 1)
-	# tween.set_loops(-1)
 
 func scaleAnimation():
 	scale = Vector2(0.1, 0.1)

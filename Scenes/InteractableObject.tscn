@@ -3,13 +3,8 @@
 [ext_resource type="Script" path="res://Scenes/InteractableObject.gd" id="1_65h3s"]
 [ext_resource type="PackedScene" uid="uid://d4bi3uf804cdj" path="res://Scenes/Sensor.tscn" id="1_oum44"]
 [ext_resource type="Script" path="res://Scenes/ExtendedAudioStreamPlayer.gd" id="2_xt3bk"]
+[ext_resource type="FontFile" uid="uid://cf7qess64kj6" path="res://Resources/Fonts/pixelart.ttf" id="3_6ps23"]
 [ext_resource type="Texture2D" uid="uid://1gfy7k24eljt" path="res://Game Art/Crates.png" id="4_6w1if"]
-
-[sub_resource type="SystemFont" id="SystemFont_jlrk7"]
-font_names = PackedStringArray("Fantasy")
-hinting = 2
-subpixel_positioning = 0
-oversampling = 3.5
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qtvmo"]
 resource_local_to_scene = true
@@ -29,39 +24,26 @@ hframes = 4
 vframes = 4
 frame = 2
 
-[node name="Node2D" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="InteractionMessageLbl" type="Label" parent="Node2D"]
+[node name="InteractionMessageLbl" type="Label" parent="."]
 unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.1
+anchors_preset = 8
+anchor_left = 0.5
 anchor_top = 0.5
-anchor_right = 1.06
-anchor_bottom = 0.76
-offset_left = -28.0
-offset_top = -14.0
-offset_right = 88.0
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -89.0
+offset_top = -40.0
+offset_right = 89.0
+offset_bottom = -18.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.6, 0.6)
 size_flags_vertical = 8
-theme_override_fonts/font = SubResource("SystemFont_jlrk7")
-theme_override_font_sizes/font_size = 14
-text = "\"[E] to interact\""
+theme_override_fonts/font = ExtResource("3_6ps23")
+theme_override_font_sizes/font_size = 6
+text = "Press E"
 horizontal_alignment = 1
 vertical_alignment = 1
-autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
 
 [node name="Sensor" parent="." instance=ExtResource("1_oum44")]
 collision_mask = 2
@@ -73,10 +55,14 @@ shape = SubResource("CircleShape2D_qtvmo")
 script = ExtResource("2_xt3bk")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 scale = Vector2(0.5, 0.5)
 shape = SubResource("CapsuleShape2D_jil7f")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.6, 0.6)
 
 [connection signal="body_entered" from="Sensor" to="." method="_on_sensor_body_entered"]
 [connection signal="body_exited" from="Sensor" to="." method="_on_sensor_body_exited"]

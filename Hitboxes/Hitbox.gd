@@ -1,9 +1,9 @@
+@tool
 extends Area2D
 class_name Hitbox
 
 var hitted = false
 var knockBack_vector = Vector2.ZERO
-var	make_knockBack = false
 var stats : Stats
 
 @onready var audioSource = $SFX
@@ -11,9 +11,6 @@ var stats : Stats
 
 func setup(stat: Stats):
 	self.stats = stat
-
-func disable_collision(value):
-	shape.set_deferred("disabled", value)
 
 func play(sound: AudioStream):
 	if sound != null:
@@ -26,7 +23,7 @@ func disable_monitoring_and_monitorable():
 	set_deferred("monitoring", false)
 	set_deferred("monitorable", false)
 
-func active(value: bool):
+func active(value : bool):
 	if value == true:
 		shape.set_deferred("disabled", false)
 	elif value == false:

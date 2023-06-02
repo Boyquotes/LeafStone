@@ -2,7 +2,7 @@ extends PlayerState
 
 
 func enter(_msg := {}) -> void:
-	entity.playback.travel("Idle")
+	entity.playback.travel("Dead")
 
 func perform_update(delta):
 	print("cant Move because you are dead")

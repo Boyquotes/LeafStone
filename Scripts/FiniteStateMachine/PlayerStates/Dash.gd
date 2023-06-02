@@ -11,7 +11,7 @@ func enter(_msg := {}) -> void:
 
 func perform_physics_update(delta: float) -> void:
 
-	entity.movement.impulse(entity.attackDirection.normalized() * 140)
+	entity.movement.impulse(entity.attackDirection.normalized() * 115) #140
 
 	if Input.is_action_just_pressed("attack") or entity.attackPressed: 
 		entity.attackPressed = false

@@ -34,14 +34,16 @@ func attack():
 		if !entity.attacked: #if havent adjust the attack, then adjust and mark it as true to avoid repeating.
 			entity.attacked = true
 			entity.attack_adjusment()
-		else:
-			entity.animationTree.advance(entity.attackAnimSpeed)
+		entity.animationTree.advance(entity.attackAnimSpeed)
+	else:
+		# if !entity.attacked: #if havent adjust the attack, then adjust and mark it as true to avoid repeating.
+		# 	entity.attacked = true
+		entity.animationTree.advance(entity.attackAnimSpeed)
 
 	#En caso de no golpear.
 	if !entity.combatSystem.hitbox.hitted:
 		if entity.facing:
 			entity.movement.impulse(entity.impulseDirection.normalized() * distance * scaler)
-					
 			await get_tree().create_timer(seconds).timeout
 			entity.movement.stop_movement() 
 			

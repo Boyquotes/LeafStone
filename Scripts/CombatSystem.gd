@@ -20,14 +20,14 @@ enum ActorType { undefined, player, enemy}
 @export var impact_particles : PackedScene = preload("res://Resources/Particles/ImpactParticles.tscn")
 @export var floating_damage : PackedScene
 
-@export_group("Sound Effects")
+@export_group("Sound Effects Resources")
 @export var attackSFX : AudioStream
 @export var hurtSFX : AudioStream
 
 func _ready() -> void:
 	
-	hitbox.shape.shape.radius = hitboxRadius
 	if Engine.is_editor_hint() == false:
+		hitbox.shape.shape.radius = hitboxRadius
 		hurtbox.setup(stats)
 		hitbox.setup(stats)
 		stats.setup(self)
@@ -84,4 +84,6 @@ func _on_hitbox_area_entered(hurtbox:Area2D) -> void:
 
 	if onHitEvent != null:
 		onHitEvent.raise_event()
-		
+
+func _on_hurt_box_area_entered(area:Area2D) -> void:
+	onHurtBox.raise_event()

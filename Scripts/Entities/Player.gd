@@ -66,7 +66,7 @@ func _physics_process(delta):
 
 func attack_adjusment():
 	var closeEnemy = $Sensor.find_close_body_on_vision(attackDirection)
-	var savedDir = attackDirection
+	var savedDir = attackDirection.normalized()
 
 	if closeEnemy == null:
 		facing = false
@@ -77,8 +77,8 @@ func attack_adjusment():
 	enemyTarget = closeEnemy
 
 	facing = true
-	attackDirection = enemyDir
-	impulseDirection = enemyDir
+	attackDirection = enemyDir.normalized()
+	impulseDirection = enemyDir.normalized()
 
 func attack_animation_finished():
 	stateMachine.transition_to("Idle")
@@ -90,5 +90,5 @@ func attack_animation_finished():
 	elif secondAttack == 1:
 		secondAttack= 0
 
-func attackSpeed():	
+func attackSpeed():
 	attackAnimSpeed = 0

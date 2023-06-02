@@ -10,29 +10,24 @@ var moveDirection = Vector2.ZERO
 var knockBack_vector = Vector2()
 
 #Components
-@onready var label = $GUIDebugger/Panel/Label
 @onready var chaseTimer = $ChaseTimer
 @onready var attackTimer = $AttackTimer
 @onready var softCollisions = $SoftCollision
 @export var attackBehaviour: AttackBehavior
 
 #IA Variables
-enum {idle, wander, chase, hurt, attack, dead }
-var behaviour_states = idle
-var behaviour_text_debug = ""
+enum SlimeState{idle, wander, chase, hurt, attack, dead }
+var enemy_state : SlimeState = SlimeState.idle
 
 #IA Attack Variables
-@export var secToAttack = 8
+var secToAttack = 8
 var playerDir = Vector2()
 var attackDirection
 var playerDistance = 0.0
 var waitAttackCompleted = true
 
 var secondsToChase = 0.7
-var counter = 0.0
 var timeToChase = true
-var shouldCount = false
-var ticker = 1/60
 var rng = RandomNumberGenerator.new()
 
 var playerDetected = false
@@ -42,16 +37,16 @@ var player = null
 func _ready():
 	animationTree.active = true
 	secondsToChase = rng.randf_range(0.1, 0.1)
-	secToAttack = rng.randf_range(1.0, 3.0)
+	secToAttack = rng.randf_range(1.0, 5.0)
 
 	attackTimer.timeout.connect(func(): waitAttackCompleted = true )
 	sensor.body_entered.connect(func(body: Node): at_body_entered(body))
 	sensor.body_exited.connect(func(body: Node): at_body_exited(body))
 
-func _process(delta):
+	combatSystem.onHurtBox.connect("OnEventHappen", Callable(self, "set_hurt_state"))
 
-	# label.text = behaviour_text_debug
-	combatSystem.stats.behaviour_states = behaviour_states
+func _process(delta):
+	pass
 	
 func _physics_process(delta):
 
@@ -60,11 +55,9 @@ func _physics_process(delta):
 
 	decisionMaking(playerDistance)
 
-	match behaviour_states:
+	match enemy_state:
 
-		chase:
-			behaviour_text_debug = "chase"
-			# $Sprite2D.flip_h = playerDir.x < 0
+		SlimeState.chase:
 			sprite.flip(playerDir)
 			playback.travel("Walk")
 			
@@ -85,16 +78,15 @@ func _physics_process(delta):
 				moveDirection = moveDirection.move_toward(Vector2.ZERO, 600 * delta)
 				set_velocity(moveDirection)
 				move_and_slide()
-				moveDirection = velocity	
-		attack:
+				moveDirection = velocity
+
+		SlimeState.attack:
 			attackTimer.start(secToAttack)
 			chaseTimer.start(secondsToChase)
-			behaviour_text_debug = "attack"
 			playback.travel("Attack")
-			
 
 			if moveDirection == Vector2.ZERO:
-				moveDirection = attackDirection * 20
+				moveDirection = attackDirection * 40
 				return
 				
 			moveDirection = moveDirection.move_toward(attackDirection * 140, 80 * delta)
@@ -102,8 +94,7 @@ func _physics_process(delta):
 			move_and_slide()
 			moveDirection = velocity
 
-		idle:
-			behaviour_text_debug = "idle"
+		SlimeState.idle:
 			moveDirection = moveDirection.move_toward(Vector2.ZERO, friction * delta)
 			set_velocity(moveDirection)
 			move_and_slide()
@@ -114,17 +105,16 @@ func _physics_process(delta):
 				var area = find_player()
 				if area != null:
 					moveDirection += softCollisions.push_vector() * delta * 350
-		hurt:
-			playback.stop()
+					
+		SlimeState.hurt:
 			sprite.squatch()
-			behaviour_text_debug = "hurt"
 			playback.travel("Hurt")
 			moveDirection = -combatSystem.hurtbox.knockBack_vector * knockback_strenght
 			set_velocity(moveDirection)
 			move_and_slide()
 			moveDirection = velocity
-		dead:
-			behaviour_text_debug = "dead"
+
+		SlimeState.dead:
 			playback.travel("Dead")
 			moveDirection = moveDirection.move_toward(Vector2.ZERO, friction * delta)
 			set_velocity(moveDirection)
@@ -134,10 +124,10 @@ func _physics_process(delta):
 
 	if softCollisions.is_colliding():
 		var area = find_player()
-		if area != null and behaviour_states != attack:
+		if area != null and enemy_state != SlimeState.attack:
 			moveDirection += softCollisions.push_vector()* delta * 235
 
-		else: moveDirection += softCollisions.push_vector()* delta * 50
+		else: moveDirection += softCollisions.push_vector() * delta * 60
 		
 	set_velocity(moveDirection)
 	move_and_slide()
@@ -156,15 +146,17 @@ func find_player() -> CharacterBody2D:
 func decisionMaking(distance):
 
 	if combatSystem.stats.is_dead():
-		behaviour_states = dead
+		enemy_state = SlimeState.dead
 		return
+
 
 	if playerDetected:
 		playerDir = (player.global_position - global_position).normalized()
 
 		if combatSystem.hurtbox.something_hitted:
-			behaviour_states = hurt
-			return
+			if playback.get_current_node() != "Hurt":
+				enemy_state = SlimeState.hurt
+			return	
 
 		if distance <= 90 && !combatSystem.stats.is_dead():
 			if waitAttackCompleted:
@@ -172,14 +164,14 @@ func decisionMaking(distance):
 				timeToChase = false
 				waitAttackCompleted = false
 				attackDirection = (player.global_position - global_position).normalized()
-				behaviour_states = attack
+				enemy_state = SlimeState.attack
 				return
 
-		if behaviour_states != attack:
-			behaviour_states = chase
+		if enemy_state != SlimeState.attack:
+			enemy_state = SlimeState.chase
 
 	elif playerDetected == false: 
-		behaviour_states = idle
+		enemy_state = SlimeState.idle
 
 func mesureDIstance():
 	return player.global_position.distance_to(global_position)
@@ -204,12 +196,15 @@ func when_dead():
 	queue_free()
 
 func on_attack_finished():
-	behaviour_states = idle
-	shouldCount = true
+	enemy_state = SlimeState.idle
+
+func set_hurt_state():
+
+	combatSystem.hurtbox.something_hitted = true
+	enemy_state = SlimeState.hurt
 
 func on_hurt_finished():
-	# if !combatSystem.stats.is_dead():
-	# 	behaviour_states = idle
+	enemy_state = SlimeState.idle
 	combatSystem.hurtbox.something_hitted = false
 
 func _on_ChaseTimer_timeout():

@@ -1,3 +1,4 @@
+VoidGameEvent
 IntGameEvent
 FloatVariable
 RangeAttackBehavior
